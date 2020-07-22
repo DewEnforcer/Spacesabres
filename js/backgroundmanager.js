@@ -58,6 +58,7 @@ $(document).ready(function () {
   });
 
   function msToTime(duration) {
+    return;
     var milliseconds = parseInt((duration % 1000) / 100),
       seconds = Math.floor((duration / 1000) % 60),
       minutes = Math.floor((duration / (1000 * 60)) % 60),
@@ -81,9 +82,11 @@ $(document).ready(function () {
 const numberFormated = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 };
-const updateUserValutes = (credit, hyperid, natium) => {
-  const children = $(".header_center_res").children();
-  children[0].innerHTML = "Credits: " + numberFormated(credit);
-  children[1].innerHTML = "Hyperid: " + numberFormated(hyperid);
-  children[2].innerHTML = "Natium: " + numberFormated(natium);
+const updateUserValutes = (credit, hyperid, natium, userID = undefined) => {
+  $("#span_credits").html("Credits: " + numberFormated(credit));
+  $("#span_hyperids").html(" | Hyperid: " + numberFormated(hyperid));
+  $("#span_natiums").html(" | Natium: " + numberFormated(natium));
+  if (typeof userID != "undefined") {
+    $("#span_id").html(" | UserID: " + userID);
+  }
 };

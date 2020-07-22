@@ -27,14 +27,22 @@
     <script src="../js/gameinfo.js"></script>
     <script src="../js/news.js"></script>
     <script src="../js/backgroundmanager.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/fleetbarNav.js"></script>
     <script src="../js/dailyLoginHandler.js"></script>
     <title>SpaceSabres||Home</title>
   </head>
   <body>
-      <header>
         <?php require "include/header.php"; ?>
-      </header>
       <main>
+      <img src="./image/graphics/navbarbtn.png" id="btn_navbar" alt="navbar_btn">
+      <div class="navigation">
+        <?php require "include/nav.php" ?>
+      </div>
+      <div id="btn_fleetbar">
+      </div>
+      <div class="fleet_bar">
+      </div>
       <section class="searchPopup">
       </section>
       <?php // handles the daily login window
@@ -64,31 +72,31 @@
           <h2>Commanders info</h2>
           <hr>
             <?php
-            $sql = mysqli_query($conn, "SELECT rank, leaderboardPos, pageCoordsX, pageCoordsY ,mapLocation FROM userfleet WHERE userID=$show[userID]");
+            $sql = mysqli_query($conn, "SELECT rank, leaderboardPos, pageCoordsX, pageCoordsY ,mapLocation FROM userfleet WHERE userID=$userInfo[userID]");
             $rank = mysqli_fetch_assoc($sql);
             $rankArr = ["Unknown", "Ensign", "Basic Lieutenant", "Lieutenant", "Lieutenant Commander", "Commander", "Captain", "Rear Admiral", "Vice Admiral", "Admiral", "Fleet Admiral", "Administrator"];
             $rankName = $rankArr[$rank["rank"]];
              echo "<div class='wrapper_info'>";
-             $sql = mysqli_query($conn, "SELECT * FROM profileimg WHERE userid=$show[userID]");
+             $sql = mysqli_query($conn, "SELECT * FROM profileimg WHERE userid=$userInfo[userID]");
              $IMG = mysqli_fetch_assoc($sql);
              if ($IMG['status'] == 0) {
-               $filename = "uploads/profile".$show["userID"]."*";
+               $filename = "uploads/profile".$userInfo["userID"]."*";
 
                $fileinfo = glob($filename);
                $fileExt = explode(".", $fileinfo[0]);
                $fileActext = $fileExt[1];
 
-               echo "<div><img class='img_profile' src='./uploads/profile".$show["userID"].".".$fileActext."?".mt_rand()."'></div>";
+               echo "<div><img class='img_profile' src='./uploads/profile".$userInfo["userID"].".".$fileActext."?".mt_rand()."'></div>";
              } else {
                echo "<div><img class='img_profile' src='./uploads/profileDef.jpg'></div>";
              }
 
-             echo '<label>In-game Nickname: '.$show["ingameNick"].'</label></div>';
+             echo '<label>In-game Nickname: '.$userInfo["ingameNick"].'</label></div>';
              echo '<label class="rank">Your rank: '.$rankName. ' <img style="width: 30px;" src="../image/ranks/rank'.$rank["rank"].'.png" class="rankImg"></label>';
-             if ($show["userclan"] != "none") {
-               $sql = mysqli_query($conn, "SELECT clanName FROM userclans WHERE clanTag='$show[userclan]'");
+             if ($userInfo["userclan"] != "none") {
+               $sql = mysqli_query($conn, "SELECT clanName FROM userclans WHERE clanTag='$userInfo[userclan]'");
                $clanName = mysqli_fetch_assoc($sql);
-               echo '<label>Your alliance: ['.$show["userclan"].'] '.$clanName["clanName"].'</label>';
+               echo '<label>Your alliance: ['.$userInfo["userclan"].'] '.$clanName["clanName"].'</label>';
              } else {
                echo '<label>Your alliance: Freelancer</label>';
              }

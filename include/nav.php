@@ -1,34 +1,37 @@
-<li><a href="internalStart.php">Home</a></li>
-<li><a href="internalBase.php">Battlestation</a></li>
-<li style="min-width: 100px; display: flex; align-items: center; justify-content: center;"><a href="internalShipyard.php">Galactic shop</a>
+<div class="header_nav"><span>Server time: 22:35:00<span></div>
+<div class="header_btns">
+<a href="internalStart.php">Home</a>
+<a href="internalBase.php">Battlestation</a>
+<a href="internalShipyard.php">Galactic shop</a>
 <ul>
-  <li><a href="internalShipyard.php">Shipyard</a></li>
-  <li><a href="internalBaseShop.php">Modules</a></li>
-  <li><a href="internalWeapons.php">Weapons</a></li>
-  <li><a href="internalEnergy.php">Shields</a></li>
-  <li><a href="internalEngines.php">Engines</a></li>
+  <a href="internalShipyard.php">Shipyard</a>
+  <a href="internalBaseShop.php">Modules</a>
+  <a href="internalWeapons.php">Weapons</a>
+  <a href="internalEnergy.php">Shields</a>
+  <a href="internalEngines.php">Engines</a>
 </ul>
-</li>
-<li><a href="internalResearch.php">Research</a></li>
+
+<a href="internalResearch.php">Research</a>
 <?php
-  if ($show["userclan"] == "none") {
-    echo '<li><a href="internalAlliances.php">Alliance</a></li>';
+  if ($userInfo["userclan"] == "none") {
+    echo '<a href="internalAlliances.php">Alliance</a>';
   } else {
-    echo '<li><a href="internalAlliance.php">Alliance</a></li>';
+    echo '<a href="internalAlliance.php">Alliance</a>';
   }
  ?>
-<li><a href="internalBriefing.php">Briefing</a></li>
-<li><a href="internalDisplayfleet.php" style="width: 100%;">Docks</a></li>
-<li><a href="internalFleets.php">Fleet Overview</a>
+<a href="internalBriefing.php">Briefing</a>
+<a href="internalDisplayfleet.php" style="width: 100%;">Docks</a>
+<a href="internalFleets.php">Fleet Overview</a>
 <ul class="menu_extend_fleets">
-  <li><a href="internalFleets.php">Movement Overview</a></li>
-  <li><a href="internalBattlelobbies.php">Commander's HUD</a></li>
-  <li><a href="internalDisplaystats.php">Battle statistics</a></li>
+  <a href="internalFleets.php">Movement Overview</a>
+  <a href="internalBattlelobbies.php">Commander's HUD</a>
+  <a href="internalDisplaystats.php">Battle statistics</a>
 </ul>
-</li>
-<li><a href="internalCompanyDefense.php">Company Defense</a></li>
-<li><a href="internalGalaxy.php">Galactic Map</a></li>
-<li><a href="internalMissions.php">Missions</a></li>
-<li><a href="internalProfile.php">Profile</a></li>
-<li><a href="internalStore.php">Store</a></li>
-<li><a href="#" id="search">Player search</a></li>
+
+<a href="internalCompanyDefense.php">Company Defense</a>
+<a href="internalGalaxy.php">Galactic Map</a>
+<a href="internalMissions.php">Missions</a>
+<a href="internalProfile.php">Profile</a>
+<a href="internalStore.php">Store</a>
+<a href="#" id="search">Player search</a>
+</div>
