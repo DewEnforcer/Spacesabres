@@ -1,0 +1,94 @@
+{
+  "ships": {
+    "1": {
+      "name": "BSF-07 Hornet",
+      "hp": 10000,
+      "shd": 0,
+      "speed": 0,
+      "base_evasion": 0.2,
+      "fleet_points": 2,
+      "description": "",
+      "class": "",
+      "price": {
+        "credits": 25000,
+        "hyperid": 0,
+        "natium": 0
+      }
+    },
+    "2": {
+      "name": "BSF-10 Spacefire",
+      "hp": 12500,
+      "shd": 0,
+      "speed": 0,
+      "base_evasion": 0.2,
+      "fleet_points": 3,
+      "description": "",
+      "class": "",
+      "price": {
+        "credits": 40000,
+        "hyperid": 0,
+        "natium": 0
+      }
+    },
+    "3": {
+      "name": "BSF-25 Starhawk",
+      "hp": 15000,
+      "shd": 0,
+      "speed": 0,
+      "base_evasion": 0.3,
+      "fleet_points": 5,
+      "description": "",
+      "class": "",
+      "price": {
+        "credits": 50000,
+        "hyperid": 5000,
+        "natium": 0
+      }
+    },
+    "4": {
+      "name": "CI-10 Hornet",
+      "hp": 60000,
+      "shd": 0,
+      "speed": 0,
+      "base_evasion": 0.1,
+      "fleet_points": 10,
+      "description": "",
+      "class": "",
+      "price": {
+        "credits": 125000,
+        "hyperid": 25000,
+        "natium": 0
+      }
+    },
+    "5": {
+      "name": "CI-25 Hornet",
+      "hp": 72500,
+      "shd": 0,
+      "speed": 0,
+      "base_evasion": 0.1,
+      "fleet_points": 15,
+      "description": "",
+      "class": "",
+      "price": {
+        "credits": 150000,
+        "hyperid": 27000,
+        "natium": 0
+      }
+    },
+    "6": {
+      "name": "Na-Thalis Destroyer",
+      "hp": 175000,
+      "shd": 0,
+      "speed": 0,
+      "base_evasion": 0.05,
+      "fleet_points": 25,
+      "description": "",
+      "class": "",
+      "price": {
+        "credits": 500000,
+        "hyperid": 60000,
+        "natium": 0
+      }
+    }
+  }
+}

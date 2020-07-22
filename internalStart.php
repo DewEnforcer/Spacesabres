@@ -66,31 +66,8 @@
             <?php
             $sql = mysqli_query($conn, "SELECT rank, leaderboardPos, pageCoordsX, pageCoordsY ,mapLocation FROM userfleet WHERE userID=$show[userID]");
             $rank = mysqli_fetch_assoc($sql);
-             ?>
-             <?php
-             if ($rank["rank"] == 1 ) {
-               $rankName = "Ensign";
-             } elseif ($rank["rank"] == 2) {
-               $rankName = "Basic Lieutenant";
-             } elseif ($rank["rank"] == 3) {
-               $rankName = "Lieutenant";
-             }elseif ($rank["rank"] == 4) {
-               $rankName = "Lieutenant Commander";
-             }elseif ($rank["rank"] == 5) {
-               $rankName = "Commander";
-             }elseif ($rank["rank"] == 6) {
-               $rankName = "Captain";
-             }elseif ($rank["rank"] == 7) {
-               $rankName = "Rear Admiral";
-             }elseif ($rank["rank"] == 8) {
-               $rankName = "Vice Admiral";
-             }elseif ($rank["rank"] == 9) {
-               $rankName = "Admiral";
-             } elseif ($rank["rank"] == 10) {
-               $rankName = "Fleet Admiral";
-             } elseif ($rank["rank"] == 11) {
-               $rankName = "Administrator";
-             }
+            $rankArr = ["Unknown", "Ensign", "Basic Lieutenant", "Lieutenant", "Lieutenant Commander", "Commander", "Captain", "Rear Admiral", "Vice Admiral", "Admiral", "Fleet Admiral", "Administrator"];
+            $rankName = $rankArr[$rank["rank"]];
              echo "<div class='wrapper_info'>";
              $sql = mysqli_query($conn, "SELECT * FROM profileimg WHERE userid=$show[userID]");
              $IMG = mysqli_fetch_assoc($sql);

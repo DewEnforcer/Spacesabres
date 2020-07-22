@@ -31,6 +31,6 @@ function checkSID($conn) {
         exit();
       }
 }
-require "include/dbh.inc.php";
+require "dbh.inc.php";
 session_start();
 $userInfo = checkSID($conn);
