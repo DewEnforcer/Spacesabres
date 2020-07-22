@@ -1,0 +1,95 @@
+{
+  "techparams": {
+      "1": {
+        "hull": "Hull points: 10 000",
+        "shields": "Shield generator slots: 0",
+        "damage": "Laser slots: 0",
+        "rockets": "Missile platforms: 4",
+        "speed": "Speed: 25 000",
+        "evasion": "Evasion: 20%",
+        "rapidfiretopeacemaker": "Multiplied fire againts Peacemakers: 4x",
+        "rapidfiretocenturion": "Multiplied fire againts Centurions: 4x",
+        "rapidfiretonathalis": "Multiplied fire againts Na-Thalis destroyers: 4x"
+      },
+      "2": {
+        "hull": "Hull points: 12 500",
+        "shields": "Shield generator slots: 0",
+        "damage": "Laser slots: 2",
+        "rockets": "Missile platforms: 2",
+        "speed": "Speed: 30 000",
+        "evasion": "Evasion: 20%",
+        "rapidfiretostarhawk": "Multiplied fire againts Starhawks: 2x",
+        "rapidfiretopeacemaker": "Multiplied fire againts Peacemakers: 3x",
+        "rapidfiretocenturion": "Multiplied fire againts Centurions: 3x",
+        "rapidfiretonathalis": "Multiplied fire againts Na-Thalis destroyers: 3x"
+      },
+      "3": {
+        "hull": "Hull points: 20 000",
+        "shields": "Shield generator slots: 1",
+        "damage": "Laser slots: 4",
+        "rockets": "Missile platforms: 0",
+        "speed": "Speed: 22 500",
+        "evasion": "Evasion: 30%",
+        "rapidfiretohornet": "Multiplied fire againts Hornets: 3x",
+        "rapidfiretospacefire": "Multiplied fire againts Spacefires: 3x"
+      },
+      "4": {
+        "hull": "Hull points: 60 000",
+        "shields": "Shield generator slots: 6",
+        "damage": "Laser slots: 12",
+        "rockets": "Missile platforms: 0",
+        "speed": "Speed: 19 000",
+        "evasion": "Evasion: 10%",
+        "rapidfiretohornet": "Multiplied fire againts Hornets: 6x",
+        "rapidfiretospacefire": "Multiplied fire againts Spacefires: 6x",
+        "rapidfiretostarhawk": "Multiplied fire againts Starhawks: 6x"
+      },
+      "5": {
+        "hull": "Hull points: 72 500",
+        "shields": "Shield generator slots: 7",
+        "damage": "Laser slots: 15",
+        "rockets": "Missile platforms: 0",
+        "speed": "Speed: 17 000",
+        "evasion": "Evasion: 10%",
+        "rapidfiretopeacemaker": "Multiplied fire againts Peacemakers: 5x",
+        "rapidfiretocenturion": "Multiplied fire againts Centurions: 5x",
+        "rapidfiretonathalis": "Multiplied fire againts Na-Thalis destroyers: 5x"
+      },
+      "6": {
+        "hull": "Hull points: 225 000",
+        "shields": "Shield generator slots: 15",
+        "damage": "Laser slots: 25",
+        "rockets": "Missile platforms: 0",
+        "speed": "Speed: 12 500",
+        "evasion": "Evasion: 5%",
+        "rapidfiretopeacemaker": "Multiplied fire againts Peacemakers: 8x",
+        "rapidfiretocenturion": "Multiplied fire againts Centurions: 8x",
+        "rapidfiretonathalis": "Multiplied fire againts Na-Thalis destroyers: 8x"
+      },
+      "7": {
+        "hull": "Hull points: 120 000",
+        "shields": "Shields: 150 000",
+        "damage": "Damage: 4 000",
+        "bonus": "No core bonuses."
+      },
+      "8": {
+        "hull": "Hull points: 120 000",
+        "shields": "Shields: 150 000",
+        "damage": "Damage: 9 000",
+        "bonus": "No core bonuses."
+      },
+      "9": {
+        "hull": "Hull points: 120 000",
+        "shields": "Shields: 60 000",
+        "damage": "Damage: 10 000",
+        "bonus": "No core bonuses."
+      },
+      "10": {
+        "hull": "Hull points: 120 000",
+        "shields": "Shields: 200 000",
+        "damage": "Damage: 0",
+        "bonus": "Additional 30% shield"
+      }
+      }
+
+}

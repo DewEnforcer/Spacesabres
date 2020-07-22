@@ -1,0 +1,22 @@
+{
+  "base": {
+    "help_text": "Here you can set your modules into battlestation slots (10 slots). Once you are done with the setup, just click on \"set your modules\" button and the changes will be saved. Have more questions? Check out battlestation F.A.Q. <a style='color: white;' href=\"./forum/index.php\" target=\"_blank\">here!</a>",
+    "remember": "REMEMBER: You must own enough modules to setup your module configuration!"
+  },
+  "compdef": {
+    "help_text": "Here you can send off your ships to help your faction, which will reward you after your fleet finishes the tasks. You can choose between 1 to 10 hours, during this time the ships cannot be destroyed by enemies , nor can you use them. Of course you can call them back home in emergency. Have more questions? Check out company defense F.A.Q. <a style='color: white;' href=\"./forum/index.php\" target=\"_blank\">here!</a>",
+    "remember": "REMEMBER: You can only help your faction once a day!"
+  },
+  "fleetoverw": {
+    "help_text": "Here you can see all your fleets attacking and returning from battles, as well as enemy fleets traveling towards your base (attack). You can cancel attacks or see details of the movements here.",
+    "remember": "REMEMBER: You won't be able to see any battles that are already taking place, for that go to \"Commanders HUD\"!"
+  },
+  "commanderhud": {
+    "help_text": "Here you can command your fleets againts enemies in upcoming battles or battles that are already taking place. This time we recommend you reading our F.A.Q. to this part of the game as there are many mechanics to it , you can find it <a style='color: white;' href=\"./forum/index.php\" target=\"_blank\">here!</a>",
+    "remember": ""
+  },
+  "galaxy": {
+    "help_text": "Here you can choose targets, hack their subspace communication or just look around , you can change systems by clicking on the two arrows , or typing out number of a system (there is currently 999 systems) and pressing enter.",
+    "remember": "REMEMBER: The further you send your fleet, the longer it will take them to reach their target!"
+  }
+}

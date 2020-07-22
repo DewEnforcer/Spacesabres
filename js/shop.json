@@ -1,0 +1,254 @@
+{
+  "ships": {
+    "1": {
+      "name": "BSF-07-Hornet",
+      "class": "Basic-Starfighter",
+      "description": "BSF-07 Also known as 'Hornet' - first starfigter prototype to be successful, unfortunately due to technology limitation at the time fighter was made in, it only carries missiles and has no shields.",
+      "cost": {
+        "credits": 60000,
+        "hyperid": 0,
+        "natium": 0
+      }
+    },
+    "2": {
+      "name": "BSF-10-Spacefire",
+      "class": "Starfighter",
+      "description": "BSF-10 Also known as 'Spacefire' is the improved version of the BSF-07 fighter, it's engine performance was improved by 20% and it has also received new weapon systems.",
+      "cost": {
+        "credits": 80000,
+        "hyperid": 0,
+        "natium": 0
+      }
+    },
+    "3": {
+      "name": "BSF-25-Starhawk",
+      "class": "ClasAdvanced-Starfighter",
+      "description": "BSF-25 Also known as 'Starhawk' is the final version of the BSF starfighters series, being equipped with new weapon systems and miniturized shields, this starfighter is a force to be reckoned with.",
+      "cost": {
+        "credits": 120000,
+        "hyperid": 24000,
+        "natium": 0
+      }
+    },
+    "4": {
+      "name": "CI-10-Peacemaker",
+      "class": "Cruiser",
+      "description": "CI-10 , or as admirals like to call it 'Peacemaker', is a direct counter to the starfighter threat. With it's rapid-charged lasers it is able to shoot at multiple starfighters at once, unfortunately it's weapons firepower is limited.",
+      "cost": {
+        "credits": 250000,
+        "hyperid": 50000,
+        "natium": 0
+      }
+    },
+    "5": {
+      "name": "CI-25-Centurion",
+      "class": "Cruiser",
+      "description": "CI-25 having nickname 'Centurion', is the upgunned version of CI-10. Since starfighter fleets started having massive losses due to the new appearence of the CI-10, it was decided by engineers from planet Katuhl-1301 that there has to be a cruiser to stop the already mentioned CI-10's.",
+      "cost": {
+        "credits": 275000,
+        "hyperid": 55000,
+        "natium": 0
+      }
+    },
+    "6": {
+      "name": "Na-Thalis destroyer",
+      "class": "Destroyer",
+      "description": "The ultimate spaceship originally intended to counter every other type of spaceship ever made by being able to carry both rapid firing lasers and massive lasers at the same time. Due to the unexpected massive energy requirements encountered during its development, it became unable to carry rapid firing lasers, making it specialized for destroying cruisers.",
+      "cost": {
+        "credits": 700000,
+        "hyperid": 140000,
+        "natium": 1000
+      }
+    },
+
+    "7": {
+      "name": "L-L01",
+      "class": "Module",
+      "description": "Battle-station module , made to counter huge numbers of spacefighters with it's rapid-charged small lasers.",
+      "cost": {
+        "credits": 2500000,
+        "hyperid": 0,
+        "natium": 0
+      }
+    },
+    "8": {
+      "name": "H-L01",
+      "class": "Module",
+      "description": "Battle-station module , made to counter cruisers, unfortunately due to the module having only one massive laser, it cannot combat spacefighters well.",
+      "cost": {
+        "credits": 3000000,
+        "hyperid": 0,
+        "natium": 0
+      }
+    },
+    "9": {
+      "name": "M-RS01",
+      "class": "Module",
+      "description": "Different approach to the fleets with huge numbers of spacefighters, this module launches one massive missile enhanced by Natiums, which upon explosion deals massive damage to all targets with-in range.",
+      "cost": {
+        "credits": 2000000,
+        "hyperid": 0,
+        "natium": 100
+      }
+    },
+    "10": {
+      "name": "M-S01",
+      "class": "Module",
+      "description": "This module allows you to increase shields of your core drastically, unfortunately it has no offensive capabilities.",
+      "cost": {
+        "credits": 2500000,
+        "hyperid": 0,
+        "natium": 0
+      }
+    },
+    "11": {
+      "name": "Weapon systems research",
+      "class": "Combat-research",
+      "description": "Increasing the maximal energy output cap for lasers and using enriched natium instead of the standard natium in missiles results in 10% bonus for each level of this research to all damage caused by ships and modules!",
+      "cost": {
+        "credits": 350000,
+        "hyperid": 175000,
+        "natium": 0
+      }
+    },
+    "12": {
+      "name": "Hull durability research",
+      "class": "Combat-research",
+      "description": "Using the new enriched hyperid to create new alloy while also improving the thickness of the hull plates resulting in 10% of more hull points for spaceships and all battlestation modules for each level of this level!",
+      "cost": {
+        "credits": 500000,
+        "hyperid": 100000,
+        "natium": 0
+      }
+    },
+    "13": {
+      "name": "Shield energy capacity research",
+      "class": "Combat-research",
+      "description": "Increasing the efficiency of the shield generators capacity resulting in 10% bonus to shield points of spaceships and all battlestation modules!",
+      "cost": {
+        "credits": 200000,
+        "hyperid": 250000,
+        "natium": 0
+      }
+    },
+    "14": {
+      "name": "Engine fuel efficiency research",
+      "class": "Combat-research",
+      "description": "By mixing hyperid and standard fuel for spaceships , new type of fuel that creates 10% more engine thrust than the previous one is created.",
+      "cost": {
+        "credits": 150000,
+        "hyperid": 150000,
+        "natium": 0
+      }
+    },
+    "15": {
+      "name": "Subspace communication hacking",
+      "class": "Utility-research",
+      "description": "Since all fleets are receiving commands from their battlestation cores through subspace network, by every level of this research , you are able to decypher your enemies network hashes much easier, resulting in the ability to gain access to their fleets location. This research also improves your own security hashing.",
+      "cost": {
+        "credits": 1000000,
+        "hyperid": 600000,
+        "natium": 0
+      }
+    },
+    "19": {
+      "name": "WL-01 Laser",
+            "class": "Weapon",
+      "description": "Standard and cheap laser compatible with any type of ship with laser slots on the market! Deals up to 200 damage.",
+      "cost": {
+        "credits": 50000,
+        "hyperid": 0,
+        "natium": 0
+      }
+    },
+    "20": {
+      "name": "WL-02 Laser",
+            "class": "Weapon",
+      "description": "Best standard laser compatible with any type of ship with laser slots on the market. Deals up to 350 damage.",
+      "cost": {
+        "credits": 50000,
+        "hyperid": 10000,
+        "natium": 0
+      }
+    },
+    "21": {
+      "name": "WL-03 Beam",
+      "class": "Weapon",
+      "description": "Plasma beam weapon, this weapon concentrates massive amounts of energy in it's supercondensators, to then release it into one small focused spot causing massive amounts of damage. Deals up to 400 damage.",
+      "cost": {
+        "credits": 125000,
+        "hyperid": 20000,
+        "natium": 0
+      }
+    },
+    "22": {
+      "name": "HGE-01",
+      "class": "Engine",
+      "description": "Hyperspace engine for any type of ship! Though this engine has the same energy requirements as the other ones, it's primary purpose is short interstellar travel. Hyperspace jumps shorter than 5 systems will take 20% less time.",
+      "cost": {
+        "credits": 0,
+        "hyperid": 30000,
+        "natium": 0
+      }
+    },
+    "23": {
+      "name": "HGE-02",
+            "class": "Engine",
+      "description": "Second hyperspace engine from the \"HGE\" series. Although the engine is almost identical to his predocessor, it is mainly specialized for mid-range hyperspace jumps. Hyperspace jumps longer than 5 systems and shorter than 15 systems will take 20% less time.",
+      "cost": {
+        "credits": 0,
+        "hyperid": 30000,
+        "natium": 0
+      }
+    },
+    "24": {
+      "name": "HGE-03",
+            "class": "Engine",
+      "description": "Third and last hyperspace engine from the \"HGE\" series. Made primarly for long hyperspace jumps. Hyperspace jumps longer than 15 systems and shorter than 30 systems will take 20% less time.",
+      "cost": {
+        "credits": 0,
+        "hyperid": 30000,
+        "natium": 0
+      }
+    },
+    "25": {
+      "name": "SG-03 Generator",
+      "class": "Shield generator",
+      "description": "Final version of hyperid powered shield generator, can be used on any ship with shield generator slots. Each generator provides up to 10 000 points of shields.",
+      "cost": {
+        "credits": 125000,
+        "hyperid": 10000,
+        "natium": 0
+      }
+    },
+    "26": {
+      "name": "WR-01 Missile",
+      "class": "Weapon",
+      "description": "Simple missile with nuclear warhead enhanced by hyperid, causing massive damage to all types of ships.",
+      "cost": {
+        "credits": 25000,
+        "hyperid": 0,
+        "natium": 0
+      }
+    },
+    "27": {
+      "name": "Ship Dock",
+      "class": "Expansion",
+      "description": "Don't have enough space for your fleet? Don't worry! This dock expansion provides space for another 1000 spaceships of any type! Though , keep in mind , you can only have 10 docks in total, as each dock has high energy and personel requirements.",
+      "cost": {
+        "credits": 10000000,
+        "hyperid": 0,
+        "natium": 0
+      }
+    }, "28": {
+      "name": "Ship-Fuel",
+      "class": "Fuel",
+      "description": "Any vehicle needs some sort of energy to travel, unfortunately even spaceships. But don't worry, our fuel is cheap and easy to obtain! Costs 0.5 Hyperid per unit.",
+      "cost": {
+        "credits": 0,
+        "hyperid": 0.5,
+        "natium": 0
+      }
+    }
+}
+}

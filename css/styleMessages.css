@@ -1,0 +1,67 @@
+main {
+  grid-area: main;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+textarea {
+  resize: vertical;
+  max-height: 250px;
+  min-height: 75px;
+}
+
+.message_container {
+  grid-area: main_message_container;
+  justify-self: center;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: rgb(64,64,64, 0.8);
+  border: 3px solid black;
+  border-radius: 5px;
+  width: 45vw;
+}
+.message_container h2 {
+  text-align: center;
+  color: white;
+}
+.message {
+  width:inherit;
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 15px;
+}
+.message label {
+  font-size: 20px;
+}
+.message input, textarea {
+  padding: 3px 5px;
+  font-family: "Kanit", sans-serif;
+  background-color: rgb(50, 50, 50);
+  color: rgb(245,245,245);
+  border: 2px solid rgb(220,220,220);
+}
+.message textarea  {
+  align-self: center;
+  width: 80%;
+}
+.label_msg {
+  align-self: center;
+}
+.submit_msg {
+align-self: flex-end;
+font-family: "Kanit", sans-serif;
+background-color: rgb(50,50,50, 1);
+padding: 3px 5px;
+color: rgb(235,235,235);
+cursor: pointer;
+border: 2px solid grey;
+margin-right: 4vw;
+margin-top: 15px;
+}
+.msg_head_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}

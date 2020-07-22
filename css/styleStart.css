@@ -1,0 +1,272 @@
+main {
+  grid-area: main;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.infoContainer {
+  grid-area: info_container;
+  position: relative;
+  justify-self: center;
+  align-self: center;
+  background-size: contain;
+  border: 3px solid grey;
+  border-radius: 5px;
+  background-color: rgb(30,30,30, 0.9);
+  width: 60vw;
+  height: 65vh;
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  grid-template-rows: 1fr 1.8fr;
+  grid-template-areas:
+  "user_info news"
+  "leaderboard_box news";
+  min-height: 580px;
+  margin: 15px 0;
+  min-width: 768px;
+  min-height: 700px;
+}
+.UserInfo {
+  grid-area: user_info;
+  background-color: rgb(30,30,30);
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 5px;
+  color: rgb(240,240,240);
+  width: 80%;
+  height: 90%;
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+.UserInfo label{
+  margin: 3px 0;
+}
+.wrapper_info {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 5px;
+}
+.wrapper_info div {
+  width: 50px;
+  height: 50px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper_info div img {
+  max-width: 40px;
+  max-height: 40px;
+}
+.home_leaderboard_container {
+  grid-area: leaderboard_box;
+  background-color: rgb(30,30,30);
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 5px;
+  color: rgb(240,240,240);
+  width: 80%;
+  height: auto;
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.home_leaderboard_container a {
+  padding: 0 3px;
+  border: 2px solid white;
+  border-radius: 8px;
+  background-color: rgb(55,55,55);
+  color: white;
+  text-decoration: none;
+  width: 30%;
+  text-align:center;
+  margin: 2px 0;
+  transition: 0.2s ease-in-out;
+}
+.home_leaderboard_container a:hover {
+  background-color: rgb(40,40,40);
+}
+.home_leaderboard_container hr {
+  width: 95%;
+}
+.home_leaderboard_table {
+  text-align: center;
+}
+.home_leaderboard_table th, td {
+  width: 33%;
+}
+.home_news_container {
+  grid-area: news;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 85%;
+  height: 95%;
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(30,30,30);
+}
+.home_news_container img {
+  width: 100%;
+}
+.news_header {
+  width: 90%;
+  height: 5%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.news_image {
+  width: 80%;
+  border: 2px solid grey;
+  position: relative;
+  height: 40%;
+}
+.button_backwards {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  height: 20%;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(40,40,40,0.8);
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+.button_forwards {
+  position: absolute;
+  top: 40%;
+  right: 0;
+  height: 20%;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(40,40,40,0.8);
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+.news_image button:hover {
+  background-color: rgb(40,40,40,1);
+}
+.news_desc_wrapper {
+  width: 80%;
+  height: 45%;
+  border: 2px solid grey;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: rgb(45,45,45);
+}
+.news_description {
+  width: 90%;
+  height: 90%;
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  color: rgb(240,240,240);
+  text-align: center;
+}
+.daily_login {
+  position: absolute;
+  top: -5vh;
+  width: 80vw;
+  height: auto;
+  background-image: url("../image/bg/dailyloginbg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-flow: column nowrap;
+  z-index: 10;
+  border: 3px solid grey;
+  border-radius: 5px;
+  align-self: center;
+}
+.daily_login h2 {
+  text-align: center;
+  color: white;
+  padding: 5px 0;
+}
+.day_bonus_wrapper {
+  display: flex;
+  flex-flow: row wrap;
+}
+.day_bonus {
+  width: 12%;
+  height: 150px;
+  background-color: rgb(100,100,100,0.9);
+  border: 2px solid grey;
+  border-radius: 5px;
+  margin: 0 2%;
+  margin-bottom: 5px;
+}
+.day_bonus_items {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+.item1 {
+  grid-area: item1;
+  justify-self: center;
+}
+.item2 {
+  grid-area: item2;
+  justify-self: center;
+}
+.item3 {
+  grid-area: item3;
+  justify-self: center;
+}
+.item4 {
+  grid-area: item4;
+  justify-self: center;
+}
+.claim_login_reward {
+  width: 50%;
+  padding: 1px 0;
+  background-color: rgb(50,50,50);
+  border: 2px solid grey;
+  font-family: "Kanit", sans-serif;
+  color: white;
+  font-size: 16px;
+  align-self: center;
+  margin: 5px 5px;
+  cursor: pointer;
+  transition: .25s ease-in-out;
+}
+.claim_login_reward:hover {
+  border: 2px solid white;
+  background-color: rgb(25,25,25);
+}
+@media only screen and (max-width:1368px) {
+  .daily_login {
+    width: 90vw;
+    left: 5%;
+  }
+  .day_bonus {
+    width: 11.5%;
+  }
+}
+@media only screen and (max-width: 1900px) {
+  .infoContainer {
+    width: 84vw;
+  }
+}

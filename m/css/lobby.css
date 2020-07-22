@@ -1,0 +1,182 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.lobby_main_container {
+  width: 100%;
+  background-color: rgb(35,35,35,0.9);
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+  margin: 2.5vh 0;
+  padding: 10px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+.btn_help_fleets {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  border: 2px solid white;
+  background-color: rgb(30,30,30);
+  color: white;
+  font-family: "Kanit", sans-serif;
+  cursor: pointer;
+}
+.lobbies_wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.user_attacks, .enemy_attacks {
+  display: flex;
+  flex-flow: column nowrap;
+  max-height: 40vh;
+  overflow-y: auto;
+  width: 80%;
+  margin: 10px 0;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  background-color: rgb(30,30,30);
+  padding: 10px 0;
+}
+.lobby_wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding: 2px 0;
+  background-color: rgb(40,40,40);
+  margin: 4px 0;
+}
+.lobby_left, .lobby_middle {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.btn_join {
+  margin: 3px 0;
+  width: 60%;
+  height: 30px;
+  border: 2px solid white;
+  background-color: rgb(30,30,30);
+  color: white;
+  font-family: "Kanit", sans-serif;
+  cursor: pointer;
+}
+.battle_window {
+  position: absolute;
+  width: 100%;
+  display: none;
+  flex-flow: column nowrap;
+  text-align: center;
+  background-color: rgb(35,35,35);
+  z-index: 5;
+  border: 2px solid white;
+}
+.close_battle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  cursor: pointer;
+}
+.spacemap {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-items: center;
+}
+.spacemap_header {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  color: white;
+  width: 100%;
+  border-bottom: 2px solid white;
+}
+.spacemap_header span {
+  font-size: 18px;
+}
+.attacker_nick, .spacemap_attacker {
+  color: #FF0104;
+}
+.defender_nick, .spacemap_defender {
+color: #0367A6;
+}
+.spacemap_attacker, .spacemap_defender {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.spacemap_attacker {
+  border-bottom: 1px solid white;
+}
+.spacemap_defender {
+  border-top: 1px solid white;
+}
+.attacker_fleet, .attacker_research, .attacker_formations , .defender_fleet, .defender_research, .defender_formations, .defender_base  {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+.attacker_fleet, .defender_fleet, .defender_research {
+  border-bottom: 1px solid grey;
+}
+.formation_attacker, .formation_defender {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+.spacemap_middle_upper , .spacemap_right, .spacemap_left , .spacemap_middle_lower {
+  width: 100%;
+  border-top: 2px solid white;
+    border-bottom: 2px solid white;
+  margin: 3px 0;
+  background-color: rgb(30,30,30);
+}
+.cruisers_formation, .fighters_formation {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.cruisers_formation select, .fighters_formation select {
+  background-color: rgb(30,30,30);
+  color: white;
+  font-family: "Kanit", sans-serif;
+  width: 60%;
+  padding: 3px;
+}
+
+.cruisers_formation button, .fighters_formation button {
+  background-color: rgb(35,35,35);
+  font-family: "Kanit", sans-serif;
+  padding: 2px 5px;
+  text-decoration: none;
+  border: none;
+  border: 1px solid white;
+  cursor: pointer;
+  color: white;
+  margin: 5px 0;
+}
+.station_defender {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

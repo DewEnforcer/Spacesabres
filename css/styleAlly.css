@@ -1,0 +1,258 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.opacity_box {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0,0.3);
+}
+table, th , td {
+  border-top: 2px solid grey;
+  border-bottom: 2px solid grey;
+  border-collapse: collapse;
+}
+.ally_main_box {
+  width: 70vw;
+  height: 65vh;
+  border: 2px solid grey;
+  border-radius: 5px;
+  background-color: rgb(45,45,45, 0.8);
+  color: rgb(240,240,240);
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  min-width: 800px;
+  min-height: 550px;
+}
+.ally_wrapper_box {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 100%;
+}
+.ally_navbar {
+  display: flex;
+  width: 20%;
+  height: 80%;
+  justify-content: center;
+  margin: 0 25px;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: rgb(30,30,30);
+}
+.ally_nav {
+  display: flex;
+  flex-flow: column;
+  list-style: none;
+  width: 100%;
+}
+.ally_nav a {
+  background-color: rgb(40,40,40);
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  margin: 2px 0;
+  padding: 10px 0;
+  transition: 0.2s ease-in-out;
+  color: white;
+  text-decoration: none;
+}
+.ally_nav a:hover {
+    background-color: rgb(30,30,30);
+}
+.ally_search_box {
+  width: 70%;
+  height: 80%;
+  overflow-y: auto;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: rgb(30,30,30);
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.ally_search_table {
+  width: 100%;
+}
+.ally_search_table th td {
+  margin: 0 10px;
+}
+.ally_search_table tr {
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+.ally_search_table tr:hover {
+  background-color: rgb(50,50,50);
+}
+.first_row {
+  cursor: default !important;
+}
+.first_row:hover {
+  background-color: rgb(30,30,30) !important;
+}
+/* popup */
+.ally_popup_window {
+  border: 2px solid white;
+  border-radius: 8px;
+  display: flex;
+  width: 0;
+  height: 0;
+  position: absolute;
+  flex-flow: column nowrap;
+  background-color: rgb(40,40,40);
+  color: rgb(240,240,240);
+  padding: 5px;
+  z-index: 150;
+}
+.popup_header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 48%;
+}
+.header_logo {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.header_logo img {
+  max-width: 70%;
+  max-height: 70%;
+}
+.ally_img {
+  border: 2px solid white;
+}
+.header_info {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  border-left: 2px solid grey;
+}
+.header_info span {
+  width: 80%;
+  background-color: rgb(35,35,35);
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+}
+.popup_footer {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 48%;
+  border-top: 2px solid grey;
+}
+.popup_footer p {
+  padding: 5px;
+  background-color: rgb(35,35,35);
+  width: 80%;
+  border: 2px solid white;
+  text-align: center;
+}
+.popup_footer a {
+  padding: 3px 5px;
+  color: white;
+  background-color: rgb(30,30,30);
+  border: 2px solid grey;
+  transition: .2s ease-in-out;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.popup_footer a:hover {
+  background-color: rgb(35,35,35);
+  border-color: white;
+}
+.close_ally {
+  cursor: pointer;
+  width: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top-right-radius: 8px;
+}
+/* ally application */
+.ally_join {
+  width: 70%;
+  height: 80%;
+  overflow-y: auto;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: rgb(30,30,30);
+  margin-left: 15px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.join_ally_form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+  align-self: center;
+}
+.join_ally_form input {
+  padding: 3px 5px;
+  font-family: "Kanit", sans-serif;
+  color: white;
+  background-color: rgb(25,25,25);
+  border: 2px solid grey;
+  transition: 0.2s ease-in-out;
+}
+.join_ally_form input:focus {
+  border-color: white;
+}
+.load_ally_params {
+  width: 75%;
+  padding: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content:center;
+}
+.app_text {
+  padding: 5px 7px;
+  font-family: "Kanit", sans-serif;
+  color: white;
+  background-color: rgb(25,25,25);
+  border: 2px solid grey;
+  transition: 0.2s ease-in-out;
+  resize: none;
+  height: 60%;
+}
+.app_text:focus {
+  border-color: white;
+}
+.join_ally_form button {
+  padding: 3px 5px;
+  font-family: "Kanit", sans-serif;
+  color: white;
+  background-color: rgb(25,25,25);
+  border: 2px solid grey;
+  transition: 0.2s ease-in-out;
+  margin: 5px 0;
+  cursor: pointer;
+}
+.join_ally_form button:hover {
+  background-color: rgb(35,35,35);
+  border-color: white;
+}
+/* create ally page */

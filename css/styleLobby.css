@@ -1,0 +1,479 @@
+main {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+a {
+  text-decoration: none;
+}
+
+.opacity_box {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0,0.3);
+}
+.lobby_main_container {
+  width: 80vw;
+  height: 60vh;
+  position: relative;
+  background-color: rgb(50,50,50, 0.9);
+  border: 2px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  min-width: 800px;
+}
+.lobby_main_container h1 {
+  color: rgb(235,235,235);
+  text-align: center;
+  padding: 5px 0;
+}
+.lobby_main_container hr {
+  border: 2px solid black;
+  width: 100%;
+}
+.lobbies_wrapper {
+  width: 90%;
+  height: 80%;
+  margin: 10px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid white;
+  background-color: rgb(55,55,55);
+}
+.user_attacks {
+  width: 45%;
+  height: 80%;
+  border: 2px solid grey;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+.enemy_attacks {
+  width: 45%;
+  height: 80%;
+  border: 2px solid grey;
+  text-align: center;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.lobby_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  height: 25%;
+  background-color: rgb(40,40,40);
+}
+.lobby_wrapper span {
+  color: white;
+}
+.lobby_left, .lobby_middle, .lobby_right {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.lobby_right {
+  justify-content: center;
+}
+.lobby_left {
+  margin-left: 10px;
+}
+.lobby_right {
+  margin-right: 10px;
+}
+.btn_join {
+  cursor: pointer;
+  border: 2px solid grey;
+  background-color: rgb(30,30,30);
+  color: white;
+  font-family: "Kanit", sans-serif;
+  transition: 0.25s ease-in-out;
+}
+.btn_join:hover {
+  border-color: white;
+  background-color: rgb(35,35,35);
+}
+/* battle window*/
+.battle_window {
+  display: none;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 90vw;
+  height: 90%;
+  position: absolute;
+  border: 2px solid white;
+  border-radius: 10px;
+  z-index: 105;
+  background-color: rgb(70,70,70);
+  justify-content: center;
+  min-width: 1000px;
+  min-height: 800px;
+  align-self: center;
+  top: 5vh;
+}
+.close_battle {
+  width: 40px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.close_battle:hover {
+  opacity: 0.8;
+}
+.loading {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 5%;
+}
+.spacemap_header {
+  width: 100%;
+  height: calc(20% - 2px);
+  background-color: rgb(60,60,60,0.8);
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 18px;
+  border-bottom: 2px solid white;
+}
+.headers_wrapper {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+}
+.spacemap_header_wrapper {
+  height: calc(100% - 37px);
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  border-top: 2px solid grey;
+}
+.wrapper_header_left, .wrapper_header_right {
+  display: flex;
+  flex-flow: row nowrap;
+  width: calc(50% - 1px);
+  border-right: 1px solid white;
+  height: 100%;
+}
+.wrapper_header_right {
+  border-right: none;
+  border-left: 1px solid white;
+}
+.param_divs_header {
+  width: calc(50% - 1px);
+  text-align: center;
+  color: white;
+  height: 100%;
+}
+.attacker_fleet, .defender_fleet {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+.attacker_research, .defender_research {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.fleets_classes {
+  width: calc(50% - 1px);
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  text-align: center;
+}
+.attacker_fleet_light, .defender_fleet_light {
+  border-right: 1px solid white;
+    width: 40%;
+}
+.attacker_fleet_heavy, .defender_fleet_heavy {
+  border-left: 1px solid white;
+  width: calc(60% - 2px);
+}
+.attacker_fleet, .defender_fleet {
+  border-right: 1px solid white;
+}
+.attacker_research, .defender_research {
+  border-left: 1px solid white;
+}
+.spacemap_main {
+  background-image:  url("../image/bg/battlebg.webp");
+  width: 100%;
+  height: 80%;
+  position: relative;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.main_planet {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+    border-bottom-right-radius: 10px;
+    z-index: 115;
+}
+.main_tools {
+  position: absolute;
+  width: 130px;
+  height: 45px;
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(50,50,50);
+  top: 0;
+  right: 0;
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+  z-index: 150;
+}
+.main_tools div {
+ width: 40px;
+ height: 40px;
+}
+.action_bar_main {
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  height: 75px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(1, 40, 64, 0.8);
+  border: 2px solid white;
+  border-bottom: none;
+  z-index: 150;
+  bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.battle_status_main {
+  width: 25%;
+  height: 50px;
+  background-color: rgb(50,50,50);
+  border: 2px solid grey;
+  border-top: none;
+  position: absolute;
+  left: 37.5%;
+  top: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  color: white;
+}
+.slot_actionbar {
+  width: calc(8% - 4px);
+  height: 50px;
+  border: 2px solid grey;
+  background-image: linear-gradient(rgb(10,10,10), rgb(35,35,35), rgb(10,10,10));
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+.slot_actionbar img {
+  width: 100%;
+  cursor: pointer;
+}
+.formation_info {
+  position: absolute;
+  bottom: 100%;
+  padding: 0 10px;
+  width: 15vw;
+  color: white;
+  background-color: rgb(40,40,40);
+  z-index: 200;
+  border: 2px solid white;
+  border-bottom: 1px solid grey;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.hyperspace_box {
+  position: absolute;
+  z-index: 200;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(226,226,226,1);
+background: -moz-radial-gradient(center, ellipse cover, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 43%, rgba(209,209,209,1) 100%);
+background: -webkit-radial-gradient(center, ellipse cover, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 43%, rgba(209,209,209,1) 100%);
+background: -o-radial-gradient(center, ellipse cover, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 43%, rgba(209,209,209,1) 100%);
+background: -ms-radial-gradient(center, ellipse cover, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 43%, rgba(209,209,209,1) 100%);
+background: radial-gradient(ellipse at center, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 0%, rgba(254,254,254,1) 43%, rgba(209,209,209,1) 100%);
+}
+
+#time {
+  display: none;
+}
+.fleet_attacker, .research_attacker, .formation_attacker, .retreat_attacker, .fleet_defender, .research_defender, .station_defender {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+.show_heavy, .show_fighter, .hide_fighter, .hide_heavy {
+  width: 40px;
+  cursor: pointer;
+}
+/* fleet visual */
+.shipicon {
+  position: absolute;
+  animation: blinker 3s linear infinite;
+  z-index: 125;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0.5;
+  }
+}
+.hyperspace_lane_left {
+  position: absolute;
+  top: 40%;
+  left: 0;
+}
+/* elements user attack */
+.basecore_right {
+  position: absolute;
+  top: 35%;
+  right: 10%;
+  z-index: 120;
+  cursor: pointer;
+}
+.close_info {
+  width: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.base_info {
+  background-color: rgb(20,20,20);
+  border: 2px solid grey;
+  border-radius: 4px;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  position: absolute;
+  width: 10%;
+  padding: 10px;
+  color: white;
+  right: 9%;
+  top: 38%;
+  z-index: 155;
+}
+.module1_right {
+  position: absolute;
+  z-index: 120;
+    right: 20%;
+    top: 44%;
+}
+.module2_right {
+  position: absolute;
+  z-index: 120;
+  right: 18%;
+  top: 35%;
+}
+.module3_right {
+  position: absolute;
+  z-index: 120;
+  right: 15%;
+  top: 30%;
+}
+.module4_right {
+  position: absolute;
+  z-index: 120;
+  right: 12%;
+  top: 30%;
+}
+.module5_right {
+  position: absolute;
+  z-index: 120;
+  right: 9%;
+  top: 35%;
+}
+.module6_right {
+  position: absolute;
+  z-index: 120;
+  right: 7%;
+  top: 44%;
+}
+.module7_right {
+  position: absolute;
+  z-index: 120;
+  right: 9%;
+  top: 53%;
+}
+.module8_right {
+  position: absolute;
+  z-index: 120;
+  right: 12%;
+  top: 58%;
+}
+.module9_right {
+  position: absolute;
+  z-index: 120;
+  right: 15%;
+  top: 58%;
+}
+.module10_right {
+  position: absolute;
+  z-index: 120;
+  right: 18%;
+  top: 53%;
+}
+/* tips */
+.btn_help_fleets {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  padding: 5px 15px;
+  font-family: "Kanit", sans-serif;
+  background-color: rgb(100,100,100, 1);
+  color: rgb(235,235,235);
+  cursor: pointer;
+  border: 2px solid black;
+  transition: 0.3s ease-in-out;
+}
+.btn_help_fleets:hover {
+  border: 2px solid white;
+}
+@media only screen and (max-width: 1368px) {
+  .basecore_right {
+    width: 75px;
+  }
+  .module1_right, .module2_right, .module3_right, .module4_right, .module5_right, .module6_right, .module7_right, .module8_right, .module9_right, .module10_right {
+     width: 20px;
+   }
+   .battle_window {
+     width: 100vw;
+     height: 100vh;
+   }
+   .spacemap_header {
+     font-size: 15px;
+   }
+   .lobby_main_container {
+     height: 70vh;
+     width: 90vw;
+     margin: 25px 0;
+   }
+   .lobbies_wrapper {
+     width: 98%;
+   }
+}

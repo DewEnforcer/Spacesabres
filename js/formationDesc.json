@@ -1,0 +1,31 @@
+{
+  "formations": {
+    "Phalanx": {
+      "desc": "This formation doesn't apply any bonuses nor debuffs to your starfighters!"
+    },
+    "Pincer": {
+      "desc": "This formation applies to your starfighters: 20% damage bonus towards enemy starfighters and 5% shield increase. Damage towards enemy battleships is decreased by 15%."
+    },
+    "Arrow": {
+      "desc": "This formation applies to your starfighters: 30% damage bonus towards enemy battleships. Damage towards enemy starfighters reduced by 20% and by 30% towards enemy battlestation."
+    },
+    "Turtle": {
+      "desc": "This formation applies to your starfighters: 70% shield bonus and also increases your battlestation core shields by 50%. Damage towards enemy battleships and battlestation reduced by 40%."
+    },
+    "Lance": {
+      "desc": "This formation applies to your starfighters: 50% damage bonus towards enemy battlestations and 15% shield increase. Damage towards enemy starfighters reduced by 50% and by 60% towards enemy battleships."
+    },
+    "Line": {
+      "desc": "This formation doesn't apply any bonuses nor debuffs to your battleships!"
+    },
+    "Column": {
+      "desc": "This formation applies to your battleships: 50% damage towards enemy battlestation and 25% shield increase. Damage towards all spaceships is reduced by 50%."
+    },
+    "Echelon": {
+      "desc": "This formation applies to your battleships: 30% damage towards starfighters. Damage towards battleships is reduced by 10% and by 35% towards enemy battlestation."
+    },
+    "Wedge": {
+      "desc": "This formations applies to your battleships: 50% shield increase. Damage towards all enemy targets reduced by 15%."
+    }
+  }
+}

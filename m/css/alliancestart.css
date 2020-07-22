@@ -1,0 +1,134 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.ally_main_box {
+  width: 100%;
+  background-color: rgb(35,35,35,0.9);
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+  margin: 2.5vh 0;
+  padding: 10px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  position: relative;
+}
+.ally_wrapper_box {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  min-height: 35vh;
+}
+.ally_navbar {
+  width: 100%;
+}
+.ally_nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(30,30,30);
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+.ally_nav a {
+  width: 33%;
+  border-right: 1px solid white;
+  height: 30px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ally_nav a:nth-child(3) {
+  border: none;
+}
+.ally_search_box {
+  width: 100%;
+}
+.ally_search_table {
+  margin: 10px 0;
+  max-height: 40vh;
+  overflow-y: auto;
+  border: 2px solid white;
+  width: 100%;
+  background-color: rgb(30,30,30);
+  border-radius: 5px;
+  border-collapse: collapse;
+  text-align: center;
+}
+.ally_search_table td, th {
+  border: 1px solid white;
+}
+.ally_search_table tr {
+  height: 40px;
+}
+/*-----------------------------*/
+.ally_join {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-items: center;
+}
+.join_ally_form {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.join_ally_form div {
+  width: 100%;
+  min-height: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.load_ally_params {
+  margin: 3px 0;
+  padding: 3px 0;
+  text-align:center;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  width: 100%;
+  background-color: rgb(30,30,30);
+}
+.ally_wrapper_box textarea {
+  width: 95%;
+  height: 50vh;
+}
+.ally_wrapper_box label {
+  text-align: center;
+}
+.ally_wrapper_box input, .ally_wrapper_box textarea {
+  background-color: rgb(30,30,30);
+  border: 2px solid white;
+  padding: 3px;
+  font-family: "Kanit", sans-serif;
+  color: white;
+}
+.ally_wrapper_box button {
+  width: 60%;
+  height: 30px;
+  border: 2px solid white;
+  background-color: rgb(30,30,30);
+  color: white;
+  font-family: "Kanit", sans-serif;
+  cursor: pointer;
+  align-self: center;
+  margin: 5px 0;
+}
+/*-----------------------------*/
+.ally_wrapper_box span {
+  text-align: center;
+}

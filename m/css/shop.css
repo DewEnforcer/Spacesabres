@@ -1,0 +1,201 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.shop_main_wrapper {
+  width: calc(100% - 2px);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: rgba(30,30,30,0.9);
+  border: 2px solid white;
+  border-radius: 4px;
+  margin: 25px 0;
+  color: white;
+}
+.items_wrapper {
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  max-height: 70vh;
+  overflow-y: auto;
+  align-items: center;
+}
+.items_wrapper img {
+  margin: 5px 0;
+  width: calc(100% - 4px);
+  border: 2px solid grey;
+  background-image: linear-gradient(rgb(10,10,10), rgb(35,35,35), rgb(10,10,10));
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.items_wrapper img:hover {
+  border-color: white;
+}
+.closeitems {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+}
+/* js popups */
+.close_shop_popup {
+  position: absolute;
+  width: 30px;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.items_description {
+  position: absolute;
+  width: 100vw;
+  display: none;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: rgb(30,30,30);
+  text-align: center;
+  padding-bottom: 5px;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  top: 50px;
+}
+.item_desc_wrapper {
+  position: relative;
+}
+.item_header {
+    background-image: linear-gradient(rgb(10,10,10), rgb(35,35,35), rgb(10,10,10));
+    border-top: 2px solid grey;
+    border-bottom: 2px solid grey;
+}
+.item_header img {
+  width: 100%;
+}
+.item_desc {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+}
+.item_desc select {
+  width: 50%;
+  background-color: rgb(35,35,35);
+  border: 2px solid grey;
+  font-family: "Kanit", sans-serif;
+  color: white;
+  text-align-last: center;
+  margin: 5px 0;
+}
+.amount_wrapper div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.amount_wrapper button {
+  width: 10%;
+  padding: 1px;
+  font-family: "Kanit", sans-serif;
+  cursor: pointer;
+  background-color: rgb(30,30,30);
+  border: 2px solid grey;
+  transition: 0.3s ease-in-out;
+  margin: 0 10px;
+  color: white;
+  font-size: 20px;
+}
+.items_amount {
+  padding: 6px 5px;
+  background-color: rgb(35,35,35);
+  border: 2px solid grey;
+  transition: 0.2s ease-in-out;
+  color: white;
+  font-family: "Kanit", sans-serif;
+}
+.info_item_btn_wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.info_item_btn_wrapper button {
+  width: 45%;
+  padding: 1px;
+  font-family: "Kanit", sans-serif;
+  cursor: pointer;
+  background-color: rgb(30,30,30);
+  border: 2px solid grey;
+  transition: 0.3s ease-in-out;
+  margin: 0 10px;
+  color: white;
+}
+
+.tech_params_box {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  top: 150px;
+  background-color: rgb(50,50,50);
+  color: white;
+  border-top: 2px solid grey;
+  border-bottom: 2px solid grey;
+}
+.btn_close_params {
+  position: absolute;
+  width: 25px;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.purchase_confirm_popup {
+  position: absolute;
+  background-color: rgb(25,25,25);
+  color: white;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+    top: 25vh;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+.purchase_confirm_popup div {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+.purchase_confirm_popup button {
+  width: 45%;
+  margin: 0 2%;
+  padding: 5px 0;
+  background-color: rgb(35,35,35);
+  border: 2px solid white;
+  font-family: "Kanit", sans-serif;
+  cursor: pointer;
+}
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+@media only screen and (min-width: 500px) {
+  .shop_main_wrapper {
+    width: 500px;
+  }
+  .items_description {
+    width: 500px;
+  }
+}

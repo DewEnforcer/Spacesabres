@@ -1,0 +1,50 @@
+[31-Oct-2019 19:43:06 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/spacesab/public_html/include/dailybonusHandler.php on line 34
+[31-Oct-2019 19:43:06 UTC] PHP Warning:  mysqli_stmt_bind_param(): invalid object or resource mysqli_stmt
+ in /home/spacesab/public_html/include/dailybonusHandler.php on line 41
+[31-Oct-2019 19:43:06 UTC] PHP Warning:  mysqli_stmt_execute(): invalid object or resource mysqli_stmt
+ in /home/spacesab/public_html/include/dailybonusHandler.php on line 42
+[31-Oct-2019 19:43:06 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/spacesab/public_html/include/dailybonusHandler.php on line 34
+[31-Oct-2019 19:43:06 UTC] PHP Warning:  mysqli_stmt_bind_param(): invalid object or resource mysqli_stmt
+ in /home/spacesab/public_html/include/dailybonusHandler.php on line 41
+[31-Oct-2019 19:43:06 UTC] PHP Warning:  mysqli_stmt_execute(): invalid object or resource mysqli_stmt
+ in /home/spacesab/public_html/include/dailybonusHandler.php on line 42
+[31-Oct-2019 19:43:06 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/spacesab/public_html/include/dailybonusHandler.php on line 34
+[31-Oct-2019 19:43:06 UTC] PHP Warning:  mysqli_stmt_bind_param(): invalid object or resource mysqli_stmt
+ in /home/spacesab/public_html/include/dailybonusHandler.php on line 41
+[31-Oct-2019 19:43:06 UTC] PHP Warning:  mysqli_stmt_execute(): invalid object or resource mysqli_stmt
+ in /home/spacesab/public_html/include/dailybonusHandler.php on line 42
+[01-Nov-2019 22:51:38 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/spacesab/public_html/include/dbh.inc.php on line 8
+[01-Nov-2019 22:52:08 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/spacesab/public_html/include/dbh.inc.php on line 8
+[04-Nov-2019 17:36:02 UTC] PHP Warning:  getimagesize(): Filename cannot be empty in /home/spacesab/public_html/include/imgUpload.php on line 27
+[11-Nov-2019 11:04:14 UTC] PHP Warning:  mysqli_stmt_close() expects parameter 1 to be mysqli_stmt, null given in /home/spacesab/public_html/include/signup.inc.php on line 276
+[11-Nov-2019 11:04:14 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, null given in /home/spacesab/public_html/include/signup.inc.php on line 277
+[11-Nov-2019 21:09:41 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/blockUser.php on line 55
+[11-Nov-2019 21:09:41 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/spacesab/public_html/include/blockUser.php on line 56
+[11-Nov-2019 21:11:14 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[11-Nov-2019 21:11:14 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Nov-2019 22:17:23 UTC] PHP Warning:  mysqli_stmt_close() expects parameter 1 to be mysqli_stmt, null given in /home/spacesab/public_html/include/signup.inc.php on line 276
+[23-Nov-2019 22:17:23 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, null given in /home/spacesab/public_html/include/signup.inc.php on line 277
+[24-Nov-2019 09:36:33 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[24-Nov-2019 09:36:33 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[24-Nov-2019 09:36:34 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[24-Nov-2019 09:36:34 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[16-Dec-2019 10:00:03 UTC] PHP Warning:  mysqli_stmt_close() expects parameter 1 to be mysqli_stmt, null given in /home/spacesab/public_html/include/signup.inc.php on line 276
+[16-Dec-2019 10:00:03 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, null given in /home/spacesab/public_html/include/signup.inc.php on line 277
+[19-Dec-2019 04:10:16 UTC] PHP Warning:  mysqli_stmt_close() expects parameter 1 to be mysqli_stmt, null given in /home/spacesab/public_html/include/signup.inc.php on line 276
+[19-Dec-2019 04:10:16 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, null given in /home/spacesab/public_html/include/signup.inc.php on line 277
+[23-Dec-2019 20:53:06 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:06 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:08 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:08 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:09 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:09 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:10 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:10 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:10 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:10 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:11 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:11 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:13 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:13 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:14 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25
+[23-Dec-2019 20:53:14 UTC] PHP Warning:  gzdecode(): data error in /home/spacesab/public_html/include/pm-select.php on line 25

@@ -1,0 +1,21 @@
+/add/single/item/multiple/*ID*/ammount/*AMMOUNT*/userid/USERID
+/remove/
+itemIDs
+1 Credits
+2 Hyperids
+3 Natiums
+4 Hornets
+5 Spacefires
+6 Starhawks
+7 Peacemakers
+8 Centurions
+9 Nathalis
+10 Low laser modules
+11 Heavy laser modules
+12 Rocket modules
+13 Shield modules
+14 Dmg res
+15 Hp res
+16 Shd res
+17 Speed res
+18 fuel

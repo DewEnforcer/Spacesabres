@@ -1,0 +1,84 @@
+{
+  "quests": {
+    "1": {
+      "title": "First steps",
+      "description": "Hello there, my name is Enala Kilov, im one of the main company fleet admirals , and i've been assigned to you as a messenger between you and the company hq. That means i will be providing you with for example missions or tips! For now, you should probably start building your fleet. How about visiting the shipyard and buying couple of the new Starhawk fighters?"
+    },
+    "2": {
+      "title": "Meeting the galaxy",
+      "description": "Good news, the company has given us .. uh, you your fist mission! They need someone to ease out the situation in your system from the pirate attacks. Although master and chief pirate fleets will give you more rewards, i would recommend you only attack the pirate fleets for now."
+    },
+    "3": {
+      "title": "Strategist",
+      "description": "Well done! I've already seen the report from the battle you fought in. It was quite impressive. I just hope the company will find the battle as impressive as i did. Ah and yes, although you were participating in the battle and know what happened, but just in case you forget, you can still see the report in your inbox!"
+    },
+    "4": {
+      "title": "Science!",
+      "description": "Oh, hi , my name is Katrip and im the head scientist of the company military researches! I've heard you have won your first battle this week. Congratulations! And as a reward how about some permanent upgrades to your fleet? You can also come to my laboratory and for some money i can improve your fleet even more!"
+    },
+    "5": {
+      "title": "Contract",
+      "description": "Hello, Enala reporting in. I've got some good news for you. The company has agreed to work with you even further than just giving you simple missions, from now on you can send your fleet to help company protect their teritories from those damn Xamons! Are you having some free ships in your fleet right now? Well what are you waiting for, go <a href='internalCompanyDefense.php'>help</a> out the company now!"
+    },
+    "6": {
+      "title": "Sweet home",
+      "description": "Privet! My name is Vasily, and I am the chief engineer of company spaceship and battlestations design facility. From what i've heard so far, you seem to be very skilled commander , but have you thought about defense? You should set modules you got in their slots in <a href='internalBase.php'>battlestation modules</a> section. Don't have any? Just buy them in shipyard section!"
+    },
+    "7": {
+      "title": "Annoying locusts",
+      "description": "Enala reporting in. I've got a big mission for you! From what we have seen, the Xamons are growing more and more annoying every day, now they have even started attacking company laboratories and medical stations that have no way of defending themselfs. I think it's time to show them who they picked a fight with!"
+    },
+    "8": {
+      "title": "Upgrades!",
+      "description": "Zdarova! Vasily here, i've heard you mostly keep using only our starfighters. Of course i am not saying they are bad, but have you seen what our cruisers have to offer? Please, give them a try!"
+    },
+    "9": {
+      "title": "Enemies behind the lines",
+      "description": "Bad news my friend! Oh right , of course , i wanted to say hi before saying that. Anyway, xamon threat unfortunately hasn't stopped, instead , they even managed to convince some of our commanders to join them! Company will not tolerate this, and so shouldn't you. Here is the list of all commanders that are now working for Xamons. Pay them a visit that will convince them that Xamons aren't good."
+    },
+    "10": {
+      "title": "<i>*EMERGENCY*</i>",
+      "description": "Hello .. you there? Ah thank god! Katrip here, we don't have much time left, so ill sum it up quickly, Xamons have begun their first real offensives, Elana couldn't deliver the message herself because she is now in charge of the 7th \"Space Red\" Squadron. And the Xamons are about to attack your system as well due to the rich natium bearings!"
+    },
+    "11": {
+      "title": "Won a battle, not the war",
+      "description": ".MESSAGE TO ALL COMMANDERS FROM ADMIRAL ELANA KILOV. We have won! Xamons are now retreating from our systems, though, our fleets have also taken some losses. But first, we need to push them to the uncharted territories, and once we are done with that, we can start recovering our fleets! Enala out."
+    },
+    "12": {
+      "title": "Healing the wounds",
+      "description": "Hey friend, Elana reporting in. It seems you are the commander that has his fleet most intact from the last xamon offensive. Well i guess that only proves you are a talent! Either way, company asks you to help us , by collecting some resources!"
+    },
+    "13": {
+      "title": "Keeping the things clean",
+      "description": "This is Fleet Admiral Tonapp, Ms. Elana Kilov is currently unavailable. Your new mission, destroy pirate fleets in your and near systems."
+    },
+    "14": {
+      "title": "Technical maintanance",
+      "description": "Well hi, this is Vasily! So how is your fleet recovery process going? Good? Glad to hear that! And how about your battlestation core? You should probably check it out as well, perhaps do some maintance, or even repairs! You can find the core overview under section Battlestation->Core!"
+    },
+    "15": {
+      "title": "Treason",
+      "description": "Elana reporting in. Company has been informed about some commanders that have unfortunately betrayed us! I am now sending you the list of their coordinates. Since our fleets are still recovering while they were completely unharmed by Xamons, it's up to you to deal with them!"
+    },
+    "16": {
+      "title": "Hidden improvements",
+      "description": "Hellooo! Can you hear me? Right, it's me, Katrip! Well, unfortunately i do not bring good news. Company spies have found out from the captured traitors that another Xamon offensive is very soon to start again. And so company shipyards have already reached their maximal production! Therefore company leaders are asking you to help them out in production of some ships! Of course , the reward comes in some additional researches."
+    },
+    "17": {
+      "title": "Preparations",
+      "description": "Well, apparently Xamons are now building agile fleets that will use outnumbering the enemy to their advantage. Fortunately, thanks to people like Vasily, we have cruisers that can protect us from threats like these! How about you start to preparing yourself, as every other commander under company flag is now? Elana out."
+    },
+    "18": {
+      "title": "Silence before the storm?",
+      "description": "Elana here with interesting news, we have been scanning for Xamon fleets ever since we have found out about the new planned offensive. And now it looks like they just vanished from the universe! We will try to find out what happened, either way, since we now have these massive fleets , how about we take out some of the pirates?"
+    },
+    "19": {
+      "title": "Voice from beneath",
+      "description": "<p style='color:rgb(200,200,200);'>Good evening my company friend, didn't expect us to contact you , especially, when we vanished from your sensors? Unfortunately, reality is often disappointing."
+    },
+    "20": {
+      "title": "<i><b>Enemy at the gates</i></b>",
+      "description": ".MESSAGE TO ALL COMMANDERS FROM FLEET ADMIRAL ELANA KILOV. This is Fleet Admiral Elana Kilov, sensors all over the galaxy are starting to detect incoming Xamon fleets, each one having thousands of ships. It's time to fight now commanders, or this will be the end of company. Good luck commanders, we will need it. ELANA OUT."
+    }
+  }
+}

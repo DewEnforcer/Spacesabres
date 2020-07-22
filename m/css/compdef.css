@@ -1,0 +1,51 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.sendFleet {
+  width: 100%;
+  background-color: rgb(35,35,35,0.9);
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+  margin: 2.5vh 0;
+  padding: 10px 0;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.sendFleet button {
+  width: 50%;
+  padding: 4px 0;
+  border: 2px solid white;
+  cursor: pointer;
+  font-family: "Kanit", sans-serif;
+  background-color: rgb(35,35,35);
+  margin: 8px 0;
+  color: white;
+}
+.btn_help_compdef {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto !important;
+}
+.Selection {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.Selection input {
+  padding: 4px 1px;
+  width: 70%;
+  font-family: "Kanit", sans-serif;
+  background-color: rgb(35,35,35);
+  margin: 8px 0;
+  color: white;
+  text-align-last: center;
+  border: 2px solid grey;
+}

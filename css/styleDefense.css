@@ -1,0 +1,52 @@
+main {
+  grid-area: main;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.sendFleet {
+  grid-area: company_def_main_box;
+  background-color: rgb(44,44,44, 0.9);
+  border: 3px solid black;
+  border-radius: 5px;
+  width: 50vw;
+  justify-self: center;
+  position: relative;
+  align-self: center;
+  color: white;
+}
+.defense_wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  border-top: 2px solid white;
+  margin-bottom: 15px;
+}
+.btn_help_compdef {
+  background-color: rgb(30,30,30);
+  border: 2px solid grey;
+  font-family: "Kanit", sans-serif;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 2px;
+}
+#cancel_defense {
+  width: 50%;
+  background-color: rgb(30,30,30);
+  border: 2px solid grey;
+  font-family: "Kanit", sans-serif;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  align-self: center;
+  padding: 1px 0;
+  font-size: 16px;
+  text-decoration: none;
+}
+#cancel_defense:hover, .btn_help_compdef:hover {
+  border-color: white;
+}

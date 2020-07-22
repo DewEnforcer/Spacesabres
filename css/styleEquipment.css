@@ -1,0 +1,259 @@
+main {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+}
+.equipment_main_wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 80vw;
+  height: 98vh;
+    border: 2px solid white;
+    border-radius: 6px;
+    margin: 25px 0;
+}
+.btn_save_setup {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  background-color: grey;
+  border: none;
+  color: black;
+  font-family: "Kanit", sans-serif;
+  border: 1px solid black;
+  padding: 3px 5px;
+  font-size: 16px;
+}
+.equipment_header {
+  text-align: center;
+  color: white;
+  position: relative;
+  width: 100%;
+  height: 5%;
+  border-bottom: 2px solid white;
+}
+.equipment_subheader_wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.equipment_subheader_choose {
+  width: calc(70% - 2px);
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 100%;
+  justify-content: space-evenly;
+}
+.equipment_subheader_choose a {
+  font-family: "Kanit", sans-serif;
+  width: 20%;
+  background-color: rgb(35,35,35);
+  transition: 0.3s ease-in-out;
+  border: 2px solid grey;
+  text-decoration: none;
+  color: white;
+  padding: 3px 0px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+}
+.equipment_subheader_choose a:hover {
+  border-color: white;
+}
+.equipment_subheader {
+  width: 30%;
+  align-self: flex-end;
+  border-left: 2px solid white;
+  height: 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.equipment_subheader button {
+  font-family: "Kanit", sans-serif;
+  width: 65%;
+  background-color: rgb(35,35,35);
+  transition: 0.3s ease-in-out;
+  border: 2px solid grey;
+  text-decoration: none;
+  color: white;
+  height: 30px;
+  padding: 3px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.equipment_subheader button:hover {
+  border-color: white;
+}
+.equipment_subheader select {
+  width: 30%;
+  height: 28px;
+  background-color: rgb(25,25,25);
+  border: 2px solid white;
+  font-family: "Kanit", sans-serif;
+  text-align-last: center;
+  color: white;
+}
+.equipment_main_container {
+  width: 80vw;
+  height: calc(95% - 40px);
+  display: flex;
+  flex-flow: row nowrap;
+}
+.ship_equipment_slots {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  border-right: 2px solid white;
+}
+.ship_equipment_items {
+  width: 30%;
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.inv_wrappers {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  height: calc(25% - 2px);
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  max-height: 25%;
+  position: relative;
+}
+.slots_eq {
+  display: flex;
+  flex-flow: row wrap;
+  width: 85%;
+  height: 90%;
+  max-height: 90%;
+  margin: 1% 7.5%;
+}
+.slots_items {
+  display: flex;
+  flex-flow: row wrap;
+  width: 90%;
+  height: 90%;
+  max-height: 90%;
+  margin: 5% 5%;
+  overflow-y: auto;
+}
+.equipment_slots_wrapper {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.ship_wrappers {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  height: 25%;
+  width: 100%;
+  max-height: 25%;
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+.slot_eq {
+  border: 1px solid white;
+  width: 72px;
+  height: 40px;
+  margin: 2px 5px;
+}
+.text_wrp {
+  position: absolute;
+  color: white;
+  line-height: 1.0;
+  text-align: center;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 7.5%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid white;
+}
+/* ship overview */
+.equipment_slots_ship_info {
+  height: 25%;
+  width: 100%;
+  border-top: 2px solid white;
+  color: white;
+  text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.equipment_slots_ship_info img {
+  width: 40%;
+}
+.item_img {
+  cursor: pointer;
+}
+.info_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 90%;
+}
+.static_params, .equip_params {
+  width: calc(30% - 1px);
+  height: 100%;
+}
+.static_params {
+  border-right: 1px solid white;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+.static_params span, .equip_params span {
+  font-size: 18px;
+}
+.equip_params {
+    border-left: 1px solid white;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+}
+.eq_result {
+  position: absolute;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  color: white;
+  background-color: rgb(30,30,30);
+  top: 10%;
+}
+.eq_result button {
+  cursor: pointer;
+  font-family: "Kanit", sans-serif;
+  width: 30%;
+  padding: 3px 5px;
+  background-color: rgb(35,35,35);
+  transition: 0.3s ease-in-out;
+  border: 2px solid grey;
+  color: white;
+}
+.eq_result button:hover {
+  border-color: white;
+}
+.eq_loader {
+  position: absolute;
+  width: 200px;
+}

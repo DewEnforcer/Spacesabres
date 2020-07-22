@@ -1,0 +1,102 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.all_fleets_box {
+  width: 100%;
+  background-color: rgb(35,35,35,0.9);
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+  margin: 2.5vh 0;
+  padding: 10px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  position: relative;
+}
+.mov_details {
+  position: absolute;
+  top: 10px;
+  width: 80vw;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  align-items: center;
+  color: white;
+  background-color: rgb(35,35,35,1);
+  border: 2px solid grey;
+  border-radius: 4px;
+  z-index: 5;
+  padding-top: 25px;
+}
+.close_mov_params {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top-right-radius: 4px;
+  width: 20px;
+  cursor: pointer;
+}
+.btn_help_fleets {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  border: 2px solid white;
+  background-color: rgb(30,30,30);
+  color: white;
+  font-family: "Kanit", sans-serif;
+  cursor: pointer;
+}
+.mov_wrapper {
+    width: 80%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.mov_wrapper a {
+  color: white;
+}
+.mov_wrapper button {
+  margin: 2px 0;
+  width: 60%;
+  height: 30px;
+  border: 2px solid white;
+  background-color: rgb(30,30,30);
+  color: white;
+  font-family: "Kanit", sans-serif;
+  cursor: pointer;
+}
+.user_mov {
+  max-height: 40vh;
+  overflow-y: auto;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  margin: 4px 0;
+  width: 100%;
+  background-color: rgb(30,30,30);
+  text-align: center;
+  padding: 5px 0;
+}
+.enemy_mov {
+  max-height: 40vh;
+  overflow-y: auto;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  margin: 4px 0;
+  width: 100%;
+  background-color: rgb(30,30,30);
+  text-align: center;
+  padding: 5px 0;
+}
+.user_travel_info, .enemy_attack_info {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  padding: 5px 0;
+}

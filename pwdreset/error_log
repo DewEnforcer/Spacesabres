@@ -1,0 +1,12 @@
+[15-Jul-2019 15:05:17 UTC] PHP Parse error:  syntax error, unexpected 'header' (T_STRING) in /home/spacesab/public_html/pwdreset/pwdnewhandler.php on line 35
+[15-Jul-2019 15:06:03 UTC] PHP Parse error:  syntax error, unexpected 'header' (T_STRING) in /home/spacesab/public_html/pwdreset/pwdnewhandler.php on line 35
+[15-Jul-2019 15:06:16 UTC] PHP Parse error:  syntax error, unexpected 'header' (T_STRING) in /home/spacesab/public_html/pwdreset/pwdnewhandler.php on line 35
+[03-Sep-2019 11:23:46 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/spacesab/public_html/pwdreset/pwdnew.php:4) in /home/spacesab/public_html/pwdreset/pwdnew.php on line 97
+[03-Sep-2019 11:24:41 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/spacesab/public_html/pwdreset/pwdnew.php:4) in /home/spacesab/public_html/pwdreset/pwdnew.php on line 98
+[03-Sep-2019 11:26:08 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/spacesab/public_html/pwdreset/pwdnew.php:4) in /home/spacesab/public_html/pwdreset/pwdnew.php on line 98
+[03-Sep-2019 11:26:09 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/spacesab/public_html/pwdreset/pwdnew.php:4) in /home/spacesab/public_html/pwdreset/pwdnew.php on line 98
+[03-Sep-2019 11:26:10 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/spacesab/public_html/pwdreset/pwdnew.php:4) in /home/spacesab/public_html/pwdreset/pwdnew.php on line 98
+[03-Sep-2019 11:31:51 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/spacesab/public_html/pwdreset/pwdnew.php:4) in /home/spacesab/public_html/pwdreset/pwdnew.php on line 98
+[03-Sep-2019 11:34:49 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/spacesab/public_html/pwdreset/pwdnew.php:4) in /home/spacesab/public_html/pwdreset/pwdnew.php on line 98
+[03-Sep-2019 11:40:35 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/spacesab/public_html/pwdreset/pwdnew.php:4) in /home/spacesab/public_html/pwdreset/pwdnew.php on line 116
+[03-Sep-2019 11:42:58 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/spacesab/public_html/pwdreset/pwdnew.php:1) in /home/spacesab/public_html/pwdreset/pwdnew.php on line 114

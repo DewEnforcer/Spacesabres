@@ -1,0 +1,647 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.opacity_box {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0,0.3);
+}
+.ally_main_box {
+  width: 70vw;
+  height: 80vh;
+  margin: 15px 0;
+  border: 2px solid grey;
+  border-radius: 5px;
+  background-color: rgb(30,30,30, 0.9);
+  color: rgb(240,240,240);
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  min-width: 800px;
+  min-height: 550px;
+}
+.ally_wrapper_box {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 100%;
+}
+.ally_navbar {
+  display: flex;
+  width: 20%;
+  height: 90%;
+  justify-content: center;
+  margin: 0 25px;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: rgb(30,30,30);
+}
+.ally_nav {
+  display: flex;
+  flex-flow: column;
+  list-style: none;
+  width: 100%;
+}
+.ally_nav a {
+  background-color: rgb(40,40,40);
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  margin: 2px 0;
+  padding: 10px 0;
+  transition: 0.2s ease-in-out;
+  color: white;
+  text-decoration: none;
+}
+.ally_nav a:hover {
+    background-color: rgb(30,30,30);
+}
+.ally_overview, .ally_overview_diplo, .ally_overview_home {
+  width: 70%;
+  height: 90%;
+  overflow-y: auto;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: rgb(30,30,30);
+  margin-left: 15px;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 5px;
+}
+.overview_header {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: 45%;
+  align-items: center;
+  border-bottom: 2px solid grey;
+}
+.overview_img_div {
+  width: 30%;
+  height: 90%;
+  border: 2px solid white;
+  background-color: rgb(45,45,45);
+  border-radius: 8px;
+  padding: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+}
+.ally_avatar {
+  max-width: 50%;
+  max-height: 80%;
+  border: 2px solid white;
+}
+.header_info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 100%;
+}
+.header_info_wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 80%;
+  height: 90%;
+  border: 2px solid white;
+  background-color: rgb(45,45,45);
+  border-radius: 8px;
+  padding: 5px;
+}
+.header_info_wrapper button, .overview_img_div button {
+  background-color: rgb(30,30,30);
+  border: 1px solid grey;
+  cursor: pointer;
+  padding-right: 3px;
+  color: white;
+  transition: 0.2s ease-in-out;
+  padding: 2px;
+  font-family: "Kanit", sans-serif;
+  margin: 2px;
+}
+.header_info_wrapper button:hover , .overview_img_div button:hover {
+    border-color: white;
+}
+.overview_main {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.overview_desc {
+  width: 80%;
+  height: 48%;
+  overflow-y: auto;
+  margin: 10px 0;
+  border: 2px solid white;
+  background-color: rgb(45,45,45);
+  text-align: left;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  padding-top: 10px;
+}
+.overview_desc button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgb(30,30,30);
+  border: 1px solid grey;
+  cursor: pointer;
+  padding-right: 3px;
+  color: white;
+  transition: 0.2s ease-in-out;
+  font-family: "Kanit", sans-serif;
+}
+.overview_desc button:hover {
+  border-color: white;
+}
+.overview_logs {
+  height: 48%;
+  width: 80%;
+  overflow-y: auto;
+  margin: 10px 0;
+  border: 2px solid white;
+  background-color: rgb(45,45,45);
+  text-align: left;
+  padding: 5px 0;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.overview_logs div {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  min-width: 100%;
+}
+/* edit info elements */
+.box_edit_info {
+  display: none;
+  border: 2px solid white;
+  position: absolute;
+  background-color: rgb(30,30,30);
+  flex-flow: column nowrap;
+  border-radius: 5px;
+  text-align: center;
+  align-items: center;
+  color: rgb(240,240,240);
+  width: 30vw;
+  height: 25vh;
+}
+.logo_ally_form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 15px 0;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+  width: 80%;
+  height: 40%;
+}
+.input_logo {
+  width: 20%;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.logo_ally_form button {
+  background-color: rgb(30,30,30);
+  border: 1px solid grey;
+  cursor: pointer;
+  padding: 3px;
+  color: white;
+  transition: 0.2s ease-in-out;
+  font-family: "Kanit", sans-serif;
+}
+.logo_ally_form button:hover {
+  border-color: white;
+}
+.close_edit_box {
+  position: absolute;
+  cursor: pointer;
+  width: 20px;
+  top: 0;
+  right: 0;
+  border-top-right-radius: 5px;
+}
+.change_ally_names_form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 15px 0;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+  width: 80%;
+  height: 42%;
+}
+.change_ally_names_form input, .change_ally_names_form textarea {
+  background-color: rgb(35,35,35);
+  border: 2px solid grey;
+  font-family: "Kanit", sans-serif;
+  padding: 3px;
+  color: white;
+  transition: 0.2s ease-in-out;
+  margin: 2px 0;
+}
+.change_ally_names_form textarea {
+  width: 80%;
+  height: 80%;
+  resize: none;
+}
+.change_ally_names_form input:focus {
+  border-color: white;
+}
+.change_ally_names_form button {
+  background-color: rgb(30,30,30);
+  border: 1px solid grey;
+  cursor: pointer;
+  padding: 3px;
+  color: white;
+  transition: 0.2s ease-in-out;
+  font-family: "Kanit", sans-serif;
+  margin: 2px 0;
+}
+.change_ally_names_form button:hover {
+  border-color: white;
+}
+/* members overview */
+.members_list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 80%;
+  padding: 5px;
+  height: 60%;
+  overflow-y: auto;
+  align-self: center;
+  border: 2px solid white;
+  border-radius: 8px;
+  background-color: rgb(50,50,50);
+}
+.ally_member, .ally_app {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 25%;
+  padding: 4px;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  background-color: rgb(30,30,30);
+  margin: 3px 0;
+}
+.ally_member_left, .ally_app_left {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+}
+.ally_member_right, .ally_app_right {
+  width: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border-left: 2px solid grey;
+  height: 100%;
+}
+.apps_list, .diplo_request_list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 80%;
+  padding: 5px;
+  height: 35%;
+  margin: 10px 0;
+  overflow-y: auto;
+  align-self: center;
+  border: 2px solid grey;
+  border-radius: 8px;
+  background-color: rgb(50,50,50);
+}
+.ally_overview button, .ally_overview a {
+  background-color: rgb(45,45,45);
+  border: 2px solid grey;
+  color: white;
+  font-family: "Kanit", sans-serif;
+  padding: 3px 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 1px 0;
+  width: 70%;
+}
+.ally_overview button:hover, .ally_overview a:hover {
+  border-color: white;
+}
+.ally_app {
+  height: 45%;
+}
+.box_changerank_ally {
+  border: 2px solid white;
+  border-radius: 8px;
+  position: absolute;
+  width: 0;
+  background-color: rgb(30,30,30);
+  text-align: center;
+  color: rgb(240,240,240);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  z-index: 101;
+  padding: 5px;
+}
+.close_rank_box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  cursor: pointer;
+  border-top-right-radius: 8px;
+}
+.form_ally_rankmng {
+  width: 80%;
+  height: 20%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.form_ally_rankmng select {
+  width: 30%;
+  background-color: rgb(40,40,40);
+  border: 2px solid grey;
+  text-align-last: center;
+  font-family: "Kanit", sans-serif;
+  color: white;
+}
+.form_ally_rankmng select:focus {
+  border-color: white;
+}
+.form_ally_rankmng option {
+    font-family: "Kanit", sans-serif;
+}
+.form_ally_rankmng button {
+  background-color: rgb(45,45,45);
+  border: 2px solid grey;
+  width: 30%;
+  color: white;
+  font-family: "Kanit", sans-serif;
+  padding: 3px 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 5px 0;
+}
+.form_ally_rankmng button:hover {
+  border-color: white;
+}
+.ranks_functions {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: left;
+  padding: 10px;
+}
+.ranks_functions h3 {
+  text-align: center !important;
+}
+.ranks_functions p {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.box_warn_disband {
+  display: flex;
+  flex-flow: column nowrap;
+  display: none;
+  width: 40vh;
+  height: 20vh;
+  border: 2px solid white;
+  border-radius: 8px;
+  align-items: center;
+  position: absolute;
+  background-color: rgb(30,30,30);
+  text-align: center;
+  padding: 5px;
+  color: rgb(240,240,240);
+}
+.btn_wrapper_disband {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  padding: 10px 0;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.btn_wrapper_disband a {
+  font-size: 13px;
+  color: black;
+  background-color: rgb(80,220,100);
+  border: 2px solid green;
+  border-radius: 4px;
+  text-decoration: none;
+  padding: 3px 5px;
+}
+.btn_wrapper_disband button {
+  font-size: 13px;
+  color: black;
+  background-color: rgb(255, 36, 0);
+  border-radius: 4px;
+  border-color: transparent;
+  text-decoration: none;
+  padding: 5px 7px;
+  cursor: pointer;
+  font-weight: 600;
+}
+/* ally msgs */
+.ally_msg_form {
+  align-self: center;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-top: 10%;
+}
+.ally_msg_form textarea{
+  width: 100%;
+  height: 60%;
+  margin: 10px 0;
+  padding: 8px;
+  font-family: "Kanit", sans-serif;
+  resize: none;
+}
+.ally_msg_form input {
+  padding: 4px;
+  font-family: "Kanit", sans-serif;
+}
+.ally_msg_form input, .ally_msg_form textarea {
+  background-color: rgb(45,45,45);
+  border: 2px solid grey;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+.ally_msg_form input:focus, .ally_msg_form textarea:focus {
+  border-color: white;
+}
+/* diplomacy */
+  .diplo_tools_box {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 80%;
+    padding: 5px;
+    height: 6%;
+    margin: 10px 0;
+    overflow-y: auto;
+    align-self: center;
+    border: 2px solid white;
+    border-radius: 8px;
+    background-color: rgb(50,50,50);
+    justify-content: center;
+  }
+  .diplo_tools_box button {
+    width: 45%;
+    background-color: rgb(30,30,30);
+    border: 2px solid grey;
+    border-radius: 5px;
+    color: white;
+    font-family: "Kanit", sans-serif;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    margin: 0 3px;
+  }
+  .diplo_tools_box button:hover {
+    border-color: white;
+    background-color: rgb(35,35,35);
+  }
+ .diplo_current_list {
+   display: flex;
+   flex-flow: column nowrap;
+   align-items: center;
+   width: 80%;
+   padding: 5px;
+   height: 50%;
+   overflow-y: auto;
+   align-self: center;
+   border: 2px solid white;
+   border-radius: 8px;
+   background-color: rgb(50,50,50);
+ }
+.form_diplo {
+  width: 80%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 15px 0;
+  height: 150px;
+  justify-content: space-evenly;
+}
+.form_diplo input, .form_diplo label, .form_diplo select {
+  width: 50%;
+  font-family: "Kanit", sans-serif;
+  text-align-last: center;
+}
+.form_diplo input, .form_diplo select {
+  padding: 4px 3px;
+  border: 2px solid grey;
+  background-color: rgb(40,40,40);
+  transition: 0.2s ease-in-out;
+  color: white;
+}
+.form_diplo input:focus, .form_diplo select:focus {
+  border-color: white;
+}
+.form_diplo button {
+  width: 30%;
+  padding: 3px;
+  border: 2px solid grey;
+  background-color: rgb(35,35,35);
+  transition: 0.2s ease-in-out;
+  color: white;
+  cursor: pointer;
+  font-family: "Kanit", sans-serif;
+  border-radius: 4px;
+}
+.form_diplo button:hover {
+  border-color: white;
+}
+table {
+  width: 80%;
+}
+table, th , td {
+  border: 2px solid grey;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+.table_pending_diplo a {
+  color: red;
+  text-decoration: none;
+}
+.diplo_request_list {
+  display: flex;
+  flex-flow: column nowrap;
+  overflow-y: auto;
+  align-items: center;
+}
+.ally_diplo_req_header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding: 5px 0;
+}
+.ally_diplo_req {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+.ally_diplo_req a {
+text-decoration: none;
+}
+.diplo_table {
+  width: 100%;
+}
+.ally_diplo {
+  transition: 0.2s ease-in-out;
+}
+.ally_diplo:hover {
+background-color: rgb(30,30,30);
+
+}
+.diplo_table a {
+  color: red;
+}

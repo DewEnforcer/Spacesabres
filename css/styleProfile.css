@@ -1,0 +1,146 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.profile_main_container {
+  grid-area: main_profile_container;
+  width: 70%;
+  height: 60vh;
+  background-color: rgb(30,30,30, 0.9);
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10% 45% 45%;
+  grid-template-areas:
+  "main_title main_title"
+  "profile_avatar profile_upload_pic"
+  "profile_acc_info change_acc_info";
+  border: 2px solid grey;
+  border-radius: 5px;
+  min-width: 750px;
+  min-height: 450px;
+}
+.main_title {
+  grid-area: main_title;
+  justify-self: center;
+  align-self: center;
+  color: white;
+}
+.profile_avatar_container {
+  grid-area: profile_avatar;
+  background-color: rgb(65,65,65);
+  width: 70%;
+  height: 90%;
+  justify-self:center;
+  align-self: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items:center;
+  justify-content: center;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+.profile_avatar_container img {
+  border: 2px solid white;
+  max-width: 80%;
+  max-height: 80%;
+}
+.profile_forms {
+  grid-area: profile_upload_pic;
+  background-color: rgb(65,65,65);
+  width: 90%;
+  height: 70%;
+  justify-self:center;
+  align-self: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+.profile_upload_form {
+  display: flex;
+  flex-flow: column wrap;
+  width: 45%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.profile_upload_form input{
+  width: 95px;
+  margin: 5px 0;
+}
+
+.profile_delete_form {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+.profile_delete_form button, .profile_upload_form button {
+  font-family: "Kanit", sans-serif;
+  background-color: rgb(50,50,50, 1);
+  padding: 3px 5px;
+  color: rgb(235,235,235);
+  cursor: pointer;
+  border: 2px solid grey;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+.profile_delete_form button:hover, .profile_upload_form button:hover {
+  border-color: white;
+  background-color: rgb(25,25,25);
+}
+.profile_upload_form, .profile_delete_form h3 {
+  text-align: center;
+}
+.profile_user_info {
+  grid-area: profile_acc_info;
+  width: 90%;
+  height: 70%;
+  background-color: rgb(65,65,65);
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  flex-flow: column nowrap;
+  justify-content: center;
+  border: 2px solid grey;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+.userinfo_change_box {
+  grid-area: change_acc_info;
+  background-color: rgb(65,65,65);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 70%;
+  justify-self: center;
+  align-self: center;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+.userinfo_change_box a {
+text-align: center;
+font-family: "Kanit", sans-serif;
+background-color: rgb(50,50,50, 1);
+padding: 3px 5px;
+color: rgb(235,235,235);
+cursor: pointer;
+border: 2px solid grey;
+text-decoration: none;
+transition: 0.2s ease-in-out;
+}
+.userinfo_change_box a:hover {
+  background-color: rgb(20,20,20);
+}
