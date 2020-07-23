@@ -1,193 +1,207 @@
-$(document).ready(function() {
-  function briefingAjax(action, additionalData, missionType) {
-    return new Promise((resolve, reject) => {
-      $.ajax({
-        url: "../include/briefingAjax.php",
-        type: 'POST',
-        data: {
-          action: action,
-          data: additionalData
-        },
-        success: function(data) {
-          resolve(data);
-        },
-        error: function(error) {
-          reject(error);
-        },
-      })
-    })
+const ships = [];
+const statics = [];
+const portals = [];
+const avalBGs = [1, 2, 3];
+const portalAmount = 1;
+const mapID = Math.floor(Math.random * avalBGs.length);
+let canvas = undefined;
+let ctx = undefined;
+let shipInfo = undefined;
+let shipsLoaded = false;
+const selectedShips = [0, 0, 0, 0, 0, 0];
+const baseCoords = {
+  x: 600,
+  y: 400,
+};
+let menuOpen = false;
+//functions
+const realVelocity = (shipSpeed, vectorAngle) => {
+  let velocity = {
+    x: undefined,
+    y: undefined,
+  };
+  velocity.x = shipSpeed * Math.sin(vectorAngle);
+  velocity.y = shipSpeed * Math.cos(vectorAngle);
+  return velocity;
+};
+const animate = () => {
+  requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ships.forEach((item) => item.update());
+  statics.forEach((item) => item.draw());
+  portals.forEach((item) => item.update());
+};
+const initDisplay = () => {
+  // for (let i = 0; i < portalAmount; i++) {
+  //   portals.push(new Portal());
+  // }
+  statics.push(
+    new Background(0, 0, "./image/gamemap/backgrounds/background" + 1 + ".png")
+  );
+  statics.push(
+    new Planet(
+      mapID,
+      500,
+      canvas.height - 200,
+      "./image/gamemap/planets/planet" + 1 + ".png",
+      2
+    )
+  );
+};
+const getShipParams = async () => {
+  const response = await fetch("./js/shipInfo.json");
+  const dataReturn = await response.json();
+  shipInfo = dataReturn.ships;
+};
+const listAllShips = () => {
+  shipsLoaded = true;
+  const bgMain = `./image/bg/dockbg.jpg`;
+  Object.values(shipInfo).forEach((item, i) => {
+    let amountBar = `<div class="amount_wrapper">
+    <button type="button" class="btn_decrease_val" id="manage_${i}">-</button>
+    <input type="number" id="amount_ship_${i}" value="${selectedShips[i]}">
+    <button type="button" class="btn_increase_val" id="manage_${i}">+</button>
+    </div>`;
+    let title = `<h3 class="ship_title">${item.name}</h3>`;
+    let bgShip = `./image/graphics/ship${i + 1}.png`;
+    let mainBox = `<div style="background-image: url(${bgShip}), url(${bgMain})" class="ship_box" id="ship_${i}">${
+      title + amountBar
+    }</div>`;
+    $(".menu_box").append(mainBox);
+  });
+};
+const changeDisplay = () => {
+  let display;
+  display = menuOpen ? "none" : "flex";
+  $(".menu_box div").css({ display });
+};
+class Portal {
+  constructor() {
+    this.x = Math.round(Math.random() * canvas.width);
+    this.y = Math.round(Math.random() * canvas.height);
+    this.activated = false;
+    this.sequence = 0;
+    this.sprite = new Image();
+  }
+  jumpActivate() {
+    if (this.activated === true) {
+      if (this.sequence <= 10) {
+        //change portal img amount
+        this.sequence += 1;
+      } else {
+        this.sequence = 0; //deactivated portal
+        this.activated = false;
+      }
+    }
+  }
+  draw() {
+    portalObjImg.src = "./image/gamemap/portals/" + this.sequence + ".png";
+    this.jumpActivate();
+    ctx.drawImage(portalObjImg, this.renderX, this.renderY);
+  }
+  update() {
+    this.draw();
+  }
 }
-function countEquipped (ship, equipment) {
-  let amount = 0;
-  for (var i = 0; i < ship[equipment].length; i++) {
-    if (ship[equipment][i] > 0) {
-      amount++;
-    }
+class Planet {
+  constructor(mapID, x, y, path, sizeRed = 1) {
+    this.mapID = mapID; //Math.floor(Math.random * avalBGs.length);
+    this.x = x;
+    this.y = y;
+    this.sprite = new Image();
+    this.sprite.src = path;
+    this.width = this.sprite.width / sizeRed;
+    this.height = this.sprite.height / sizeRed;
+    this.offsetY = this.height / 2;
+    this.offsetX = this.width / 2;
   }
-  return amount;
+  draw() {
+    ctx.drawImage(
+      this.sprite,
+      this.x - this.offsetX,
+      this.y - this.offsetY,
+      this.width,
+      this.height
+    );
+  }
 }
-var selected = [];
-var selectedStatus = ["placeholder"];
-for (var i = 0; i < docks; i++) {
-  selected.push([]);
-  selectedStatus.push([false, false, false, false, false, false]);
+class Background {
+  constructor(x, y, path) {
+    this.x = x;
+    this.y = y;
+    this.sprite = new Image();
+    this.sprite.src = path;
+  }
+  draw() {
+    ctx.drawImage(this.sprite, this.x, this.y);
+  }
 }
-var missionType = 1;
-var dock = 1;
-var params = [[0,2,4,10,15,25], [4,2,0,0,0,0],[1,1,1,2,2,3],[1,1,1,1,1,1]];
-var names = ["Hornet","Spacefire","Starhawk","Peacemaker","Centurion","Na-Thalis Destroyer"];
-var dataN = ["hornet","spacefire","starhawk","peacemaker","centurion","nathalis"]
-$(".btn_dock").click(function() {
-  if (dock != $(this).prop("id")) {
-    $("main").append("<img src='../image/graphics/loading.gif' class='loading'>");
-    dock = Number($(this).prop("id"));
-    briefingAjax("switch", dock, "").then(data => {
-      if (data != "error") {
-        $(".ship_list").html(`<tr class="tr_header"><th>Selected</th><th>Ship ID</th><th>Ship type</th><th>Equipment</th></tr>`);
-        let dockData = $.parseJSON(data);
-        $(".loading").remove();
-        dockData.forEach(function(shipObj) {
-            if (typeof shipObj == "object") {
-              let lasers = countEquipped(shipObj, "lasers");
-              let rockets = countEquipped(shipObj, "rockets");
-              let shields = countEquipped(shipObj, "shields");
-              let hyperspace = countEquipped(shipObj, "hyperspace");
-              $(".ship_list").append(`<tr class="ship_tab" id="${shipObj["number"]}" type="${dataN[shipObj["type"]]}"><td><input type="checkbox" name="ship_checkbox" class="ship_checkbox" ship="${shipObj["type"]}" id="ship_${shipObj["number"]}"></td><td>${shipObj["number"]}</td><td>${names[shipObj["type"]]}</td><td><div class="equipment_wrapper">Lasers: ${lasers}/${params[0][shipObj["type"]]} | Missile platforms: ${rockets}/${params[1][shipObj["type"]]} | Energy generators: ${shields}/${params[2][shipObj["type"]]} | Hyperspace engines: ${hyperspace}/${params[3][shipObj["type"]]}</div></td></tr>`);
-              if (selected[dock-1].indexOf(Number(shipObj["number"])) > -1) {
-                document.querySelector("#ship_"+shipObj["number"]+"").checked = true;
-              }
-            }
-        });
-      }
-    });
-    $(".curr_dock").html(dock);
+//ship manager
+class Ship {
+  constructor(x, y, shipType) {
+    this.x = x;
+    this.y = y;
+    this.targetX = x;
+    this.targetY = y;
+    this.shipType = shipType;
+    this.speed = 5; //speed on the display
+    this.sprite = new Image();
+    this.sprite.src = "./image/gamemap/ships/icon" + shipType + ".png";
+    this.rotation = 0;
+    this.isMoving = false;
   }
-});
-// ↓ select individual handler
-$(document).on("click", ".ship_checkbox", function() {
-  let status = this.checked;
-  let shipNumber = $(this).prop("id");
-  let split = shipNumber.split("_");
-  if (status == true) {
-    selected[dock-1].push(Number(split[1]));
-  } else if (status != true) {
-    let index = selected[dock].indexOf(split[1]);
-        selected[dock-1].splice(index, 1);
-  }
-});
-// ↓ select all shiptype handler
-$(".btn_select").click(function() {
-  let ships = Number(this.value);
-  let checkboxes = document.getElementsByName("ship_checkbox");
-  let action = this.id;
-  if (action == "select") {
-    for (var i = 0; i < checkboxes.length; i++) {
-      let shipNumber = $(checkboxes[i]).prop("id");
-      let split = shipNumber.split("_");
-      if ($(checkboxes[i]).attr("ship") == ships) {
-        selected[dock-1].push(Number(split[1]));
-        checkboxes[i].checked = true;
-      }
+  rotate() {
+    if (this.x == this.targetX && this.y == this.targetY) {
+      return;
     }
-    selectedStatus[dock][ships] = true;
-  } else if (action == "unselect") {
-    for (var i = 0; i < checkboxes.length; i++) {
-      let shipNumber = $(checkboxes[i]).prop("id");
-      let split = shipNumber.split("_");
-      let index = selected[dock-1].indexOf(split[1]);
-      if ($(checkboxes[i]).attr("ship") == ships) {
-          checkboxes[i].checked = false;
-          selected[dock-1].splice(index, 1);
-      }
+    const deltaY = this.targetY - this.y;
+    const deltaX = this.targetX - this.x;
+    this.rotation = Math.atan2(y, x);
+  }
+  update() {
+    if (isMoving) {
+      this.rotate();
+      const newVelocity = realVelocity(this.speed, this.angle);
+      this.x += newVelocity.x;
+      this.y += newVelocity.y;
     }
-    selectedStatus[dock][ships] = false;
+    this.draw();
   }
-  console.log(selected);
-});
-$(".btn_filter").click(function() {
-  let type = $(this).val();
-  let table = document.querySelector(".ship_list").getElementsByTagName('tr');
-  let amount = table.length;
-  for (var i = 1; i < amount; i++) {
-    let typeItem = $(table[i]).attr("type");
-    if (typeItem != type) {
-      $(table[i]).css("display", "none");
-    } else {
-      $(table[i]).css("display", "flex");
-    }
+  draw() {
+    // translate and rotate
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.rotation);
+    ctx.translate(-this.x, -this.y);
+
+    ctx.drawImage(this.sprite, this.x, this.y);
+
+    // untranslate and unrotate
+    this.context.translate(this.x, this.y);
+    this.context.rotate(-this.rotation);
+    this.context.translate(-this.x, -this.y);
   }
-});
-$(".btn_filter_all").click(function() {
-  $(".ship_tab").css("display", "flex");
-});
-$(document).on("click", ".btn_submit_attack", function() {
-  if (missionType == 1) {
-    let coordsX = $(".coords_x").val();
-    let coordsY = $(".coords_y").val();
-    let map = $(".map").val();
-    if (map == 0 || map == "" || coordsX == 0 || coordsX == "" || coordsY == 0 || coordsY == "" ) {
-      $("main").append("<div class='briefing_result'></div>");
-      $(".briefing_result").html(`<h2>Error!</h2><p>You haven't filled in all required parameters!</p><img src="../image/graphics/closeMsg.png" class="btn_close_popup">`);
-    } else {
-      let attackArr = [selected, coordsX, coordsY, map];
-      $("main").append("<img src='../image/graphics/loading.gif' class='loading'>");
-      briefingAjax("attack", JSON.stringify(attackArr), missionType).then(data => {
-        $(".loading").remove();
-        if (data == "success") {
-          window.location.href = "internalFleets.php";
-        } else if (data == "error") {
-          $("main").append("<div class='briefing_result'></div>");
-          $(".briefing_result").html(`<h2>Error!</h2><p>Unfortunately an erro has occured. Please try again or report this error on the forums!</p><img src="../image/graphics/closeMsg.png" class="btn_close_popup">`);
-        } else if (data == "admin") {
-          $("main").append("<div class='briefing_result'></div>");
-          $(".briefing_result").html(`<h2>Error!</h2><p>Attacking an administrator would result in your fleet vanishing from the universe!</p><img src="../image/graphics/closeMsg.png" class="btn_close_popup">`);
-        } else if (data == "hyperspace") {
-          $("main").append("<div class='briefing_result'></div>");
-          $(".briefing_result").html(`<h2>Error!</h2><p>None of the selected ships have been equipped with hyperspace engine!</p><img src="../image/graphics/closeMsg.png" class="btn_close_popup">`);
-        } else if (data == "notenoughfuel") {
-          $("main").append("<div class='briefing_result'></div>");
-          $(".briefing_result").html(`<h2>Error!</h2><p>You don't have enough fuel for this operation!</p><img src="../image/graphics/closeMsg.png" class="btn_close_popup">`);
-        }
-      });
-    }
-  } else if (missionType == 2) {
-    $("main").append("<img src='../image/graphics/loading.gif' class='loading'>");
-    let hours = $(".company_def_hrs").val();
-    briefingAjax("compdef", JSON.stringify([selected, hours, missionType])).then(data => {
-      $(".loading").remove();
-      if (data == "success") {
-        window.location.href = "internalCompanyDefense.php";
-      } else if (data == "error") {
-        $("main").append("<div class='briefing_result'></div>");
-        $(".briefing_result").html(`<h2>Error!</h2><p>Unfortunately an erro has occured. Please try again or report this error on the forums!</p><img src="../image/graphics/closeMsg.png" class="btn_close_popup">`);
-      } else if (data == "noships") {
-        $("main").append("<div class='briefing_result'></div>");
-        $(".briefing_result").html(`<h2>Error!</h2><p>None of the selected ships satisfy the requirements of the company!</p><img src="../image/graphics/closeMsg.png" class="btn_close_popup">`);
-      }
-    });
+  initJump(jumpX, jumpY) {
+    this.targetX = jumpX;
+    this.targetY = jumpY;
+    this.isMoving = true;
   }
-});
-$(".btn_mission_type").click(function() {
-  if (missionType != this.value) {
-      $("#mission_"+missionType+"").css("border-color", "grey");
-      missionType = this.value;
-      $("#mission_"+missionType+"").css("border-color", "white");
-      if (missionType == 1) {
-        $(".coordinates").html(`<h2>Coordinates</h2><form class="form_brief_coord" action="index.html" method="post"><div><span>Coordinates X:</span><input type="number" class="coords_x" placeholder="Enter X coordinates"></div><div><span>Coordinates Y:</span><input type="number" class="coords_y" placeholder="Enter Y coordinates"></div><div><span>System:</span><input type="number" class="map" placeholder="Enter target system"></div><button type="button" name="button" class="btn_submit_attack">Deploy fleet!</button></form>`);
-      } else if (missionType == 2) {
-        if (available == true) {
-          $(".coordinates").html(`<h2>Company defense</h2><span>How long should this mission take? (Min.:1 hour, Max.: 10 hours)</span><input type="number" min="1" max="10" class="company_def_hrs" value="1" onkeyup="if(this.value > 10) {this.value = 10}"><button type="button" name="button" class="btn_submit_attack">Deploy fleet!</button>`);
-        } else {
-          if (available == "onway") {
-            $(".coordinates").html(`<h2>Company defense</h2><p>Your fleet is already helping the company! <a href="internalCompanydefense.php" style="color: white">More details</a></p>`);
-          } else {
-            $(".coordinates").html(`<h2>Company defense</h2><p>Currently the company has enough ships to defend all it's territories till ${time} (Server time).</p>`);
-          }
-        }
-      }
-  }
-});
-$(document).on("click", ".btn_close_popup", function() {
-  $(".briefing_result").remove();
-});
+}
+getShipParams();
+$(document).ready(() => {
+  canvas = document.querySelector("#briefing_display");
+  const wrapper = $(".body_box");
+  canvas.width = wrapper.width();
+  canvas.height = wrapper.height();
+  ctx = canvas.getContext("2d");
+  initDisplay();
+  animate();
+  $("#btn_open_menu").click(() => {
+    if (!shipsLoaded) listAllShips();
+    changeDisplay();
+    let width;
+    menuOpen ? (width = "0vw") : (width = "40vw");
+    $(".menu_box").animate({ width });
+    menuOpen = !menuOpen;
+  });
 });

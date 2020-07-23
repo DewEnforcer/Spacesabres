@@ -12,7 +12,6 @@ const checkerFetch = async () => {
     body: formData,
   });
   const data = await response.text();
-  console.log(data);
   evaluateDanger(data);
 };
 const bgChanger = () => {
