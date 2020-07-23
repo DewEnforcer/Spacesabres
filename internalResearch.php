@@ -72,21 +72,18 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+    <?php require "include/scripts.php" ?>
   <script src="../js/researchCountdown.js"></script>
   <script src="../js/researchSelector.js"></script>
-  <script src="../js/gameinfo.js"></script>
-  <script src="../js/backgroundmanager.js"></script>
-  <script src="../js/search-player.js"></script>
 </head>
   <body>
-    <header>
     <?php 
     require "include/header.php";
-    handleObjectives($conn, $show["userID"], 13);
+    handleObjectives($conn, $userInfo["userID"], 13);
      ?>
-</header>
-<main>
+  <main>
   <?php
+  require "include/bars.php";
   if (isset($_GET["error"])) {
     if ($_GET["error"]=="sql") {
       echo ' <div class="popup_result">
@@ -146,7 +143,7 @@
     </div>
     <div class="countdown">
       <?php
-      $sql = mysqli_query($conn, "SELECT currentResearch FROM userresearch WHERE userID=$show[userID]");
+      $sql = mysqli_query($conn, "SELECT currentResearch FROM userresearch WHERE userID=$userInfo[userID]");
       $userRes = mysqli_fetch_assoc($sql);
       if ($userRes["currentResearch"] > 0) {
         if ($userRes["currentResearch"] == 1) {

@@ -26,11 +26,8 @@ $ships = mysqli_fetch_assoc($sql);
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-    <script src="../js/gameinfo.js"></script>
+    <?php require "include/scripts.php" ?>
     <script src="../js/briefing.js"></script>
-    <script src="../js/gameinfo.js"></script>
-    <script src="../js/search-player.js"></script>
-    <script src="../js/backgroundmanager.js"></script>
     <script>
       var docks = <?php echo $ships["dockAmount"]; ?>;
       var available = <?php if ($userInfo["defenseCooldown"] <= date("U")) {
@@ -47,14 +44,10 @@ $ships = mysqli_fetch_assoc($sql);
     <title>SpaceSabres||Briefing</title>
   </head>
   <body>
-
-      <header>
         <?php require "include/header.php"; ?>
-
-  </header>
-
     <main>
       <?php
+      require "include/bars.php";
       if (isset($_GET["error"])) {
         if ($_GET["error"]== "hyperid") {
           echo ' <div class="popup_result">

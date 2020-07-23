@@ -18,19 +18,16 @@
   <script>
     var docks = <?php echo $docks ?>;
   </script>
+  <?php require "include/scripts.php" ?>
   <script src="../js/shop.js"></script>
-  <script src="../js/gameinfo.js" charset="utf-8"></script>
-  <script src="../js/backgroundmanager.js" charset="utf-8"></script>
-  <script src="../js/search-player.js"></script>
 </head>
   <body>
-    <header>
     <?php 
     require "include/header.php";
-    handleObjectives($conn, $show["userID"], 12);
+    handleObjectives($conn, $userInfo["userID"], 12);
     ?>
-</header>
 <main>
+  <?php require "include/bars.php" ?>
   <section class="shop_main_wrapper">
     <ul class="shop_navbar">
       <?php

@@ -80,9 +80,7 @@ $(document).ready(function () {
     let rnd = Math.floor(Math.random() * 10);
     $(".items_description").html("<div class='item_desc_wrapper'></div>");
     $(".item_desc_wrapper").html(
-      "<h2 class='item_name'>" +
-        itemName +
-        "</h2><div class='item_header'></div><div class='item_desc'></div>"
+      `<h2 class='item_name'>${itemName}</h2><div class='item_header'></div><div class='item_desc'></div>`
     );
     $(".item_header").html(
       `<img src="../image/shopImg/item${itemID}.gif?${rnd}" class="shop_item_gif">`

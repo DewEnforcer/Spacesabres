@@ -14,9 +14,7 @@ require "./include/accessSecurity.php";
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-    <script src="../js/gameinfo.js"></script>
-    <script src="../js/search-player.js"></script>
-    <script src="../js/backgroundmanager.js"></script>
+    <?php require "include/scripts.php" ?>
     <script src="../js/coreManagement.js"></script>
     <title>SpaceSabres||BattleStation</title>
     <script>
@@ -40,20 +38,18 @@ require "./include/accessSecurity.php";
   </head>
   <body>
 
-      <header>
-<?php  
-require "include/header.php";
-$getModules = mysqli_query($conn, "SELECT * FROM userbase WHERE userID=$show[userID]");
-$modules = mysqli_fetch_assoc($getModules);
-$userBase = ["coreHealth"=>$modules["coreHealth"],"coreShields"=>$modules["coreShields"]];
-$sql = mysqli_query($conn, "SELECT researchHp, researchShd FROM userresearch WHERE userID=$show[userID]");
-$userResearch = mysqli_fetch_assoc($sql);
-handleObjectives($conn, $show["userID"], 11);
- ?>
-  </header>
-
+    <?php  
+    require "include/header.php";
+    $getModules = mysqli_query($conn, "SELECT * FROM userbase WHERE userID=$userInfo[userID]");
+    $modules = mysqli_fetch_assoc($getModules);
+    $userBase = ["coreHealth"=>$modules["coreHealth"],"coreShields"=>$modules["coreShields"]];
+    $sql = mysqli_query($conn, "SELECT researchHp, researchShd FROM userresearch WHERE userID=$userInfo[userID]");
+    $userResearch = mysqli_fetch_assoc($sql);
+    handleObjectives($conn, $userInfo["userID"], 11);
+    ?>
     <main>
-      <?php
+    <?php 
+    require "include/bars.php"; 
       if (isset($_GET["error"])) {
         if ($_GET["error"]=="sql") {
           echo ' <div class="popup_result">

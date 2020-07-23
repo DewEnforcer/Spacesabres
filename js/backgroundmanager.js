@@ -1,84 +1,48 @@
-$(document).ready(function () {
-  let timeOffset = new Date();
-  let offset = timeOffset.getTimezoneOffset();
-  let time = new Date().getHours() + offset / 60;
-  if (time < 7) {
-    $(document.body).css(
-      "background-image",
-      "url('../image/bg/background.webp')"
-    );
-  } else if (time < 14) {
-    $(document.body).css(
-      "background-image",
-      "url('../image/bg/background1.webp')"
-    );
-  } else if (time < 21) {
-    $(document.body).css(
-      "background-image",
-      "url('../image/bg/background2.webp')"
-    );
-  } else if (time < 23) {
-    $(document.body).css(
-      "background-image",
-      "url('../image/bg/background.webp')"
-    );
-  }
-  $.ajax({
-    type: "POST", //execute ajax
-    url: "../include/getMovement.php",
-    data: { index: "checkAttacks" },
-    success: function (getStatus) {
-      if (getStatus == "1") {
-        $(".attack_alert").css("display", "block");
-      } else if (getStatus == "0") {
-        ("");
-      }
-    },
-  }); //end ajax call
-  function checkAttack() {
-    let interval = setInterval(function (intervalCheckattack) {
-      $.ajax({
-        type: "POST", //execute ajax
-        url: "../include/getMovement.php",
-        data: { index: "checkAttacks" },
-        success: function (getStatus) {
-          if (getStatus == "1") {
-            $(".attack_alert").css("display", "block");
-          } else if (getStatus == "0") {
-            $(".attack_alert").css("display", "none");
-          }
-        },
-      }); //end ajax call
-    }, 30000);
-  }
-  let initiateCheck = checkAttack();
-  $(".button_confirm_result").click(function (hideResult) {
-    $(".popup_result").html("");
-    $(".popup_result").css("display", "none");
+//functions
+const evaluateDanger = (data) => {
+  let display = "block";
+  if (data == "0") display = "none";
+  $(".attack_alert").css("display", display);
+};
+const checkerFetch = async () => {
+  const formData = new FormData();
+  formData.append("action", "checkAttack");
+  const response = await fetch("../include/getMovement.php", {
+    method: "POST",
+    body: formData,
   });
-
-  function msToTime(duration) {
-    return;
-    var milliseconds = parseInt((duration % 1000) / 100),
-      seconds = Math.floor((duration / 1000) % 60),
-      minutes = Math.floor((duration / (1000 * 60)) % 60),
-      hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-
-    hours = hours < 10 ? "0" + hours : hours;
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    $(".server_time").html(
-      "Server time: " + hours + ":" + minutes + ":" + seconds + ""
-    );
+  const data = await response.text();
+  console.log(data);
+  evaluateDanger(data);
+};
+const bgChanger = () => {
+  const time = new Date().getHours() + new Date().getTimezoneOffset() / 60;
+  let bg = "";
+  if (time > 7 && time <= 14) {
+    bg = "1";
+  } else if (time > 14 && time <= 21) {
+    bg = "2";
   }
+  $(document.body).css(
+    "background-image",
+    `url('../image/bg/background${bg}.webp')`
+  );
+};
+const realTimeConv = () => {
+  let seconds = Math.floor((serverTime / 1000) % 60);
+  let minutes = Math.floor((serverTime / (1000 * 60)) % 60);
+  let hours = Math.floor((serverTime / (1000 * 60 * 60)) % 24);
 
-  let serverClock = setInterval(function () {
-    msToTime(serverTime);
-    serverTime += 1000;
-  }, 1000);
-});
-// new features
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  serverTime += 1000;
+
+  const text = `Server time: ${hours}:${minutes}:${seconds}`;
+  $(".server_time").html(text);
+};
+//utils
 const numberFormated = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 };
@@ -90,3 +54,16 @@ const updateUserValutes = (credit, hyperid, natium, userID = undefined) => {
     $("#span_id").html(" | UserID: " + userID);
   }
 };
+$(document).ready(function () {
+  checkerFetch(); //initial attack check
+  bgChanger();
+  //set intervals now
+  const attackChecker = setInterval(checkerFetch, 30000);
+  const serverTimer = setInterval(realTimeConv, 1000);
+
+  //events
+  $(".button_confirm_result").click(function (hideResult) {
+    $(".popup_result").html("");
+    $(".popup_result").css("display", "none");
+  });
+});

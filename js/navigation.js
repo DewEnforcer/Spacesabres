@@ -6,10 +6,7 @@ $(document).ready(() => {
     if (open) {
       display = "none";
     }
-    childArr = Array.from(document.querySelector(".header_btns").children);
-    childArr.forEach((item, i) => {
-      $(item).css("display", display);
-    });
+    $(".header_btns a").css("display", display);
     $(".header_nav span").css("display", display);
   };
 

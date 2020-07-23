@@ -4,13 +4,14 @@ main {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .research_main_wrapper {
   display: flex;
   flex-flow: column nowrap;
   width: 70vw;
   height: 70vh;
-  background-color: rgb(30,30,30,0.9);
+  background-color: rgb(30, 30, 30, 0.9);
   border: 2px solid white;
   border-radius: 5px;
   text-align: center;
@@ -26,19 +27,19 @@ main {
   display: flex;
   flex-flow: column nowrap;
   border-top: 2px solid white;
-  border-bottom:  2px solid white;
+  border-bottom: 2px solid white;
 }
 .content {
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
   height: 85%;
-  text-align:center;
+  text-align: center;
 }
 .btn_item_purch {
   width: 35%;
   padding: 3px 0px;
-  background-color: rgb(35,35,35);
+  background-color: rgb(35, 35, 35);
   border: 2px solid grey;
   margin: 0 5%;
   color: white;
@@ -54,9 +55,9 @@ main {
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
-  height:15%;
+  height: 15%;
   border-top: 1px solid grey;
-  background-color: rgb(30,30,30);
+  background-color: rgb(30, 30, 30);
   justify-content: center;
 }
 .items_wrapper {
@@ -98,7 +99,7 @@ main {
   padding: 10px;
   border: 2px solid white;
   border-radius: 5px;
-  background-color: rgb(30,30,30);
+  background-color: rgb(30, 30, 30);
   top: 20%;
 }
 .purchase_confirm_popup div {
@@ -111,7 +112,7 @@ main {
 .purchase_confirm_popup button {
   width: 35%;
   padding: 3px 0px;
-  background-color: rgb(35,35,35);
+  background-color: rgb(35, 35, 35);
   border: 2px solid grey;
   margin: 0 5%;
   color: white;

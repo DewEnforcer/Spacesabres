@@ -23,26 +23,15 @@
 
     gtag('config', 'UA-143336464-1');
   </script>
-    <script src="../js/search-player.js"></script>
-    <script src="../js/gameinfo.js"></script>
+    <?php require "include/scripts.php" ?>
     <script src="../js/news.js"></script>
-    <script src="../js/backgroundmanager.js"></script>
-    <script src="../js/navigation.js"></script>
-    <script src="../js/fleetbarNav.js"></script>
     <script src="../js/dailyLoginHandler.js"></script>
     <title>SpaceSabres||Home</title>
   </head>
   <body>
         <?php require "include/header.php"; ?>
       <main>
-      <img src="./image/graphics/navbarbtn.png" id="btn_navbar" alt="navbar_btn">
-      <div class="navigation">
-        <?php require "include/nav.php" ?>
-      </div>
-      <div id="btn_fleetbar">
-      </div>
-      <div class="fleet_bar">
-      </div>
+      <?php require "include/bars.php"; ?>
       <section class="searchPopup">
       </section>
       <?php // handles the daily login window

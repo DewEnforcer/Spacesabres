@@ -9,317 +9,71 @@ a {
   text-decoration: none;
 }
 span {
-  color: white
+  color: white;
 }
-.all_fleets_box {
-  display: flex;
-  width: 80vw;
-  flex-flow: column wrap;
-  align-items: center;
-  align-self: flex-start;
-  background-color: rgb(30,30,30, 0.9);
-  border: 2px solid black;
-  border-radius: 5px;
-  margin: 50px 0;
-  justify-content: center;
-}
-.all_fleets_box h1, h2, h3 {
-  color: rgb(245,245,245);
-}
-.navbar_fleet_over {
-  background-color: rgb(30,30,30);
-  margin-top: 20px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
-  margin-bottom: 25px;
-  width: 70%;
+.dock_main_box {
+  width: 65vw;
+  height: 60vh;
   border: 2px solid grey;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    rgb(10, 10, 10),
+    rgb(35, 35, 35),
+    rgb(10, 10, 10)
+  );
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "title title"
+    "list details";
 }
-.navbar_fleet_over a {
-  font-family: "Kanit", sans-serif;
-  background-color: rgb(50,50,50, 1);
-  padding: 2.5px 5px;
-  color: rgb(235,235,235);
-  cursor: pointer;
+#dock_title {
+  grid-area: title;
+  text-align: center;
+  border-bottom: 2px solid grey;
+}
+.dock_ship_list {
+  grid-area: list;
   border-right: 2px solid grey;
-  border-left: 2px solid grey;
-  text-decoration: none;
-  transition: 0.2s ease-in-out;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
-.navbar_fleet_over a:hover {
-  border-color: white;
-  background-color: rgb(35,35,35);
+.dock_ship_details {
+  grid-area: details;
+  text-align: center;
 }
-.fleet_show_fleet_box {
+.ship_box {
   display: flex;
-  flex-flow: row wrap;
-  font-family: 'Kanit', sans-serif;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 5px;
+  border: 1px solid grey;
   position: relative;
-  background-color: rgb(35,35,35,0.9);
-  margin: 0 75px;
-  width: calc(100% - 150px);
-  border: 2px solid grey;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  height: 80vh;
-}
-.wrapper_squadrons {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  width: 70%;
-  border-right: 2px solid grey;
-  height: 100%;
-  max-height: 100%;
-  overflow-y: auto;
-  text-align: center;
-  color: white;
-}
-.wrapper_squadrons tbody {
-  width: 100%;
-}
-.header_tr {
-  min-height: 50px;
-  background-color: rgb(50,50,50);
-  border-bottom: 1px solid white;
-  margin-bottom: 2px;
-}
-.wrapper_squadrons tr {
-  display: flex;
-  flex-flow: row nowrap;
-  text-align: center;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-}
-.ship_tab {
-  min-height: 40px;
-  background-color: rgb(70,70,70);
-  border-bottom: 1px solid grey;
-  border-top: 1px solid grey;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
+  transition: 0.25s ease-in-out;
+  opacity: 0.7;
 }
-.wrapper_squadrons th:nth-child(1), .wrapper_squadrons td:nth-child(1) {
-  width: 15%;
+.ship_box:hover {
+  opacity: 1;
 }
-.wrapper_squadrons th:nth-child(2), .wrapper_squadrons td:nth-child(2) {
-  width: 15%;
-}
-.wrapper_squadrons th:nth-child(3), .wrapper_squadrons td:nth-child(3) {
-  width: 70%;
-}
-.menu_squadrons {
-  display: flex;
-  flex-flow: column nowrap;
-  text-align: center;
-  background-color: rgb(30,30,30);
-  width: calc(30% - 2px);
-  height: 100%;
-  position: relative;
-}
-.btn_help_squadron {
+.ship_title {
   position: absolute;
   top: 0;
-  right: 0;
-  border: 2px solid grey;
-  background-color: rgb(35,35,35);
-  cursor: pointer;
-  color: white;
-  font-family: "Kanit", sans-serif;
-  transition: 0.3s ease-in-out;
 }
-.btn_help_squadron:hover {
-  border-color: white;
-}
-.menu_squadrons_wrapper {
+.ship_title,
+.ship_box span {
   width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  margin: 10px 0;
-}
-.menu_squadrons_wrapper button {
-  margin: 10px 0;
-  width: 60%;
-  border: 2px solid grey;
-  background-color: rgb(35,35,35);
-  cursor: pointer;
-  color: white;
-  padding: 3px 0;
-  font-family: "Kanit", sans-serif;
-  transition: 0.3s ease-in-out;
-}
-.menu_squadrons_wrapper button:hover {
-  border-color: white;
-}
-.squadron_popup {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  color: white;
-  position: absolute;
-  border: 2px solid white;
-  border-radius: 5px;
-  background-color: rgb(35,35,35);
-  min-width: 30vw;
-  min-height: 15vh;
-  padding: 10px;
-  top: 20vh;
-}
-.squadron_popup button {
-  margin: 10px 0;
-  width: 60%;
-  border: 2px solid grey;
-  background-color: rgb(35,35,35);
-  cursor: pointer;
-  color: white;
-  padding: 3px 0;
-  font-family: "Kanit", sans-serif;
-  transition: 0.3s ease-in-out;
-}
-.squadron_popup button:hover {
-  border-color: white;
-}
-.squadron_form {
-  width: 80%;
-  height: 10vh;
-  border: 2px solid white;
-  border-top: none;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  margin: 2vh 0;
-}
-.squadron_form div {
-  display: flex;
-  flex-flow: row nowrap;
-  text-align: center;
-  align-items: center;
-  width: 100%;
-  justify-content: center;
-}
-.squadron_form input {
-  margin-left: 10px;
-  padding: 3px;
-  font-family: "Kanit", sans-serif;
-  background-color: rgb(35,35,35);
-  border: 2px solid grey;
-  color: white;
-  transition: 0.3s ease-in-out;
-}
-.squadron_form input:focus {
-border-color: white;
-}
-.squadron_form button {
-  margin: 10px 0;
-  width: 60%;
-  border: 2px solid grey;
-  background-color: rgb(35,35,35);
-  cursor: pointer;
-  color: white;
-  padding: 3px 0;
-  font-family: "Kanit", sans-serif;
-  transition: 0.3s ease-in-out;
-}
-.squadron_form button:hover {
-  border-color: white;
-}
-.btn_close_popup {
-  width: 20px;
-  cursor: pointer;
-  top: 0;
-  right: 0;
-  position: absolute;
-}
-.image_wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  width: 100%;
-}
-.ship_wrapper {
-  width: 100%;
+  background-color: rgba(10, 10, 10, 0.7);
   text-align: center;
 }
-.btn_minus, .btn_plus {
-  width: 20px !important;
-  height: 34px;
-  padding: 0;
-  font-size: 16px;
-  margin: 0 10px !important;
-}
-.assign_wrapper {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
+.gif_container {
   width: 100%;
+  border: 1px solid white;
 }
-.assign_wrapper input {
-  background-color: rgb(35,35,35);
-  color: white;
-  border: 2px solid grey;
-  font-family: "Kanit", sans-serif;
-  transition: 0.3s ease-in-out;
-  height: 30px;
-  padding: 0 3px;
-}
-.assign_wrapper input::-webkit-outer-spin-button,.assign_wrapper input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.assign_wrapper input {
-    -moz-appearance: textfield;
-}
-.menu_dock {
+.gif_container img {
   width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-}
-.menu_dock button {
-  width: 50%;
-  background-color: rgb(35,35,35);
-  border: 2px solid grey;
-  font-family: "Kanit", sans-serif;
-  color: white;
-  transition: 0.2s ease-in-out;
-  cursor: pointer;
-  margin: 3px 0;
-}
-.menu_dock button:hover {
-  border-color: white;
-}
-/* list of all ships */
-.squadron_ships {
-  width: 100%;
-  height: 100%;
-  max-height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  overflow-y: auto;
-  position: relative;
-}
-.squadron_ships_header {
-  display: flex;
-  width: 100%;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  padding: 10px 0;
-  background-color: rgb(50,50,50);
-  border-bottom: 2px solid white;
-}
-.btn_go_back {
-  cursor: pointer;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.loading {
-  width: 200px;
-  position: absolute;
 }
