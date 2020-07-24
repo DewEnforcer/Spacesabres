@@ -46,7 +46,7 @@
       }
     },
     "4": {
-      "name": "CI-10 Hornet",
+      "name": "CI-10 Peacemaker",
       "hp": 60000,
       "shd": 0,
       "speed": 0,
@@ -61,7 +61,7 @@
       }
     },
     "5": {
-      "name": "CI-25 Hornet",
+      "name": "CI-25 Centurion",
       "hp": 72500,
       "shd": 0,
       "speed": 0,
