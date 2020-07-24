@@ -1,5 +1,7 @@
 <?php
   require "./include/accessSecurity.php";
+  $sql = mysqli_query($conn, "SELECT fleet FROM userfleet WHERE userID=$userInfo[userID]");
+  $fleet = mysqli_fetch_assoc($sql)["fleet"];
  ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +13,23 @@
     <link rel="stylesheet" href="../css/stylegame.css">
     <link rel="stylesheet" href="../css/styleBriefing.css">
     <?php require "include/scripts.php" ?>
+    <script src="../js/briefingComponents.js"></script>
+    <script src="../js/components/briefingUI.js"></script>
     <script src="../js/briefing.js"></script>
+    <script>
+      const realFleet = <?php echo $fleet; ?>;
+      const targetCoords = {
+        x: undefined,
+        y: undefined,
+        map: undefined
+      }
+      const basePosition = {
+        x: 0,
+        y: 0,
+        map: 5
+      }
+      const userFuel = <?php echo 50000; ?>;
+    </script>
     <title>SpaceSabres||Briefing</title>
   </head>
   <body>

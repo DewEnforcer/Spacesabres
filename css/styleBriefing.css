@@ -44,9 +44,15 @@ main {
   right: 0;
   top: 0;
   display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.ship_list {
+  display: grid;
   grid-template-columns: 1fr 1fr;
+  border-right: 2px solid grey;
 }
 .ship_box {
+  display: flex;
   flex-flow: column nowrap;
   position: relative;
   align-items: center;
@@ -71,6 +77,87 @@ main {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+}
+.ship_box input {
+  background-color: rgb(25, 25, 25);
+  border: 1px solid grey;
+  margin: 0 5px;
+  padding: 0 3px;
+}
+.btn_val_man {
+  width: 10%;
+  border: none;
+  background-color: rgb(50, 50, 50);
+  font-size: 16px;
+  cursor: pointer;
+}
+.operation_box {
+  grid-template-rows: 0.5fr 2fr 2fr 1fr 1fr 1fr;
+  text-align: center;
+}
+.missions_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid grey;
+}
+.mission_select {
+  justify-self: center;
+  align-self: center;
+}
+.coords_box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+.coords_box input {
+  width: 10%;
+  margin: 0 2px;
+  color: black;
+}
+#time_required {
+  align-self: center;
+}
+.consumption_wrapper {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.max_consumption {
+  width: 70%;
+  height: 30%;
+  border: 2px solid white;
+  border-radius: 3px;
+  background-color: #e50b00;
+}
+.real_consumption {
+  height: 100%;
+  width: 0%;
+  background-color: green;
+}
+#consumpt_number {
+  position: absolute;
+}
+.btn_deploy {
+  width: 70%;
+  height: 50%;
+  color: white;
+  background-color: #5be64e;
+  font-size: 1.4em;
+  justify-self: center;
+  align-self: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+.btn_deploy:hover {
+  text-shadow: 2px 2px 5px white;
 }
 .hyperspace_flash {
   width: 100%;
