@@ -4,7 +4,14 @@ const calculateFuelConsumption = () => {
   selectedShips.forEach((item, i) => {
     totalConsumpt += shipInfo[i + 1].fuel_consumption * item;
   });
-  let width = (totalConsumpt / userFuel) * 100 + "%";
+  totalConsumpt *= getDistance();
+  let width = (totalConsumpt / userFuel) * 100;
+  enoughFuel = true;
+  if (width > 100) {
+    width = 100;
+    enoughFuel = false;
+  }
+  width += "%";
   $(".real_consumption").animate({
     width,
   });
@@ -22,11 +29,51 @@ const genMenuUi = () => {
   listAllShips();
   listOperationOptions();
 };
+const getDistance = () => {
+  const coords = {
+    x: Number($("#coord_x").val()),
+    y: Number($("#coord_y").val()),
+    map: Number($("#coord_map").val()),
+  };
+  const { x, y, map } = basePosition;
+  return (
+    Math.abs(x - coords.x) +
+    Math.abs(y - coords.y) +
+    Math.abs((map - coords.map) * 100)
+  );
+};
+const manageTravelTime = () => {
+  const distance = getDistance();
+  const distIncrease = 100;
+  let maxSpeed = 1000000000;
+  selectedShips.forEach((item, i) => {
+    if (item <= 0) {
+      return;
+    }
+    const shipSpeed = shipInfo[i + 1].speed;
+    if (shipSpeed < maxSpeed) {
+      maxSpeed = shipSpeed;
+    }
+  });
+  const travelTime = ((distance * distIncrease) / maxSpeed) * 60;
+  let hours = Math.floor(travelTime / 3600);
+  let minutes = Math.floor(travelTime / 60) - hours * 60;
+  let seconds = Math.floor(travelTime - hours * 3600 - minutes * 60);
+
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  $("#time_required").html(`Travel time: ${hours}:${minutes}:${seconds}`);
+};
 const manageDeployButton = () => {
   let cursor = "pointer";
   let backgroundColor = "#5be64e";
   deployable = true;
-  if (selectedShips.reduce((total, amount) => total + amount, 0) <= 0) {
+  if (
+    selectedShips.reduce((total, amount) => total + amount, 0) <= 0 ||
+    !enoughFuel
+  ) {
     cursor = "default";
     backgroundColor = "grey";
     deployable = false;
@@ -35,6 +82,9 @@ const manageDeployButton = () => {
     cursor,
     backgroundColor,
   });
+};
+const manageSelectedMission = () => {
+  console.log("hey");
 };
 const listOperationOptions = () => {
   //fuel, x y map, time, mission type
@@ -58,11 +108,11 @@ const listMissions = () => {
 };
 const generateCoordinates = () => {
   const { x, y, map } = targetCoords;
-  const inputs = `<input type="number" id="coord_map" value="${
+  const inputs = `<input type="number" class="coords_info" id="coord_map" value="${
     typeof map === "undefined" ? 0 : map
-  }">:<input type="number" id="coord_x" value="${
+  }">:<input type="number" class="coords_info" id="coord_x" value="${
     typeof x === "undefined" ? 0 : x
-  }">:<input type="number" id="coord_y" value="${
+  }">:<input type="number" class="coords_info" id="coord_y" value="${
     typeof y === "undefined" ? 0 : y
   }">`;
   const content = `<span>Coordinates(map/x/y): </span>${inputs}`;
@@ -101,6 +151,7 @@ const setAmountVisual = (shipType) => {
     selectedShips[shipType] = realFleet[shipType];
   }
   $("#amount_ship_" + shipType).val(selectedShips[shipType]);
-  manageDeployButton();
   calculateFuelConsumption();
+  manageDeployButton();
+  manageTravelTime();
 };

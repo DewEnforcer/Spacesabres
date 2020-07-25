@@ -13,19 +13,41 @@ let shipInfo = undefined;
 let shipsLoaded = false;
 let hyperspaceOpen = false;
 let deployable = false;
+let enoughFuel = true;
 const selectedShips = [0, 0, 0, 0, 0, 0];
 const baseCoords = {
   x: 600,
   y: 400,
 };
 let menuOpen = false;
+let missionType = undefined;
 const deployFetch = async () => {
+  const x = $("#coord_x").val();
+  const y = $("#coord_y").val();
+  const map = $("#coord_map").val();
   const response = await fetch("./include/briefingAjax.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: "action=deploy&data=" + JSON.stringify(selectedShips),
+    body:
+      "action=deploy&data=" +
+      JSON.stringify([selectedShips, map, x, y, missionType]),
+  });
+  const data = await response.text();
+  if (data == "success") {
+    $("#btn_open_menu").trigger("click");
+    initJump();
+    resetDeployMenu();
+  } else {
+    //error handling here
+  }
+};
+const resetDeployMenu = () => {
+  selectedShips.forEach((item, shipType) => {
+    realFleet[shipType] -= item;
+    selectedShips[shipType] = 0;
+    setAmountVisual(shipType);
   });
 };
 //canvas functions
@@ -107,6 +129,7 @@ const hyperspaceBoom = () => {
   if (hyperspaceOpen) {
     return;
   }
+  portals.forEach((item) => (item.activated = true));
   hyperspaceOpen = true;
   const sound = document.createElement("audio");
   sound.src = "../sounds/hyperspacejump.mp3";
@@ -139,7 +162,6 @@ const initJump = () => {
     (item.x = x), (item.y = y);
   });
   ships.forEach((item) => item.initJump(x, y));
-  portals.forEach((item) => (item.activated = true));
 };
 preloadSources();
 getShipParams();
@@ -182,12 +204,23 @@ $(document).ready(() => {
     selectedShips[shipType] = newAmount;
     setAmountVisual(shipType);
   });
+  $(document).on("click", ".mission_select", (ev) => {
+    const type = Number(ev.target.id.split("_")[1]);
+    if (type == missionType) {
+      return;
+    }
+    missionType = type;
+    manageSelectedMission();
+  });
   $(document).on("click", ".btn_deploy", (ev) => {
     if (!deployable) {
       return;
     }
-    //deployFetch();
-    $("#btn_open_menu").trigger("click");
-    initJump();
+    deployFetch();
+  });
+  $(document).on("change", ".coords_info", () => {
+    calculateFuelConsumption();
+    manageDeployButton();
+    manageTravelTime();
   });
 });

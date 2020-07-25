@@ -15,7 +15,7 @@ class Portal {
       this.activated = false;
       return;
     }
-    this.sequence += 1;
+    this.sequence += 2;
     this.sprite.src =
       "./image/gamemap/portals/portalJumpAnim/" + this.sequence + ".png";
     let offsetX = this.sprite.width / 2;
