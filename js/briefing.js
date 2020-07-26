@@ -6,6 +6,7 @@ const portalBuffer = [];
 const portalAmount = 1;
 const rootFlash = "body_box";
 const missionList = [1, 2]; //attack, defense
+const missionText = ["Attack", "Assisted defense"];
 const mapID = Math.floor(Math.random * avalBGs.length);
 let canvas = undefined;
 let ctx = undefined;
@@ -35,13 +36,38 @@ const deployFetch = async () => {
       JSON.stringify([selectedShips, map, x, y, missionType]),
   });
   const data = await response.text();
+  let title = "Success";
+  let msg = "Fleet has been successfully deployed!";
+  let color = "green";
   if (data == "success") {
     $("#btn_open_menu").trigger("click");
     initJump();
     resetDeployMenu();
   } else {
-    //error handling here
+    title = "Error";
+    color = "red";
+    switch (data) {
+      case "notfound":
+        msg =
+          "We weren't able to detect any potential target at these coordinates!";
+        break;
+      case "noships":
+        msg = "Unfortunately you don't have that many ships.";
+        break;
+      case "no_fuel":
+        msg = "Unfortunately you don't have enough fuel to deploy this fleet!";
+        break;
+      case "error":
+        msg =
+          "Unfortunately an error occured, please try again or report it on the forums!";
+        break;
+
+      default:
+        msg = "Unknown error encountered, please try again.";
+        break;
+    }
   }
+  statusPopup(title, msg, color);
 };
 const resetDeployMenu = () => {
   selectedShips.forEach((item, shipType) => {
@@ -204,8 +230,8 @@ $(document).ready(() => {
     selectedShips[shipType] = newAmount;
     setAmountVisual(shipType);
   });
-  $(document).on("click", ".mission_select", (ev) => {
-    const type = Number(ev.target.id.split("_")[1]);
+  $(document).on("change", ".mission_select", (ev) => {
+    const type = Number(ev.target.value);
     if (type == missionType) {
       return;
     }
@@ -223,4 +249,7 @@ $(document).ready(() => {
     manageDeployButton();
     manageTravelTime();
   });
+  $(document).on("click", "#btn_confirm_status", () =>
+    $(".status_box").remove()
+  );
 });

@@ -12,9 +12,12 @@ const calculateFuelConsumption = () => {
     enoughFuel = false;
   }
   width += "%";
-  $(".real_consumption").animate({
-    width,
-  });
+  $(".real_consumption").animate(
+    {
+      width,
+    },
+    200
+  );
   $("#consumpt_number").html(`${totalConsumpt}/${userFuel} Fuel`);
 };
 const getShipParams = async () => {
@@ -101,10 +104,13 @@ const listOperationOptions = () => {
   listMissions();
 };
 const listMissions = () => {
-  missionList.forEach((item) => {
-    let box = `<img class="mission_select" id="mission_${item}" src="./image/graphics/missIcon${item}.png">`;
-    $(".missions_list").append(box);
+  let missionOptions;
+  const title = `Select mission type`;
+  missionList.forEach((item, i) => {
+    missionOptions += `<option value=${item}>${missionText[i]}</option>`;
   });
+  const missionSelector = `${title}<select class="mission_select">${missionOptions}</select>`;
+  $(".missions_list").html(missionSelector);
 };
 const generateCoordinates = () => {
   const { x, y, map } = targetCoords;
@@ -154,4 +160,14 @@ const setAmountVisual = (shipType) => {
   calculateFuelConsumption();
   manageDeployButton();
   manageTravelTime();
+};
+const statusPopup = (title, msg, color) => {
+  title = `<h3 style="color: ${color}">${title}!</h3><hr style="width: 100%">`;
+  const text = `<p>${msg}</p>`;
+  const button = `<button type="button" id="btn_confirm_status">OK</button>`;
+  const statusBox = `<div class="status_box">${title + text + button}</div>`;
+  $(".main_briefing").append(statusBox);
+  $(".status_box").fadeIn(500, () => {
+    $(".status_box").css("display", "flex");
+  });
 };
