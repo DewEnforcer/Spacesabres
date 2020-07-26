@@ -13,10 +13,7 @@
  ?>
 <a href="internalBriefing.php">Briefing</a>
 <a href="internalDisplayfleet.php" style="width: 100%;">Docks</a>
-<a href="internalFleets.php">Fleet Overview</a>
-<a href="internalFleets.php">Movement Overview</a>
-<a href="internalBattlelobbies.php">Commander's HUD</a>
-<a href="internalDisplaystats.php">Battle statistics</a>
+<a href="internalFleets.php">Fleet Monitoring</a>
 <a href="internalCompanyDefense.php">Company Defense</a>
 <a href="internalGalaxy.php">Galactic Map</a>
 <a href="internalMissions.php">Missions</a>

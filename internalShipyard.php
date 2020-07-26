@@ -11,11 +11,6 @@
   <?php include "include/font.php"; ?>
   <link rel="stylesheet" href="../css/stylegame.css">
   <link rel="stylesheet" href="../css/styleShop.css">
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  <script>
     var docks = <?php echo $docks ?>;
   </script>
   <?php require "include/scripts.php" ?>

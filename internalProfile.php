@@ -7,34 +7,18 @@
     <meta charset="utf-8">
     <meta name="description" content="This is an example of a meta description. This will often show up in search results">
     <meta name=viewport content="width=device-width, initial-scale=1">
-        <?php include "include/font.php"; ?>
-        <link rel="stylesheet" href="../css/stylegame.css">
-        <link rel="stylesheet" href="../css/styleProfile.css">
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-    <script src="../js/countDownPage.js" charset="utf-8"></script>
-    <script src="../js/gameinfo.js" charset="utf-8"></script>
-    <script src="../js/backgroundmanager.js" charset="utf-8"></script>
-    <script src="../js/search-player.js"></script>
+    <?php include "include/font.php"; ?>
+    <link rel="stylesheet" href="../css/stylegame.css">
+    <link rel="stylesheet" href="../css/styleProfile.css">
+    <?php require "include/scripts.php" ?>
+    <script src="./js/profile.js"></script>
     <title>SpaceSabres||Profile</title>
-    <style media="screen">
-
-    </style>
   </head>
   <body>
-
-      <header>
         <?php require "include/header.php"; ?>
-
-  </header>
-
     <main>
-      <section class="searchPopup">
-
-      </section>
       <?php
+      require "include/bars.php";
       if (isset($_GET["error"])) {
         if ($_GET["error"]=="sql") {
           echo ' <div class="popup_result">
@@ -76,69 +60,67 @@
             </div>';
         }
       }
+      $position = 1;
+      $sql = mysqli_query($conn, "SELECT userID FROM userfleet ORDER BY destroyedPoints DESC LIMIT 0,10");
+      while ($row = mysqli_fetch_assoc($sql)) {
+          if ($row["userID"] == $userInfo["userID"]) {
+          break;
+          }
+        $position++;
+      }
+      $sql = mysqli_query($conn, "SELECT * FROM profileimg where userid = $userInfo[userID]");
+      $searchedProfilePic = mysqli_fetch_assoc($sql);
+      $sql = mysqli_query($conn, "SELECT rank FROM userfleet WHERE userID=$userInfo[userID]");
+      $rank = mysqli_fetch_assoc($sql)["rank"];
        ?>
       <section class="profile_main_container">
-          <h2 class="main_title">Your account center</h2>
-          <div class="profile_avatar_container">
-
-          <h3 class="title_profilepicture">Your profile picture</h3>
-          <?php
-
-          $sid = $_SESSION["sid"];
-          $selectID = "SELECT userID, Username FROM users WHERE sessionID=?";
-          $stmt = mysqli_stmt_init($conn);
-          mysqli_stmt_prepare($stmt, $selectID);
-          mysqli_stmt_bind_param($stmt, "s", $sid);
-          mysqli_stmt_execute($stmt);
-          $result = mysqli_stmt_get_result($stmt);
-          $ResultID = mysqli_fetch_assoc($result);
-          $ID = $ResultID["userID"];
-              $sqlimg = "SELECT * FROM profileimg where userid = $ID";
-              $resultImg = mysqli_query($conn, $sqlimg);
-              $IMG = mysqli_fetch_assoc($resultImg);
-
-                    if ($IMG['status'] == 0) {
-                      $filename = "uploads/profile".$ID."*";
-
-                      $fileinfo = glob($filename);
-                      $fileExt = explode(".", $fileinfo[0]);
-                      $fileActext = $fileExt[1];
-
-                      echo "<img src='uploads/profile".$ID.".".$fileActext."?".mt_rand()."'>";
-                    } else {
-                      echo "<img src='uploads/profileDef.jpg'>";
-                    }
-                    echo $ID['Username'];
-
-
-           ?>
+        <div class="profile_header_wrapper">
+          <a href="internalStats.php" class="btn_profile_abs">Battle Statistics</a>
         </div>
-        <div class="profile_forms">
-        <div class="profile_upload_form">
-          <h3>Choose your profile picture image</h3>
-          <form action="include/imgUpload.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="img" placeholder="IMG" >
-            <button type="submit" name="submitbutton">Upload</button>
-          </form>
-        </div>
-        <div class="profile_delete_form">
-          <h3>Delete your profile picture</h3>
-          <form action="include/deleteAvatar.php" method="post">
-            <button type="submit" name="deletebutton">Delete</button>
-        </form>
-        </div>
-        </div>
+        <section class="profile_box_main">
+          <div class="profile_user_img">
+            <h2><?php echo $userInfo["ingameNick"]; ?></h2>
+            <hr style="width: 100%; margin-bottom: 2vh;">
+            <?php
+            $rankArr = ["Unknown", "Ensign", "Basic Lieutenant", "Lieutenant", "Lieutenant Commander", "Commander", "Captain", "Rear Admiral", "Vice Admiral", "Admiral", "Fleet Admiral", "Administrator"];
+            if ($searchedProfilePic['status'] == 0) {
+              $filename = "uploads/profile".$userInfo["userID"]."*";
+              $fileinfo = glob($filename);
+              $fileExt = explode(".", $fileinfo[0]);
+              $fileActext = $fileExt[1];
 
-        <div class="profile_user_info">
-          <?php
-          echo "<h4>Your username: ".$show["ingameNick"]."</h4>";
-          echo "<h4>Date of registration (YYYY/MM/DD): ".date('Y-m-d G:i:s', $show["regDate"])."</h4>";
-          echo "<h4>Play time: ".floor($show["playTime"]/3600)." Hour(s)</h4>";
-          ?>
-        </div>
-        <div class="userinfo_change_box">
-          <a href="internalInfochange.php">Change your account information!</a>
-        </div>
+              echo "<div><img class='img_profile' src='./uploads/profile".$userInfo["userID"].".".$fileActext."?".mt_rand()."'></div>";
+            } else {
+              echo "<div><img class='img_profile' src='./uploads/profileDef.jpg'></div>";
+            }
+             ?>
+             <form action="include/imgUpload.php" class="profile_upload_form" method="post" enctype="multipart/form-data">
+              <h3>Change your profile picture</h3>
+              <input type="file" name="img" placeholder="IMG" >
+              <button type="submit" name="submitbutton">Upload</button>
+            </form>
+          </div>
+          <div class="profile_user_info">
+            <h2>User Information</h2>
+            <?php
+            echo '<label class="rank">Rank: '.$rankArr[$rank]. ' <img style="width: 16px;" src="../image/ranks/rank'.$rank.'.png" class="rankImg"></label>';
+            echo '<label><a href="internalUsersLeaderboard.php">Leaderboard position: '.$position.'</a></label>';
+            echo '<label>Alliance: '.$userInfo["userclan"].'</label>';
+            echo '<label>Registration date: '.date('Y-m-d G:i:s', $userInfo["regDate"]).'</label>';
+             ?>
+          </div>
+        </section>
+        <section class="profile_change_info_wrapper">
+          <div class="profile_img_reset">
+            <form action="include/deleteAvatar.php" class="profile_delete_form" method="post">
+              <h3>Reset your profile picture</h3>
+              <button type="submit" name="deletebutton">Reset</button>
+            </form>
+          </div>
+          <div class="profile_info_change">
+            <a href="internalInfochange.php">Change your account information!</a>
+          </div>
+        </section>
       </section>
     </main>
 
