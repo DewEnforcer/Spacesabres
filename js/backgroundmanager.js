@@ -1,3 +1,18 @@
+const rankArr = [
+  "Unknown",
+  "Ensign",
+  "Basic Lieutenant",
+  "Lieutenant",
+  "Lieutenant Commander",
+  "Commander",
+  "Captain",
+  "Rear Admiral",
+  "Vice Admiral",
+  "Admiral",
+  "Fleet Admiral",
+  "Administrator",
+];
+
 //functions
 const evaluateDanger = (data) => {
   let display = "block";
