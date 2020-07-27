@@ -8,23 +8,9 @@
     <meta name="description" content="This is an example of a meta description. This will often show up in search results">
     <meta name=viewport content="width=device-width, initial-scale=1">
     <?php include "include/font.php"; ?>
-      <link rel="stylesheet" href="../css/stylegame.css">
-      <link rel="stylesheet" href="../css/styleAllyIn.css">
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143336464-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-143336464-1');
-  </script>
-    <script src="../js/search-player.js"></script>
-    <script src="../js/gameinfo.js"></script>
-    <script src="../js/backgroundmanager.js"></script>
+    <link rel="stylesheet" href="../css/stylegame.css">
+    <link rel="stylesheet" href="../css/styleAllyIn.css">
+    <?php require "include/scripts.php"; ?>
     <script src="../js/alliance.js"></script>
     <title>SpaceSabres||Alliance</title>
   </head>
@@ -32,28 +18,19 @@
     <div class="opacity_box">
 
     </div>
-      <header>
-        <?php require "include/header.php"; ?>
-
-  </header>
-
+    <?php require "include/header.php"; ?>
     <main>
 
       <?php
-      require './include/allianceResults.php';
+        require "include/bars.php";
+        require './include/allianceResults.php';
        ?>
-      <section class="searchPopup">
-
-      </section>
       <section class="ally_main_box">
         <h2>Interplanetary alliance</h2>
         <div class="ally_wrapper_box">
           <div class="ally_navbar">
             <ul class="ally_nav">
-              <a href="internalAlliance.php">Alliance</a>
-              <a href="internalAllianceMembers.php">Alliance members</a>
-              <a href="internalAllianceMsg.php">Send alliance message</a>
-              <a href="internalAllianceDiplo.php">Alliance diplomacy</a>
+              <?php require "include/allyNav.php" ?>
             </ul>
           </div>
         <div class="ally_overview_home">

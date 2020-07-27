@@ -8,23 +8,9 @@
     <meta name="description" content="This is an example of a meta description. This will often show up in search results">
     <meta name=viewport content="width=device-width, initial-scale=1">
     <?php include "include/font.php"; ?>
-      <link rel="stylesheet" href="../css/stylegame.css">
-      <link rel="stylesheet" href="../css/styleAlly.css">
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143336464-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-143336464-1');
-  </script>
-    <script src="../js/search-player.js"></script>
-    <script src="../js/gameinfo.js"></script>
-    <script src="../js/backgroundmanager.js"></script>
+    <link rel="stylesheet" href="../css/stylegame.css">
+    <link rel="stylesheet" href="../css/styleAlly.css">
+    <?php require "include/scripts.php"; ?>
     <script src="../js/alliance.js"></script>
     <title>SpaceSabres||Alliances</title>
   </head>
@@ -32,19 +18,12 @@
     <div class="opacity_box">
 
     </div>
-      <header>
         <?php require "include/header.php"; ?>
-
-  </header>
-
     <main>
       <?php
-      require './include/allianceResults.php';
+        require "include/bars.php";
+        require './include/allianceResults.php';
        ?>
-
-      <section class="searchPopup">
-
-      </section>
       <section class="ally_main_box">
         <h2>List of interplanetary alliances</h2>
         <div class="ally_wrapper_box">

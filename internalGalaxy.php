@@ -10,16 +10,9 @@
     <?php include "include/font.php"; ?>
     <link rel="stylesheet" href="../css/stylegame.css">
     <link rel="stylesheet" href="../css/styleGalaxy.css">
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-    <script src="../js/galaxy.js" charset="utf-8"></script>
+    <?php require "include/scripts.php" ?>
+    <script src="../js/galaxy.js"></script>
     <script src="../js/hack-handler.js"></script>
-    <script src="../js/countDownPage.js" charset="utf-8"></script>
-    <script src="../js/gameinfo.js" charset="utf-8"></script>
-    <script src="../js/search-player.js"></script>
-    <script src="../js/backgroundmanager.js" charset="utf-8"></script>
     <script>
       $(document).ready(function() {
         $(".btn_help_galaxy").click(function(openTips) {
@@ -41,18 +34,13 @@
     <title>SpaceSabres||Galaxy</title>
   </head>
   <body>
-
-      <header>
         <?php 
         require "include/header.php"; 
-        handleObjectives($conn, $show["userID"], 14);
+        handleObjectives($conn, $userInfo["userID"], 14);
          ?>
-  </header>
 
     <main>
-      <section class="searchPopup">
-
-      </section>
+      <?php require "include/bars.php"; ?>
       <section class="galaxy_main_container">
         <button type="button" class="btn_help_galaxy" id="galaxy">Help</button>
         <div class="top_container_galaxy_title">
@@ -61,7 +49,7 @@
         <div class="galaxy_main_container_navbar">
           <div class="galaxy_main_container_navbar_map">
             <?php
-            $sql = mysqli_query($conn, "SELECT * FROM userfleet WHERE userID=$show[userID]");
+            $sql = mysqli_query($conn, "SELECT * FROM userfleet WHERE userID=$userInfo[userID]");
             $getMapParams = mysqli_fetch_assoc($sql);
             echo "<h4 class='navigation_info'>Current system displayed in the navigation: ".$getMapParams["mapLocation"]."</h4>";
              ?>
@@ -82,9 +70,9 @@
         <div class="galaxy_main_map">
 
           <?php
-          $sql = mysqli_query($conn, "SELECT userclan FROM users WHERE userID=$show[userID]");
+          $sql = mysqli_query($conn, "SELECT userclan FROM users WHERE userID=$userInfo[userID]");
           $userClan = mysqli_fetch_assoc($sql);
-          $sql = mysqli_query($conn, "SELECT fleetPoints FROM userfleet WHERE userID=$show[userID]");
+          $sql = mysqli_query($conn, "SELECT fleetPoints FROM userfleet WHERE userID=$userInfo[userID]");
           $userPoints = mysqli_fetch_assoc($sql);
           if ($userPoints["fleetPoints"] < 1) {
             $userPoints["fleetPoints"] = 1;
@@ -96,7 +84,7 @@
             if ($planets["fleetPoints"] < 1) {
               $planets["fleetPoints"] = 1;
             }
-            if ($planets["userID"] == $show["userID"]) {
+            if ($planets["userID"] == $userInfo["userID"]) {
               $type = "User";
             } elseif ($planetClan["userclan"] == $userClan["userclan"] && $userClan["userclan"] != "none") {
               $type = "Ally";
