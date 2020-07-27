@@ -1,5 +1,7 @@
 <?php
   require "./include/accessSecurity.php";
+  $sql = mysqli_query($conn, "SELECT mapLocation FROM userfleet WHERE userID=$userInfo[userID]");
+  $map = mysqli_fetch_assoc($sql)["mapLocation"];
  ?>
 <!DOCTYPE html>
 <html>
@@ -14,6 +16,7 @@
     <script src="../js/galaxy.js"></script>
     <script src="../js/hack-handler.js"></script>
     <script>
+      let currentSystem = <?php echo $map; ?>;
       $(document).ready(function() {
         $(".btn_help_galaxy").click(function(openTips) {
           $("main").append("<div class='help_box_content'></div>");
@@ -48,11 +51,6 @@
         </div>
         <div class="galaxy_main_container_navbar">
           <div class="galaxy_main_container_navbar_map">
-            <?php
-            $sql = mysqli_query($conn, "SELECT * FROM userfleet WHERE userID=$userInfo[userID]");
-            $getMapParams = mysqli_fetch_assoc($sql);
-            echo "<h4 class='navigation_info'>Current system displayed in the navigation: ".$getMapParams["mapLocation"]."</h4>";
-             ?>
           </div>
           <div class="galaxy_main_container_navbar_selector">
             <button type="button" name="button_backwards" class="backwards">&#8249</button>
@@ -60,56 +58,9 @@
             <button type="button" name="button_forward" class="forward">&#8250</button>
           </div>
         </div>
-        <div class="galaxy_main_map_wrapper">
-          <div class="galaxy_main_map_planet_params">
-
-          </div>
-          <div class="galaxy_main_map_hack_attempt">
-
-          </div>
         <div class="galaxy_main_map">
-
-          <?php
-          $sql = mysqli_query($conn, "SELECT userclan FROM users WHERE userID=$userInfo[userID]");
-          $userClan = mysqli_fetch_assoc($sql);
-          $sql = mysqli_query($conn, "SELECT fleetPoints FROM userfleet WHERE userID=$userInfo[userID]");
-          $userPoints = mysqli_fetch_assoc($sql);
-          if ($userPoints["fleetPoints"] < 1) {
-            $userPoints["fleetPoints"] = 1;
-          }
-          $sqlLoop = mysqli_query($conn, "SELECT pageCoordsX, pageCoordsY, userID, fleetPoints FROM userfleet WHERE mapLocation=$getMapParams[mapLocation]");
-          while ($planets = mysqli_fetch_assoc($sqlLoop)) {
-            $sql = mysqli_query($conn, "SELECT userclan FROM users WHERE userID=$planets[userID]");
-            $planetClan = mysqli_fetch_assoc($sql);
-            if ($planets["fleetPoints"] < 1) {
-              $planets["fleetPoints"] = 1;
-            }
-            if ($planets["userID"] == $userInfo["userID"]) {
-              $type = "User";
-            } elseif ($planetClan["userclan"] == $userClan["userclan"] && $userClan["userclan"] != "none") {
-              $type = "Ally";
-            } else {
-              if ($userPoints["fleetPoints"] < $planets["fleetPoints"]*10) {
-                $type = "Enemy";
-              } else {
-                $type = "Passive";
-              }
-            }
-
-
-              echo '<img src="../image/graphics/galaxybase'.$type.'.png" alt="planet" class="planet" style="cursor:pointer;position:absolute; left:'.$planets["pageCoordsX"].'px; top:'.$planets["pageCoordsY"].'px" id='.$type.'type'.$planets["pageCoordsX"].'y'.$planets["pageCoordsY"].'>';
-          }
-          $system = "systems".ceil($getMapParams["mapLocation"]/100);
-          $sql = mysqli_query($conn, "SELECT coordsX, coordsY FROM $system WHERE map=$getMapParams[mapLocation] AND status=1");
-          while ($npcs = mysqli_fetch_assoc($sql)) {
-              echo '<img src="../image/graphics/npc.png" alt="planet" class="planet" style="cursor:pointer;position:absolute; left:'.$npcs["coordsX"].'px; top:'.$npcs["coordsY"].'px" id=npctype'.$npcs["coordsX"].'y'.$npcs["coordsY"].'>';
-          }
-           ?>
-
-        <img src="../image/graphics/sungalaxy.png" alt="sun" style="position:absolute; left:372.5px;top:177.5px;">
-
+        </div>
       </div>
-    </div>
       </section>
     </main>
 
