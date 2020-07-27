@@ -13,6 +13,7 @@ const fetchSystemData = async () => {
 const generatePlanets = (data) => {
   Object.keys(data).forEach((item, i) => {});
 };
+const generateSun = () => {};
 $(document).ready(() => {
   fetchSystemData();
 });

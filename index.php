@@ -1,9 +1,5 @@
 <?php
 session_start();
-$allHeaders = getallheaders();
-if (strpos($allHeaders["User-Agent"], "Android") != FALSE || strpos($allHeaders["User-Agent"], "iPhone") != FALSE) {
-  header("location: ./m/");
-}
  ?>
 <!DOCTYPE html>
 <html>
