@@ -75,7 +75,7 @@
        ?>
       <section class="profile_main_container">
         <div class="profile_header_wrapper">
-          <a href="internalStats.php" class="btn_profile_abs">Battle Statistics</a>
+          <a href="#" class="btn_profile_abs">Battle Statistics</a>
         </div>
         <section class="profile_box_main">
           <div class="profile_user_img">

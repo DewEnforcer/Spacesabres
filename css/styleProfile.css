@@ -249,6 +249,25 @@ main {
 .btn_profile_abs:nth-child(2) {
   left: calc(10% + 2px);
 }
+/* battle stats */
+.battle_stats_box {
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 20vw;
+  text-align: center;
+  padding: 5px;
+  background-color: rgb(20, 20, 20);
+  border: 2px solid grey;
+  border-radius: 3px;
+}
+#close_stats {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  cursor: pointer;
+}
 @media only screen and (max-width: 1366px) and (max-height: 768px) {
   .profile_main_container {
     width: 70vw;
