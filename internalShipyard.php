@@ -11,6 +11,7 @@
   <?php include "include/font.php"; ?>
   <link rel="stylesheet" href="../css/stylegame.css">
   <link rel="stylesheet" href="../css/styleShop.css">
+  <script>
     var docks = <?php echo $docks ?>;
   </script>
   <?php require "include/scripts.php" ?>

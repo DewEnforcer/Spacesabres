@@ -38,13 +38,6 @@ CREATE TABLE `admins` (
   `IP` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Vypisuji data pro tabulku `admins`
---
-
-INSERT INTO `admins` (`adminKey`, `Username`, `Password`, `Email`, `sessionID`, `sessionIDExpire`, `IP`) VALUES
-(';y8}m+@hJQ2nbYanq:!#w]`]MHd8Rc', 'DewEnforcer', '$2y$10$OmMAKR5SgJ0VNlFyvTgsUuhiC3rbKObUkhS9.BXpCevoBXAOHDXu2', 'pat.mad@seznam.cz', '2ord1kqp9630', 1563233529, '');
-
 -- --------------------------------------------------------
 
 --
@@ -68,15 +61,6 @@ CREATE TABLE `croncontrol` (
   `execute` int(11) NOT NULL DEFAULT 0,
   `id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Vypisuji data pro tabulku `croncontrol`
---
-
-INSERT INTO `croncontrol` (`execute`, `id`) VALUES
-(0, 1);
-
--- --------------------------------------------------------
 
 --
 -- Struktura tabulky `dailybonus`
@@ -146,17 +130,6 @@ CREATE TABLE `loginlogs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Vypisuji data pro tabulku `loginlogs`
---
-
-INSERT INTO `loginlogs` (`userID`, `time`, `loginIP`, `loginIPproxy`) VALUES
-(18056943, 1570186639, '::1', 'No proxy IP detected.'),
-(27613408, 1569335641, '::1<br>', ''),
-(79120856, 1570023766, '::1', 'No proxy IP detected.');
-
--- --------------------------------------------------------
-
---
 -- Struktura tabulky `news`
 --
 
@@ -197,91 +170,6 @@ CREATE TABLE `notactiveusers` (
   `mapLocation` int(3) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
---
--- Vypisuji data pro tabulku `notactiveusers`
---
-
-INSERT INTO `notactiveusers` (`userID`, `Username`, `Email`, `Password`, `regDate`, `IPreal`, `IPproxy`, `idActivate`, `idExpire`, `coordsX`, `coordsY`, `mapLocation`) VALUES
-(30214576, 'Libec', 'axbox@seznam.cz', '$2y$10$B/xKp8Knv3nsg10v4XX3ZuwYBixw2qSXxEj2PUcp0TtYYYQjta8Ii', 1563896864, '', '', 'cb2ecc44e86de62122e7b84564f3faa9', 1563983264, 84, 92, 1),
-(24610739, 'PlanetTest10', 'piranha0863@gmail.com', '$2y$10$k3p8yrNSym6aUg7Mq7zFM.PO4EJkwn64QZqCJfw6pScHoAmB4NUQ6', 1569338987, '::1', 'No proxy IP detected.', '656e3db18ed873963ced9ebfc968d1f0', 1569425387, 679, 166, 73);
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `player_information`
---
-
-CREATE TABLE `player_information` (
-  `playerID` int(255) NOT NULL,
-  `userID` int(255) NOT NULL,
-  `TokenId` bigint(20) NOT NULL DEFAULT 4,
-  `shipId` smallint(11) NOT NULL DEFAULT 10,
-  `factionId` smallint(1) NOT NULL DEFAULT 0,
-  `mapId` smallint(30) NOT NULL DEFAULT 1,
-  `x` varchar(5) NOT NULL DEFAULT '6800',
-  `y` varchar(5) NOT NULL DEFAULT '10600',
-  `settings` text NOT NULL,
-  `rank` int(11) NOT NULL DEFAULT 1 COMMENT '1: Basic Space Pilot',
-  `premium` int(1) NOT NULL DEFAULT 1 COMMENT '0: No, Premium | 1: Yes, Premium',
-  `level` int(11) NOT NULL DEFAULT 1,
-  `clanID` int(11) NOT NULL DEFAULT 0,
-  `uridium` varchar(255) CHARACTER SET utf16 NOT NULL DEFAULT '1000000',
-  `credit` varchar(255) CHARACTER SET utf16 NOT NULL DEFAULT '1000000',
-  `ldrones` int(255) NOT NULL DEFAULT 1,
-  `Resulutions` int(255) NOT NULL DEFAULT 1,
-  `design` int(255) NOT NULL DEFAULT 0,
-  `exp` bigint(255) NOT NULL DEFAULT 0,
-  `honor` bigint(255) NOT NULL DEFAULT 0,
-  `RexLevel` int(11) NOT NULL DEFAULT 1,
-  `RexExperience` int(11) NOT NULL DEFAULT 0,
-  `RexBaseExperience` int(11) NOT NULL DEFAULT 25000,
-  `c1speed` int(11) NOT NULL DEFAULT 15,
-  `c2speed` int(11) NOT NULL DEFAULT 5,
-  `c1lasers` int(11) NOT NULL DEFAULT 10,
-  `c2lasers` int(11) DEFAULT 5,
-  `c1shieldd` int(11) NOT NULL DEFAULT 6,
-  `c2shieldd` int(11) NOT NULL DEFAULT 11,
-  `c1shield` int(11) NOT NULL DEFAULT 0,
-  `c2shield` int(11) NOT NULL DEFAULT 10,
-  `designID` int(32) NOT NULL DEFAULT 1,
-  `key2` int(32) NOT NULL DEFAULT 5,
-  `apis` int(32) NOT NULL DEFAULT 0,
-  `zeus` int(32) NOT NULL DEFAULT 0,
-  `datelastonline` date DEFAULT NULL,
-  `chatban` int(11) NOT NULL DEFAULT 0,
-  `gameban` int(11) NOT NULL DEFAULT 0,
-  `chatmod` int(11) NOT NULL DEFAULT 0,
-  `wave1` int(11) NOT NULL DEFAULT 1,
-  `wave2` int(11) NOT NULL DEFAULT 1,
-  `wave3` int(11) NOT NULL DEFAULT 1,
-  `wave4` int(11) NOT NULL DEFAULT 1,
-  `life1` int(11) NOT NULL DEFAULT 0,
-  `life2` int(11) NOT NULL DEFAULT 0,
-  `life3` int(11) NOT NULL DEFAULT 0,
-  `life4` int(11) NOT NULL DEFAULT 0,
-  `ring1` int(11) NOT NULL DEFAULT 0,
-  `ring2` int(11) NOT NULL DEFAULT 0,
-  `ring3` int(11) NOT NULL DEFAULT 0,
-  `ring4` int(11) NOT NULL DEFAULT 0,
-  `connected` int(11) NOT NULL DEFAULT 0,
-  `IP` text NOT NULL,
-  `width` int(11) NOT NULL,
-  `height` int(11) NOT NULL,
-  `show_config` int(11) NOT NULL DEFAULT 1,
-  `PtitleID` int(11) NOT NULL,
-  `Profilstat` int(11) NOT NULL,
-  `blockuser` int(11) NOT NULL,
-  `clan_function` varchar(40) NOT NULL DEFAULT '0|0|0|0|' COMMENT '1 = Accepter/Refuser; 2 = Kick; 3 = Diplomatie; 4 = Modifier clan'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
-
---
--- Vypisuji data pro tabulku `player_information`
---
-
-INSERT INTO `player_information` (`playerID`, `userID`, `TokenId`, `shipId`, `factionId`, `mapId`, `x`, `y`, `settings`, `rank`, `premium`, `level`, `clanID`, `uridium`, `credit`, `ldrones`, `Resulutions`, `design`, `exp`, `honor`, `RexLevel`, `RexExperience`, `RexBaseExperience`, `c1speed`, `c2speed`, `c1lasers`, `c2lasers`, `c1shieldd`, `c2shieldd`, `c1shield`, `c2shield`, `designID`, `key2`, `apis`, `zeus`, `datelastonline`, `chatban`, `gameban`, `chatmod`, `wave1`, `wave2`, `wave3`, `wave4`, `life1`, `life2`, `life3`, `life4`, `ring1`, `ring2`, `ring3`, `ring4`, `connected`, `IP`, `width`, `height`, `show_config`, `PtitleID`, `Profilstat`, `blockuser`, `clan_function`) VALUES
-(1, 27613408, 4, 10, 0, 1, '6800', '10600', '', 1, 1, 1, 0, '1000000', '1000000', 1, 1, 0, 0, 0, 1, 0, 25000, 15, 5, 10, 5, 6, 11, 0, 10, 1, 5, 0, 0, NULL, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, '::1', 1920, 966, 1, 0, 0, 0, '0|0|0|0|');
-
--- --------------------------------------------------------
 
 --
 -- Struktura tabulky `profileimg`
@@ -316,15 +204,6 @@ CREATE TABLE `pwdreset` (
   `pwdResetToken` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `pwdResetExpires` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Vypisuji data pro tabulku `pwdreset`
---
-
-INSERT INTO `pwdreset` (`pwdResetId`, `pwdResetEmail`, `pwdResetSelector`, `pwdResetToken`, `pwdResetExpires`) VALUES
-(20, 'pat.mad@seznam.cz', '98acc71f4efe4d99', '$2y$10$HUq.czOrqPgp.G5slya5TO/2H/lFksNfiHdMFoovy7/qS2t8PTTIS', '1567508936');
-
--- --------------------------------------------------------
 
 --
 -- Struktura tabulky `quests`
@@ -764,22 +643,6 @@ CREATE TABLE `userbase` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Vypisuji data pro tabulku `userbase`
---
-
-INSERT INTO `userbase` (`userID`, `inventoryMod1`, `inventoryMod2`, `inventoryMod3`, `inventoryMod4`, `coreStatus`, `coreHealth`, `coreShields`, `slot1`, `slot2`, `slot3`, `slot4`, `slot5`, `slot6`, `slot7`, `slot8`, `slot9`, `slot10`) VALUES
-(18056943, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(27613408, 31, 95, 2, 10, 1, 6000000, 3000000, 1, 2, 3, 0, 0, 0, 4, 1, 1, 1),
-(52146370, 0, 0, 0, 0, 1, 1000000, 500000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(78145239, 0, 0, 0, 0, 1, 1000000, 500000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(79120856, 10, 3, 1, 10, 1, 1000000, 500000, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2),
-(79168025, 10, 0, 0, 0, 1, 1000000, 500000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(84216073, 0, 0, 0, 0, 1, 1000000, 500000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(95617823, 5, 3, 1, 1, 1, 1000000, 500000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
 -- Struktura tabulky `userclans`
 --
 
@@ -804,16 +667,6 @@ CREATE TABLE `userclans` (
   `totalMembers` int(11) NOT NULL DEFAULT 1,
   `totalPoints` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Vypisuji data pro tabulku `userclans`
---
-
-INSERT INTO `userclans` (`clanID`, `createDate`, `clanName`, `clanTag`, `clanLeader`, `clanContact`, `clanDetail`, `clanLog`, `clanApps`, `clanAppDesc`, `clanDiplo`, `clanDiploReq`, `clanDiploPending`, `clanImgID`, `clanImgStatus`, `clanMembers`, `clanMembersPerms`, `totalMembers`, `totalPoints`) VALUES
-('7610952348', 1570187475, 'Bruhmomentum', 'BRUH', 'Dewtest', 'None', 'We report every bruh moment that is found in this game', 'a:0:{}', 'a:0:{}', 'a:0:{}', 'a:0:{}', 'a:0:{}', 'a:0:{}', '0', 0, 'a:1:{i:0;s:8:\"79120856\";}', 'a:1:{i:0;a:9:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:6;i:1;i:7;i:1;i:8;i:5;}}', 1, 0),
-('8037546129', 1568740647, 'Dewbois', 'DEWY', 'DewEnforcerTest', 'None', 'We are the defenders of all our friends and shall defeat all those who oppose us!', 'a:4:{i:0;s:99:\"<div>Commander PlanetTest1 has been kicked from the alliance by DewEnforcerTest. (04.10.2019)</div>\";i:1;s:70:\"<div>Commander PlanetTest1 has joined the alliance. (04.10.2019)</div>\";i:2;s:54:\"<div>Dewtest has left the alliance. (02.10.2019)</div>\";i:3;s:66:\"<div>Commander Dewtest has joined the alliance. (22.09.2019)</div>\";}', 'a:0:{}', 'a:0:{}', 'a:0:{}', 'a:0:{}', 'a:0:{}', '0', 0, 'a:1:{i:0;s:8:\"27613408\";}', 'a:1:{i:0;a:9:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:6;i:1;i:7;i:1;i:8;i:5;}}', 50, 135613);
-
--- --------------------------------------------------------
 
 --
 -- Struktura tabulky `userfleet`
@@ -862,22 +715,6 @@ CREATE TABLE `userfleet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Vypisuji data pro tabulku `userfleet`
---
-
-INSERT INTO `userfleet` (`id`, `userID`, `admin`, `rank`, `leaderboardPos`, `pageCoordsX`, `pageCoordsY`, `mapLocation`, `formationHeavy`, `formationLight`, `dock1`, `dock2`, `dock3`, `dock4`, `dock5`, `dock6`, `dock7`, `dock8`, `dock9`, `dock10`, `temporaryDock`, `dockAmount`, `equipment`, `dockIncrement`, `templates`, `fuel`, `destroyedPoints`, `fleetPoints`, `destroyedShips`, `destroyedHornets`, `destroyedSpacefires`, `destroyedStarhawks`, `destroyedPeacemakers`, `destroyedCenturions`, `destroyedNathalis`, `battlesWon`, `battlesLost`, `battlesDraw`, `battlesTotal`) VALUES
-(1, 18056943, 0, 8, 6, 165, 46, 1, 'Line', 'Phalanx', 0x613a313a7b693a303b613a363a7b733a363a22686f726e6574223b613a303a7b7d733a393a22737061636566697265223b613a303a7b7d733a383a22737461726861776b223b613a303a7b7d733a31303a2270656163656d616b6572223b613a303a7b7d733a393a2263656e747572696f6e223b613a303a7b7d733a383a226e617468616c6973223b613a303a7b7d7d7d, '', '', '', '', '', '', '', '', '', '', 1, 'a:4:{s:6:\"lasers\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"beam\";i:0;}s:7:\"rockets\";i:0;s:6:\"energy\";i:0;s:10:\"hyperspace\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"high\";i:0;}}', 0, '', 10000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 27613408, 0, 11, 1, 66, 405, 1, 'Wedge', 'Pincer', 0x1f8b080000000000000ae5dd4b8e6cc77945e1b9dc011819f1bf224aa3a12502222cdb82483704417377f0b26102f21ac16a142a4fd679d56eaddef7c3d7fa7c3e5ffff8e9ebf3871fbee6eb1f3f7ff5d7b7fffa9ffffcf71ffff6ed0f3f7fe5d7b739b37efdf8beffcb0f3ffff8b79fbfbd33f3b74b7efeda5fdff6fbf34f5febf707fbf707f17f07fffcf93de3dbdffefb8ffff1e32fdfeff31efddb773ffff9a71ffff2a7efdfaddfdfbbbe5fb43e5fdffefcf7bfbe87fff5873ffef82f27edef27d5bbcb2f3ffcf2fbf77bafd59fefbfde4f7dbe7fdc7ff8d3d7da9fdf0ee21d7cfe2d7ebdfcfdabbfbc47fcf6fafffcf5927f1de4a7afb7c6168eb1698c108e1134460ac7481aa38463148dd1c2319ac618e11843631ce11887c6b8c2312e8c713ec231d6ff97a1dfd758c635a8418fb1411745e83146e8a20a3dc60a5d94a1c798a18b3af4183b7451881e63882e2ad1632cd145297a8c29baa845afb14537b5e835b6e8a616bdc616ddd4a2d7d8a29b5af41a5b74538b5e638b6e6ad16b6cd14d2d7a8d2dbaa945afb14537b5e835b6e88616bd1f638b06b4e8fd185b34a045efc7d8a2012d7a3fc6160d68d1fb31b668408bde8fb145035af47e8c2d1ad0a2f7636cd18016bd1f638b06b4e8fd185b34a84597b145935a74195b34a94597b145935a74195b34a94597b145935a74195b34a94597b145935a74195b34a94597b145935a74195b34a945b7b1458b5a741b5bb4a845b7b1458b5a741b5bb4a845b7b1458b5a741b5bb4a845b7b1458b5a741b5bb4a845b7b1458b5a741b5bb4a845c3d8a24d2d1ac6166d6ad130b668538b86b1459b5a348c2ddad4a2616cd1a6160d638b36b568185bb4a945c3d8a24d2d1ac6166d6ad134b6e8508ba6b145875a348d2d3ad4a2696cd1a1164d638b0eb5681a5b74a845d3d8a2432d9ac6161d6ad134b6e8508ba6b145875ab48c2d7aa845cbd8a2875ab48c2d7aa845cbd8a2875ab48c2d7aa845cbd8a2875ab48c2d7aa845cbd8a2875ab48c2d7aa845cbd8a2875ab48d2d7aa945dbd8a2975ab48d2d7aa945dbd8a2975ab48d2d7aa945dbd8a2975ab48d2d7aa945dbd8a2975ab48d2d7aa945dbd8a2975a748c2dba3e14a3638cd1f5a11a558a4beb4339aa3497d6877a54a92ead0f05a9d25d5a1f2a52a5bcb43e94a44a7b697da84995fad2fa50942afda5f5a12a750a4c44305d29c14455ea34980861ba4e848914a6eb54988861ba4e86891ca6eb74980862ba4e888924a6eb94988862ba4e8a892ca6abb49816614c5789312dd298ae52635ac4315d25c7b4c863ba4a8f6911c8749520d32291e92a45a64524d355924c8b4ca6ab349916a14c5789322d5099ceaf570ae70096e9cda1ac527099de1cca2a0598e9cda1ac529099de1cca2a059ae9cda1ac52b099de1cca2a059ce9cda1ac52d099de1cca2a059ee9cda1ac52f099ce47e9332d009ade1cca2a05a1e9cda1ac52209ade1cca2a05a3e9cda1ac52409ade1cca2a05a5e9cda1ac52609ade1cca2a05a7e9cda1ac52809ade1cca2a05a9e97c9452d302aae9cda1ac52b09ade1cca2a05ace9cda1ac52d09ade1cca2a05aee9cda1ac52f09ade1cca2a05b0e9cda1ac52109bde1cca2a05b2e9cda1ac52309bce4769362d409bde1cca2a05b5e9cda1ac52609bde1cca2a05b7e9cda1ac52809bde1cca2a05b9e9cda1ac52a09bde1cca2a05bbe9cda1ac52c09bde1cca2a05bde97c947ad302bee9cda1ac52f09bde1cca2a05c0e9cda1ac52109cde1cca2a05c2e9cda1ac52309cde1cca2a05c4e9cda1ac52509cde1cca2a05c6e9cda1ac52709cce47e9382d809cde1cca2a05c9e9cda1ac52a09cde1cca2a05cbe9cda1ac52c09cde1cca2a05cde9cda1ac52e09cde1cca2a05cfe9cda1ac52009dde1cca2a05d1e97c94a2d302d2e9cda1ac52309dde1cca2a05d4e9cda1ac52509dde1cca2a05d6e9cda1ac52709dde1cca2a05d8e9cda1ac52909dde1cca2a05dae9cda1ac52b09dce47693bbd53680e63956eb09dde1cc62add603bbd398c55bac1767a7318ab7483edf4e63056e906dbe9cd61acd20db6d39bc358a51b6ca73787b14a37d84e6f0e63956eb09dce47693b6db09dde1cca2a05dbe9cda1ac52b09dde1cca2a05dbe9cda1ac52b09dde1cca2a05dbe9cda1ac52b09dde1cca2a05dbe9cda1ac52b09dde1cca2a05dbe97c94b6d306dbe9cda1ac52b09dde1cca2a05dbe9cda1ac52b09dde1cca2a05dbe9cda1ac52b09dde1cca2a05dbe9cda1ac52b09dde1cca2a05dbe9cda1ac52b29dd64759a5643b2da5edb4c9765a4adb6993edb494b6d326db69296da74db6d352da4e9b6ca7a5b49d36d94e4b693b6db29d96d276da643b2da5edb4c9765a4adb6993edb494b6d326db69296da74db6d352da4e9b6ca7a5b49d36d94e4b693b6db29d96d276da643b2da5edb4c9765a4adb6993edb494b6d326db69296da74db6d352da4e9b6ca7a5b49d36d94e4b693b6db29d96d276da643b2da5edb4c9765a4adb6993edb494b6d326db69296da74db6d352da4e9b6ca7a5b49d36d94e4b693b6db29d96d276da643b2da5edb4c9765a4adb6993edb494b6d326db69296da74db6d352da4e9b6ca7a5b49d36d94e4b693b6db29d96d276da643b2da5edb4c9765a4adb6993edb494b6d326db69296da74db6d352da4e9b6ca7a5b49d36d94e4b693b6db29d96d276da643b2da5edb4c9765a4adb6993edb494b6d326db69296da74db6d352da4e9b6ca7a5b49d36d94e4b693b6db29d96d276da643b2da5edb4c9765a4adb6993edb494b6d326db69296da74db6d352da4e9b6ca7a5b49d36d94e4b693b6db29d96d276da643b2da5edb4c9765a4adb6993edb494b6d326db69296da74db6d352da4e9b6ca7a5b49de24355aab49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca7a5b49d826ca777ad710eb29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d2760ab29db6d276ca0f55a9d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29db6d2764ab29de2a3ac52b29d42693b25d94ea1b49d926ca750da4e49b653286da724db2994b65392ed144adb29c9760aa5ed94643b85d2764ab29d42693b25d94ea1b49d926ca750da4e49b653286da724db2994b65392ed144adb29c9760aa5ed94643b85d2764ab29d42693b25d94ea1b49d926ca750da4e49b653286da724db2994b65392ed144adb29c9760aa5ed94643b85d2764ab29d42693b25d94ea1b49d926ca750da4e49b653286da724db2994b65392ed144adb29c9760aa5ed94643b85d2764ab29d42693b25d94ea1b49d926ca750da4e49b653286da724db2994b65392ed144adb29c9760aa5ed94643b85d2764ab29d42693b25d94ea1b49d926ca750da4e49b653286da724db2994b65392ed144adb29c9760aa5ed94643b85d2764ab29d42693b25d94ea1b49d926ca750da4e49b653286da724db2994b65392ed144adb29c9760aa5ed94643b85d2764ab29d42693b25d94ea1b49d926ca750da4e49b653286da724db2994b65392ed144adb29c9760aa5ed94643b85d2764ab29d42693b25d94ea1b49d926ca750da4e49b653286da724db2994b65392ed144adbe99d4e7318abb4c8760aa5ed54643b85d2762ab29d42693b15d94ea1b49d8a6ca750da4e45b653286da722db2994b65391ed144adba9c8760aa5ed54643b85d2762ab29d42693b15d94ea1b49d8a6ca750da4e45b653286da722db2994b65391ed144adba9c8760aa5ed54643b85d2762ab29d42693b15d94ea1b49d8a6ca750da4e45b653286da722db2994b65391ed144adba9c8760aa5ed54643b85d2762ab29d42693b15d94ea1b49d8a6ca7fc28ab946ca754da4e45b6532a6da722db2995b65391ed944adba9c8764aa5ed54643ba5d2762ab29d52693b15d94ea9b49d8a6ca754da4e45b6532a6da722db2995b65391ed944adba9c8764aa5ed54643ba5d2762ab29d52693b15d94ea9b49d8a6ca754da4e45b6532a6da722db2995b65391ed944adba9c8764aa5ed54643ba5d2762ab29d52693b15d94ea9b49d8a6ca754da4e45b6532a6da722db2995b65391ed944adba9c8764aa5ed54643ba5d2762ab29d52693b15d94ea9b49d8a6ca754da4e45b6532a6da722db2995b65391ed944adba9c8764aa5ed54643ba5d2762ab29d52693b15d94ea9b49d8a6ca754da4e45b6532a6da722db2995b65391ed944adba9c8764aa5ed54643ba5d2762ab29d52693b15d94ea9b49d8a6ca754da4e45b6532a6da722db2995b65391ed944adba9c8764aa5ed54643ba5d2762ab29d52693b15d94ea9b49d8a6ca754da4e45b6532a6da722db2995b65391ed944adba9c8764aa5ed54643ba5d2762ab29d52693b15d94ea9b49d8a6ca754da4e45b6532a6da722db2995b65391ed944adba9c8764aa5ed54643ba5d276faf54298c358a54db6532a6da726db2995b65393ed944adba9c9764aa5edd4643ba5d2766ab29d52693b35d94ea9b49d9a6ca754da4e4db6532a6da726db2995b65393ed944adba9c9764aa5edd4643ba5d2766ab29d52693b35d94ea9b49d9a6ca754da4e4db6532a6da726db2995b65393ed944adba9c9764aa5edd4643ba5d2766ab29d52693b35d94ea9b49d9a6ca754da4e4db6532a6da726db2995b65393ed944adba9c9764aa5edd4643bbdfb18e720dba994b65393ed544adba9c9762aa5edd4643b95d2766ab29d4a693b35d94ea5b49d9a6ca752da4e4db653296da726dba994b65393ed544adba9c9762aa5edd4643b95d2766ab29d4a693b35d94ea5b49d9a6ca752da4e4db653296da726dba994b65393ed544adba9c9762aa5edd4643b95d2766ab29d4a693b35d94ea5b49d9a6ca752da4e4db653296da726dba994b65393ed544adba9c9762aa5edd4643b95d2766ab29d4a693b35d94ea5b49d9a6ca752da4e4db653296da726dba994b65393ed544adba9c9762aa5edd4643b95d2766ab29d4a693b35d94ea5b49d9a6ca752da4e4db653296da726dba994b65393ed544adba9c9762aa5edd4643b95d2766ab29d4a693b35d94ea5b49d9a6ca752da4e4db653296da726dba994b65393ed544adba9c9762aa5edd4643b95d2766ab29d4a693b35d94ea5b49d9a6ca752da4e4db653296da726dba994b65393ed544adba9c9762aa5edd4643b95d2766ab29d4a693b35d94ea5b49d9a6ca752da4e4db653296da726dba994b65393ed544adba9c9762aa5edd4643b95d2766ab29d4a693b35d94ea5b49de64355aab49d866ca752da4e43b653296da721dba994b6d390ed544adb69c8762aa5ed34643b95d2761ab29d4a693b0dd94ea5b49d866ca752da4e43b653296da721dba994b6d390ed544adb69c8762aa5ed34643b95d2761ab29d4a693b0dd94ea5b49d866ca752da4e43b653296da721dba994b6d390ed544adb69c8762aa5ed34643b95d2761ab29d4a693b0dd94ea5b49d866ca752da4e43b653296da721dba994b6d390ed544adb69c876faf58ec239c8766aa5ed34643bb5d2761ab29d5a693b0dd94eadb49d866ca756da4e43b6532b6da721dba995b6d390edd44adb69c8766aa5ed34643bb5d2761ab29d5a693b0dd94eadb49d866ca756da4e43b6532b6da721dba995b6d390edd44adb69c8766aa5ed34643bb5d2761ab29d5a693b0dd94eadb49d866ca756da4e43b6532b6da721dba995b6d390edd44adb69c8766aa5ed34643bb5d2761ab29d5a693b0dd94eadb49d866ca756da4e43b6532b6da721dba995b6d390edd44adb69c8766aa5ed34643bb5d2761ab29d5a693b0dd94eadb49d866ca756da4e43b6532b6da721dba995b6d390edd44adb69c8766aa5ed34643bb5d2761ab29d5a693b0dd94eadb49d866ca756da4e43b6532b6da721dba995b6d390edd44adb69c8766aa5ed34643bb5d2761ab29d5a693b0dd94eadb49d866ca756da4e43b6532b6da721dba995b6d390edd44adb69c8766aa5ed34643bb5d2761ab29d5a693b0dd94eadb49d866ca756da4e43b6532b6da721dba995b6d390edd44adb69c8766aa5ed34643bb5d2761ab29d5a693b0dd94eadb49d866ca756da4e43b6532b6da7f3a12a55da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca756da4e876ca7f928ab946ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4e876ca751da4ef74355aab49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ea3b49d2ed94ee7a3ac52b29d8ed276ba643b1da5ed74c9763a4adbe992ed7494b6d325dbe9286da74bb6d351da4e976ca7a3b49d2ed94e47693b5db29d8ed276ba643b1da5ed74c9763a4adbe992ed7494b6d325dbe9286da74bb6d351da4e976ca7a3b49d2ed94e47693b5db29d8ed276ba643b1da5ed74c9763a4adbe992ed7494b6d325dbe9286da74bb6d351da4e976ca7a3b49d2ed94e47693b5db29d8ed276ba643b1da5ed74c9763a4adbe992ed7494b6d325dbe9286da74bb6d351da4e976ca7a3b49d2ed94e47693b5db29d8ed276ba643b1da5ed74c9763a4adbe992ed7494b6d325dbe9286da74bb6d351da4e976ca7a3b49d2ed94e47693b5db29d8ed276ba643b1da5ed74c9763a4adbe992ed7494b6d325dbe9286da74bb6d351da4e976ca7a3b49d2ed94e47693b5db29d8ed276ba643b1da5ed74c9763a4adbe992ed7494b6d325dbe9286da74bb6d351da4e976ca7a3b49d2ed94e47693b5db29d8ed276ba643b1da5ed74c9763a4adbe992ed7494b6d325dbe9286da74bb6d351da4e976ca7a3b49d2ed94e47693b5db29d8ed276ba643b1da5ed74c9763a4adbe992ed7494b6d325dbe9286da74bb6d311da4efffc5f69bcc0cc37220400, 0x1f8b080000000000000addd64b6e53411085e1bd7801a8bbaafae9d598c452220244b119a0287be7e6da1217c18f8009ca1958edee5bfd3835fa0e73f4f97c3fd3fe30db7c3ecd3a779fbe7c7c7f7cdaedef67f3d2f6ebdac3e1747c3aed96aab8949fa6cd9de5d7aabc9dd876e2df272fa7e5fcddd3e79b0fc7f37a4e9acf97b5d3ddfdf1e1765dcbdbb3cbba29a7b9bbfbfab85cfe78b839fe54646b51594e391fcedbf72dcfaa691d965f49eb5fdbdfce6ce932f16592def9ebf698bbf372c5e5f92faf5ba019fdb7cd48db66a46d33d2b619e9bf34c3feb51946cd18d08ceb85d7d1aea3afe3df04bfd663e6ebf75fc6fdf1057f16d421684d6241838266b1a085829a58d04a415d2c68a3a02116b453d022167450d02a163413b12a11ebcd26253f55f2d39b4d4a38aa6a38caa4a3a6a6a34c3c6a6a3ccae4a3a6e6a34c406a6a40ca24a4a626a44c446a6a44ca64a4a6662423233535231919a9a919c9c8484dcd484646ea6a463232525733929191ba9a918c8cd4d58c6464a4ae662423237535231919a9ab19c9c9485dcd484e46ea6a467232525733929391869a919c8c34d48ce464a4a1662427230d3523391969a819c9c94843cd484e461a6a460a32d25033529091869a91828c34d48c1460a4486a460a3052243523051829929a91028c1449cd4801468aa466a4002345523352809122a919a9809122a919a9809122a919a9809122a919a99091b29a910a1929ab19a99091b29a910a1929ab19a99091b29a910a1929ab19a99091b29a912a1929ab19a99291b29a912a1929ab19a992914ccd48958c646a46aa64245333522523999a912a19c9d48c54c948a666a44a46323523353292a919a991914ccd488d8c646a466a64245733522323b99a911a19c9d58cd4c848ae66a44646723523353292ab19a991915ccd489d8ce46a46ea64245733522723b99a913a1929d48cd4c948a166a44e460a3523753252a819a9939142cd489d8c146a46ea64a45033d22023859a91061929d48c34c848a166a441462a6a461a64a4a266a441462a6a461a64a4a266a441462a5a467af90674e20c67d9590000, 0x1f8b080000000000000a4bb432b0aaae050020e853a206000000, 0x1f8b080000000000000aed91c10ec2200c86df850730802b73ddd3e046b2c5a9cb9807b3ecdd2d60e27ff1ecc51b5f69e957ead9f236b26e3dd7bc4576ac6e8feb392caa1db9b6e4da1c9b7c0c4b54926574c98f52a8ac496906c1221c112a0442700835c209a1f9c01e45572df7ee12d6ac2556251687314c7d8e393425342534253425342534a5dc55c657c37396cf987d17f28760179b934834565fc4aa722d8f6aadb38234d3e56cd3eceff3b1ed591f4c2aaf58add2a268eda9e4cb729aff727ebc9cfd0504e3f07840030000, 0x1f8b080000000000000aed93310e83300c45efe2035449c0819ad3a4100954da2242870a71f79a04a91ecaccc2966ffdc4cffe8aa39ce68e54e5a8a039902578be1f373f42d5516130af62ad77c18f01d8a555f207320446af362d85912293229702a5b052145294525c7f62098c0be3abbefb29623155aa85b6f37d136b5692a22445498a921425294a528c5d797c683f032f6370b58f0b915d4c3421634c2e816debe547955211819ba97436ebecdb39ab1a5217bd5ecf09266e91b096f5ca4e38c519cee1e1983fe14417e753c219d0e101653bbfc7aa339c83c359be0190ed287e060000, 0x1f8b080000000000000a4bb432b0aaae050020e853a206000000, 0x1f8b080000000000000a4bb432b0aaae050020e853a206000000, 0x1f8b080000000000000a4bb432b0aaae050020e853a206000000, 0x1f8b080000000000000a4bb432b0aaae050020e853a206000000, 0x1f8b080000000000000a4bb432b0aaae050020e853a206000000, 0x1f8b080000000000000add904b0e83300c44efe20354c6102a4d4e934224507f08d34585b87b9d50a9e9a217e82a99d1f88dec00c13a827dc011aba205dd1ed7539cc92b1a9093ba495ff32f41e3ac6449c6baa9e569be77e7b864afd9316a3c9296fc88aa14528afa23768e0e63bcf405bb62d0f09cac6f0a5d4c7e55f2250f3a1b5cc257bdb532e7c7ef52de16e7da1e7c1097666db5c5f894635bcaff3e80fbff036c2fab2010c808020000, 10, 'a:4:{s:6:\"lasers\";a:3:{i:19;i:0;i:20;i:404;i:21;i:0;}s:7:\"rockets\";a:1:{i:26;i:98;}s:7:\"shields\";a:1:{i:25;i:164;}s:10:\"hyperspace\";a:3:{i:22;i:98;i:23;i:10;i:24;i:0;}}', 8871, 0x1f8b080000000000000a4bb432b3aaceb432b04eb432b0aaaecdb43284b38c802c13982494516c6564a56464a8640d5288c43142e618233818061a229b630a56608c2e6c0414868a43349ac059a650562d00e1f068b4b8000000, 805451, 529819, 5975, 155428, 93451, 32612, 15841, 9280, 3266, 978, 86, 5, 356, 459),
-(3, 52146370, 0, 7, 8, 539, 349, 1, 'Line', 'Phalanx', 0x613a303a7b7d, '', '', '', '', '', '', '', '', '', '', 1, 'a:4:{s:6:\"lasers\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"beam\";i:0;}s:7:\"rockets\";i:0;s:6:\"energy\";i:0;s:10:\"hyperspace\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"high\";i:0;}}', 0, '', 10000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 78145239, 0, 6, 7, 606, 156, 1, 'Line', 'Phalanx', 0x613a303a7b7d, '', '', '', '', '', '', '', '', '', '', 1, 'a:4:{s:6:\"lasers\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"beam\";i:0;}s:7:\"rockets\";i:0;s:6:\"energy\";i:0;s:10:\"hyperspace\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"high\";i:0;}}', 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(5, 79120856, 0, 9, 2, 95, 157, 1, 'Echelon', 'Turtle', 0x1f8b080000000000000aed98d16a84301045ff251f5032a3461dbfc6ee0656ba6d17631f16d97f6fd4d0dacd856da14f21820cc464e2392fded80b17320fa2bb5e6a999d18516f1fafcf7654dd2075b70e9c7b6747a7fc142df3cdf9896a7c3fbcd8691d2bb7f5db4da172a8c55ab735ee34d8f371d787b4a8d3f5e27b5ffa835dc6e9bb977f5ef93553ff6017d2fe5a773a8a7ee26a59588a9a7c5fb5355ae623ba26113a86746d227405a4239d085e89f12811bc0ae371227806e31589e0d518af4c04afc1785522782dc63389e011ce2c944c6841a9c5098ba246dd33fab77a08b47c6cb65a856a42ad436d426d770276d2be44eea498bfeffb5f12cd0f8974e7b0581de26c445138cafeb03f9cbe384a5fd91ff687e31d47f12efbc3fe707ee4283f667fd81f0ea81c05d4ec0ffbc30998a3049cfd617f38627314b1b33fec0f67788e327cf607fd313e23707446c8feb03ffce794a35fa7d91ff687cf1f9ccf1fbff177fb04c36a44539e180000, 0x1f8b080000000000000a4bb432b0aaae050020e853a206000000, '', '', '', '', '', '', '', '', 0x1f8b080000000000000a4bb432b0aaae050020e853a206000000, 2, 'a:5:{s:6:\"lasers\";a:3:{i:19;i:0;i:20;i:0;i:21;i:50;}s:7:\"rockets\";a:1:{i:26;i:84;}s:7:\"shields\";a:1:{i:25;i:15;}s:10:\"hyperspace\";a:3:{i:22;i:0;i:23;i:0;i:24;i:0;}s:0:\"\";a:3:{i:75000;i:2;i:225000;i:2;i:0;i:2;}}', 30, '', 171956, 394771, 0, 155462, 124808, 19537, 7596, 1704, 1650, 280, 24, 3, 347, 400),
-(6, 79168025, 0, 5, 3, 339, 113, 1, 'Line', 'Phalanx', 0x613a303a7b7d, '', '', '', '', '', '', '', '', '', '', 1, 'a:4:{s:6:\"lasers\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"beam\";i:0;}s:7:\"rockets\";i:0;s:6:\"energy\";i:0;s:10:\"hyperspace\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"high\";i:0;}}', 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(7, 84216073, 0, 4, 4, 337, 104, 1, 'Line', 'Phalanx', 0x613a303a7b7d, '', '', '', '', '', '', '', '', '', '', 1, 'a:4:{s:6:\"lasers\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"beam\";i:0;}s:7:\"rockets\";i:0;s:6:\"energy\";i:0;s:10:\"hyperspace\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"high\";i:0;}}', 0, '', 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(8, 95617823, 0, 4, 5, 160, 167, 1, 'Line', 'Phalanx', 0x613a303a7b7d, '', '', '', '', '', '', '', '', '', '', 1, 'a:4:{s:6:\"lasers\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"beam\";i:0;}s:7:\"rockets\";i:0;s:6:\"energy\";i:0;s:10:\"hyperspace\";a:3:{s:3:\"low\";i:0;s:6:\"medium\";i:0;s:4:\"high\";i:0;}}', 0, '', 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
 -- Struktura tabulky `usermovement`
 --
 
@@ -913,15 +750,6 @@ CREATE TABLE `usermovement` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Vypisuji data pro tabulku `usermovement`
---
-
-INSERT INTO `usermovement` (`userID`, `targetUserID`, `attackedUserX`, `attackedUserY`, `targetMapLocation`, `fleet`, `fleetNumbers`, `travelTime`, `travelWay`, `returnWay`, `setAttack`, `missionType`, `type`, `lobbyID`, `rounds`, `report1`, `rewardsAttacker`, `rewardsDefender`, `report2`, `report3`, `defenseHours`, `reward`, `hudPresentAttacker`, `hudPresentTarget`, `formationHeavy`, `formationLight`, `formationCD`, `id`) VALUES
-(27613408, 0, 293, 29, 1, 0x1f8b080000000000020ae5dc5d6a1b411045e1bdcc02c2545557ff69358a2db08993184b7908467bcf784488209c2c20f749eaa6a7d59ca70f4933c739da7c7f9eebe138b737e759e7f2edc7d7cfa7b7e5f03c5bade5b0cfbd1ccfa7b7f3b2ad2ab7e5e7e97371fb5865f703bf1fc49fc1f5bcedbfbc7d7ff872baecfbacf3fd36777e7a3ebd3cee7376bf77ee17d93a97a79fafdb87bf1e1f4e7f2df27d516ebb5c8e97fbf36dc7aaebfe72b80dfdf038c3b2f6fd5c8f73fd141f9796b95cb6ed6f47bf7e2c8710f93f84c875fdddc27cbd0dfe11c32946158c1114a309c62814a30bc6488a3104635488d156c1188d6298608c4e315c30c6a0182118c3889fad28d620833645831a21b42922d448a14d51a1460c6d8a0c3572685374a81144bb22448d24da15256a44d1ae4851238b76458b3a59b42b5ad4c9a25df2fb50b26857b4a89345bba2459d2cda152dea64d1ae6851278b0e458b3a5974285ad4c9a243d1a24e161d8a160db2e850b468904587a245832c3a247f9c278b0e458b065974285a34c8a243d1a201166daba245a3510d458b46a71a8a168d4135142d5a56aaa168d1625443d1a2c5a986a2454b500dc97f8a16aaa168d1925443d1a2852c6a8a162d645153b468218b9aa2450b59d4142d9a645153b46892454dd1a2491635458b2659d4142d9a645193bc6d892c6a8a164db2a82b5a34c9a2ae68d1248bbaa245932cea8a16ad645157b468258bbaa2452b59d4152d5ac9a2ae68d14a1675458b56b2a84bde434f160d458b56b268285ab4924543d1a2952c1a8a166d64d150b468238b86a2451b5934142ddac8a2a168d146160d458b36b268285ab491458be4039dc8a245d1a28d2c5a142ddac8a245d1a29d2c5a142ddac9a245d1a29d2c5a142ddac9a245d1a29d2c5a142ddac9a245d1a29d2c9a8a16ed64d1947cba285934152ddac9a2a968d141164d458b0eb2682a5a74904553d1a2832c9a8a161d64d154b4e8208ba6a2450759b4ea59f4fa0bca70f6a847660000, 'a:6:{i:0;i:0;i:1;i:0;i:2;i:97;i:3;i:0;i:4;i:0;i:5;i:0;}', 1574144494, 0, 1, 1572990888, 2, 'npc', 'fTlObXhm40QRoNzAsg19', 3, '<div class=\'table_wrapper\'><table class=\'table_round1_attacker\'>\r\n  <tbody>\r\n    <tr>\r\n      <th colspan=\'4\'><h3>Attacker</h3></th>\r\n    </tr>\r\n    <tr>\r\n      <th>Ship type</th>\r\n      <th>Pre-battle</th>\r\n      <th>Post-battle</th>\r\n      <th>Casulties</th>\r\n    </tr>\r\n    <tr>\r\n      <td>Hornet</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Spacefire</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Starhawk</td>\r\n      <td>100</td>\r\n      <td>98</td>\r\n      <td style=\'color:#fe3939\'>-2</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Peacemaker</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Centurion</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Nathalis</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    </tbody>\r\n  </table><table class=\'table_round1_defender\'>\r\n  <tbody>\r\n  <tr>\r\n    <th colspan=\'4\'><h3>Defender</h3></th>\r\n  </tr>\r\n  <tr>\r\n    <th>Ship type</th>\r\n    <th>Pre-battle</th>\r\n    <th>Post-battle</th>\r\n    <th>Casulties</th>\r\n  </tr>\r\n  <tr>\r\n    <td>Hornet</td>\r\n    <td>165</td>\r\n    <td>33</td>\r\n    <td style=\'color:#fe3939\'>-132</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Spacefire</td>\r\n    <td>53</td>\r\n    <td>12</td>\r\n    <td style=\'color:#fe3939\'>-41</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Starhawk</td>\r\n    <td>23</td>\r\n    <td>6</td>\r\n    <td style=\'color:#fe3939\'>-17</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Peacemaker</td>\r\n    <td>12</td>\r\n    <td>4</td>\r\n    <td style=\'color:#fe3939\'>-8</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Centurion</td>\r\n    <td>8</td>\r\n    <td>8</td>\r\n    <td style=\'color:#fe3939\'>-0</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Nathalis</td>\r\n    <td>3</td>\r\n    <td>3</td>\r\n    <td style=\'color:#fe3939\'>-0</td>\r\n  </tr>\r\n  </tbody>\r\n</table></div><p class=\'shotInfo\'>Both defending and attacking commanders have not been present during this round, therefore both fleets engaged each other in the same time</p>', 'a:3:{i:0;i:3319000;i:1;d:582000;i:2;d:0;}', 'a:3:{i:0;i:0;i:1;i:0;i:2;i:0;}', '<div class=\'table_wrapper\'><table class=\'table_round2_attacker\'>\r\n  <tbody>\r\n    <tr>\r\n      <th colspan=\'4\'><h3>Attacker</h3></th>\r\n    </tr>\r\n    <tr>\r\n      <th>Ship type</th>\r\n      <th>Pre-battle</th>\r\n      <th>Post-battle</th>\r\n      <th>Casulties</th>\r\n    </tr>\r\n    <tr>\r\n      <td>Hornet</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Spacefire</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Starhawk</td>\r\n      <td>98</td>\r\n      <td>97</td>\r\n      <td style=\'color:#fe3939\'>-1</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Peacemaker</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Centurion</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Nathalis</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    </tbody>\r\n  </table><table class=\'table_round2_defender\'>\r\n  <tbody>\r\n  <tr>\r\n    <th colspan=\'4\'><h3>Defender</h3></th>\r\n  </tr>\r\n  <tr>\r\n    <th>Ship type</th>\r\n    <th>Pre-battle</th>\r\n    <th>Post-battle</th>\r\n    <th>Casulties</th>\r\n  </tr>\r\n  <tr>\r\n    <td>Hornet</td>\r\n    <td>0</td>\r\n    <td>0</td>\r\n    <td style=\'color:#fe3939\'>-0</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Spacefire</td>\r\n    <td>20</td>\r\n    <td>7</td>\r\n    <td style=\'color:#fe3939\'>-13</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Starhawk</td>\r\n    <td>23</td>\r\n    <td>10</td>\r\n    <td style=\'color:#fe3939\'>-13</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Peacemaker</td>\r\n    <td>12</td>\r\n    <td>3</td>\r\n    <td style=\'color:#fe3939\'>-9</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Centurion</td>\r\n    <td>8</td>\r\n    <td>8</td>\r\n    <td style=\'color:#fe3939\'>-0</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Nathalis</td>\r\n    <td>3</td>\r\n    <td>3</td>\r\n    <td style=\'color:#fe3939\'>-0</td>\r\n  </tr>\r\n  </tbody>\r\n</table></div><p class=\'shotInfo\'>Both defending and attacking commanders have not been present during this round, therefore both fleets engaged each other in the same time</p>', '<div class=\'table_wrapper\'><table class=\'table_round3_attacker\'>\r\n  <tbody>\r\n    <tr>\r\n      <th colspan=\'4\'><h3>Attacker</h3></th>\r\n    </tr>\r\n    <tr>\r\n      <th>Ship type</th>\r\n      <th>Pre-battle</th>\r\n      <th>Post-battle</th>\r\n      <th>Casulties</th>\r\n    </tr>\r\n    <tr>\r\n      <td>Hornet</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Spacefire</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Starhawk</td>\r\n      <td>97</td>\r\n      <td>97</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Peacemaker</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Centurion</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Nathalis</td>\r\n      <td>0</td>\r\n      <td>0</td>\r\n      <td style=\'color:#fe3939\'>-0</td>\r\n    </tr>\r\n    </tbody>\r\n  </table><table class=\'table_round3_defender\'>\r\n  <tbody>\r\n  <tr>\r\n    <th colspan=\'4\'><h3>Defender</h3></th>\r\n  </tr>\r\n  <tr>\r\n    <th>Ship type</th>\r\n    <th>Pre-battle</th>\r\n    <th>Post-battle</th>\r\n    <th>Casulties</th>\r\n  </tr>\r\n  <tr>\r\n    <td>Hornet</td>\r\n    <td>0</td>\r\n    <td>0</td>\r\n    <td style=\'color:#fe3939\'>-0</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Spacefire</td>\r\n    <td>0</td>\r\n    <td>0</td>\r\n    <td style=\'color:#fe3939\'>-0</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Starhawk</td>\r\n    <td>8</td>\r\n    <td>2</td>\r\n    <td style=\'color:#fe3939\'>-6</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Peacemaker</td>\r\n    <td>12</td>\r\n    <td>4</td>\r\n    <td style=\'color:#fe3939\'>-8</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Centurion</td>\r\n    <td>8</td>\r\n    <td>8</td>\r\n    <td style=\'color:#fe3939\'>-0</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Nathalis</td>\r\n    <td>3</td>\r\n    <td>3</td>\r\n    <td style=\'color:#fe3939\'>-0</td>\r\n  </tr>\r\n  </tbody>\r\n</table></div><p class=\'shotInfo\'>Both defending and attacking commanders have not been present during this round, therefore both fleets engaged each other in the same time</p>', 0, 0, 0, 0, 'Line', 'Phalanx', 0, 218);
-
--- --------------------------------------------------------
-
---
 -- Struktura tabulky `usermsg`
 --
 
@@ -936,33 +764,6 @@ CREATE TABLE `usermsg` (
   `replymsg` mediumblob DEFAULT NULL,
   `token` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Vypisuji data pro tabulku `usermsg`
---
-
-INSERT INTO `usermsg` (`id`, `toUserID`, `fromUserID`, `sentTime`, `subject`, `msg`, `viewed`, `replymsg`, `token`) VALUES
-(1, 95617823, '27613408', 1562257401, 'test', 0x63686c61706369206d6920726f7a62696c6920687275206d7573696d6520746573746f7661743a28, 1, NULL, 'c9c76f7da5ac483051ca'),
-(3, 95617823, '27613408', 1562257835, 'RE:Test', 0x7a6b6f75c5a16b6120706f73c3ad6cc3a16ec3ad206f64706f76c49b6469, 1, 0x706f73c3ad6c616d20617369, 'e3c754385eb3508a9ac1'),
-(4, 95617823, '27613408', 1562270568, 'testuju', 0x27, 1, NULL, '0e64eafac2d29c2840b5'),
-(5, 95617823, '27613408', 1562270616, 'testskript', 0x3c7363726970743e616c6572742822736f6d746f68656b6c22293c2f7363726970743e, 1, NULL, '664d7b0823b21c066cb1'),
-(20, 11, '1', 1562956099, 'Battle report', 0x3c7370616e3e54686573652074776f20666c65657473206861766520656e6761676564206f7665723a20313a3130383a37363c2f7370616e3e3c703e446566656e6465723a20207769746820666c65657420636f6e73697374696e67206f66203120486f726e6574732c203120537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d5468616c69732064657374726f7965727320616e6420426174746c652d53746174696f6e3c703e41747461636b65723a20446577456e666f72636572207769746820666c65657420636f6e73697374696e67206f662035302030303020486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d5468616c69732064657374726f796572733c703e205468652061747461636b657220686173206c6f737420696e20746f74616c203131207368697073202d20313120486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d7468616c69732044657374726f796572733c703e2054686520446566656e64657220686173206c6f737420696e20746f74616c2036207368697073202d203120486f726e6574732c203120537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d7468616c69732044657374726f796572733c703e3c623e426174746c65206f7574636f6d653a20546f74616c20766963746f727920666f72207468652061747461636b65722c2062757420646566656e64657273206261736520686173206265656e2064657374726f796564213c2f623e3c2f703e, 0, NULL, '5bfb4f8eb37fc10ee596'),
-(22, 12, '1', 1562956312, 'Battle report', 0x3c7370616e3e54686573652074776f20666c65657473206861766520656e6761676564206f7665723a20313a3339353a38393c2f7370616e3e3c703e446566656e6465723a20207769746820666c65657420636f6e73697374696e67206f66203120486f726e6574732c203120537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d5468616c69732064657374726f7965727320616e6420426174746c652d53746174696f6e3c703e41747461636b65723a20446577456e666f72636572207769746820666c65657420636f6e73697374696e67206f662031302030303020486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d5468616c69732064657374726f796572733c703e205468652061747461636b657220686173206c6f737420696e20746f74616c203131207368697073202d20313120486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d7468616c69732044657374726f796572733c703e2054686520446566656e64657220686173206c6f737420696e20746f74616c2036207368697073202d203120486f726e6574732c203120537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d7468616c69732044657374726f796572733c703e3c623e426174746c65206f7574636f6d653a20546f74616c20766963746f727920666f72207468652061747461636b65722c2062757420646566656e64657273206261736520686173206265656e2064657374726f796564213c2f623e3c2f703e, 0, NULL, '48261a59877ff1e76e56'),
-(24, 14, '1', 1562957558, 'Battle report', 0x3c7370616e3e54686573652074776f20666c65657473206861766520656e6761676564206f7665723a20313a3537323a3135383c2f7370616e3e3c703e446566656e6465723a20207769746820666c65657420636f6e73697374696e67206f66203620486f726e6574732c203220537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d5468616c69732064657374726f7965727320616e6420426174746c652d53746174696f6e3c703e41747461636b65723a20446577456e666f72636572207769746820666c65657420636f6e73697374696e67206f662031302030303020486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d5468616c69732064657374726f796572733c703e205468652061747461636b657220686173206c6f737420696e20746f74616c203132207368697073202d20313220486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d7468616c69732044657374726f796572733c703e2054686520446566656e64657220686173206c6f737420696e20746f74616c203132207368697073202d203620486f726e6574732c203220537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d7468616c69732044657374726f796572733c703e3c623e426174746c65206f7574636f6d653a20546f74616c20766963746f727920666f72207468652061747461636b65722c2062757420646566656e64657273206261736520686173206265656e2064657374726f796564213c2f623e3c2f703e, 0, NULL, 'f4129f9e4d552a3d06f1'),
-(26, 11, '1', 1563494804, 'Battle report', 0x3c7370616e3e54686573652074776f20666c65657473206861766520656e6761676564206f7665723a20313a3138333a3131313c2f7370616e3e3c703e446566656e6465723a20207769746820666c65657420636f6e73697374696e67206f66203120486f726e6574732c203120537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d5468616c69732064657374726f7965727320616e6420426174746c652d53746174696f6e3c703e41747461636b65723a20446577456e666f72636572207769746820666c65657420636f6e73697374696e67206f662033302030303020486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d5468616c69732064657374726f796572733c703e205468652061747461636b657220686173206c6f737420696e20746f74616c203131207368697073202d20313120486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d7468616c69732044657374726f796572733c703e2054686520446566656e64657220686173206c6f737420696e20746f74616c2036207368697073202d203120486f726e6574732c203120537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d7468616c69732044657374726f796572733c703e3c623e426174746c65206f7574636f6d653a20546f74616c20766963746f727920666f72207468652061747461636b65722c2062757420646566656e64657273206261736520686173206265656e2064657374726f796564213c2f623e3c2f703e, 0, NULL, '62b52b678db6a319d655'),
-(29, 20, '1', 1563553107, 'Battle report', 0x3c7370616e3e54686573652074776f20666c65657473206861766520656e6761676564206f7665723a20313a38373a3133383c2f7370616e3e3c703e446566656e6465723a20207769746820666c65657420636f6e73697374696e67206f6620312034363720486f726e6574732c2034363720537061636566697265732c2032303020537461726861776b732c203130302050656163656d616b6572732c2036372043656e747572696f6e732c203237204e612d5468616c69732064657374726f7965727320616e6420426174746c652d53746174696f6e3c703e41747461636b65723a20446577456e666f72636572207769746820666c65657420636f6e73697374696e67206f662035352030303020486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d5468616c69732064657374726f796572733c703e205468652061747461636b657220686173206c6f737420696e20746f74616c203120313935207368697073202d20312031393520486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d7468616c69732044657374726f796572733c703e2054686520446566656e64657220686173206c6f737420696e20746f74616c203220333238207368697073202d20312034363720486f726e6574732c2034363720537061636566697265732c2032303020537461726861776b732c203130302050656163656d616b6572732c2036372043656e747572696f6e732c203237204e612d7468616c69732044657374726f796572733c703e3c623e426174746c65206f7574636f6d653a20546f74616c20766963746f727920666f72207468652061747461636b65722c2062757420646566656e64657273206261736520686173206265656e2064657374726f796564213c2f623e3c2f703e, 0, NULL, '410c8a5f5e3d339b6eea'),
-(33, 11, '1', 1564843847, 'Battle report', 0x3c7370616e3e54686573652074776f20666c65657473206861766520656e6761676564206f7665723a20313a34373a3337393c2f7370616e3e3c703e446566656e6465723a20207769746820666c65657420636f6e73697374696e67206f66203120486f726e6574732c203120537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d5468616c69732064657374726f7965727320616e6420426174746c652d53746174696f6e3c703e41747461636b65723a20446577456e666f72636572207769746820666c65657420636f6e73697374696e67206f662035303020486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d5468616c69732064657374726f796572733c703e205468652061747461636b657220686173206c6f737420696e20746f74616c203130207368697073202d20313020486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d7468616c69732044657374726f796572733c703e2054686520446566656e64657220686173206c6f737420696e20746f74616c2036207368697073202d203120486f726e6574732c203120537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d7468616c69732044657374726f796572733c703e3c623e426174746c65206f7574636f6d653a20546f74616c20766963746f727920666f72207468652061747461636b65722c2062757420646566656e64657273206261736520686173206265656e2064657374726f796564213c2f623e3c2f703e, 0, NULL, '9c31c6c46a4cfba67580'),
-(35, 13, '1', 1564844617, 'Battle report', 0x3c7370616e3e54686573652074776f20666c65657473206861766520656e6761676564206f7665723a20313a3135353a3136323c2f7370616e3e3c703e446566656e6465723a20207769746820666c65657420636f6e73697374696e67206f66203120486f726e6574732c203120537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d5468616c69732064657374726f7965727320616e6420426174746c652d53746174696f6e3c703e41747461636b65723a20446577456e666f72636572207769746820666c65657420636f6e73697374696e67206f662031303020486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d5468616c69732064657374726f796572733c703e205468652061747461636b657220686173206c6f737420696e20746f74616c203130207368697073202d20313020486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d7468616c69732044657374726f796572733c703e2054686520446566656e64657220686173206c6f737420696e20746f74616c2036207368697073202d203120486f726e6574732c203120537061636566697265732c203120537461726861776b732c20312050656163656d616b6572732c20312043656e747572696f6e732c2031204e612d7468616c69732044657374726f796572733c703e3c623e426174746c65206f7574636f6d653a20546f74616c20766963746f727920666f72207468652061747461636b65722c2062757420646566656e64657273206261736520686173206265656e2064657374726f796564213c2f623e3c2f703e, 0, NULL, '1d7ec128b3260a551a12'),
-(37, 16, '1', 1564845514, 'Battle report', 0x3c7370616e3e54686573652074776f20666c65657473206861766520656e6761676564206f7665723a20313a3236343a3136353c2f7370616e3e3c703e446566656e6465723a20207769746820666c65657420636f6e73697374696e67206f6620353520486f726e6574732c20313820537061636566697265732c203820537461726861776b732c20342050656163656d616b6572732c20332043656e747572696f6e732c2031204e612d5468616c69732064657374726f7965727320616e6420426174746c652d53746174696f6e3c703e41747461636b65723a20446577456e666f72636572207769746820666c65657420636f6e73697374696e67206f662035303020486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d5468616c69732064657374726f796572733c703e205468652061747461636b657220686173206c6f737420696e20746f74616c203437207368697073202d20343720486f726e6574732c203020537061636566697265732c203020537461726861776b732c20302050656163656d616b6572732c20302043656e747572696f6e732c2030204e612d7468616c69732044657374726f796572733c703e2054686520446566656e64657220686173206c6f737420696e20746f74616c203839207368697073202d20353520486f726e6574732c20313820537061636566697265732c203820537461726861776b732c20342050656163656d616b6572732c20332043656e747572696f6e732c2031204e612d7468616c69732044657374726f796572733c703e3c623e426174746c65206f7574636f6d653a20546f74616c20766963746f727920666f72207468652061747461636b65722c2062757420646566656e64657273206261736520686173206265656e2064657374726f796564213c2f623e3c2f703e, 0, NULL, 'a94e61b9f2199012e570'),
-(919, 79120856, '27613408', 1573139834, 'Subject bro', 0x1f8b080000000000020a3590cd7143310884efa9620bf0bc2a925bae2980486b8719fd59028fcb0ff24b6e42c0b2fb7df6c90a1dcb2b722f7d62a9412aed82d4db62329a4f48d6a14b93b61b5834ba8b393640f5557b86b18ed8d696346bf666704391efd007edd426aadc9a408ade5d0e7c19d8b48638aaeec7234aa917dc5d175a5f363d834fcea426a6bdc14b919afaa9bc87c2d4bef492d411c3a084f31a9efa99204ed981f72d296e844e0f2767586d981c933f6c993392c7c7a3171f718e612792826b11494bf94714811c57bfa918da368421330a9f073e9e89c3e89b6330e8290953cc251f9ac5f646a418b36b66db1437a9389abc0cd9b9d1afd7c02cc85c9cbb5b7bd9366403d2c0b1feb87a3dde7e01f8a98999bf010000, 1, NULL, '8da12cef87b9b22d1828'),
-(921, 79120856, '27613408', 1573144807, 'RE: Heyhey', 0x1f8b080000000000020af348adcc48ad5428c9c82c5600a24485a2d4821c203fb5b804002c1e9e8a1b000000, 1, 0x1f8b080000000000020a4b2aca070285bccce454859cfca2d45c85cc82e2d25c85b4c45c05b59c12ebe2e4a2cc8212b5f412ebc49cd4a2120db5c2d2fc12eb8cc4e4ecd414085b13a44c1fa10e003e1e269452000000, '6e2f0c602a235422cc1a'),
-(925, 27613408, '1', 1573568352, 'Fleet return report', 0x1f8b080000000000020a8d91314f03310c85ff8ad50986c29d3a540a4717189810a22c8c56e26ba2bbc691ed53e9bf272798219b65f97b4f7e6f28a0769de97163f4655b9cd3293b4fd9481e36874f5e04c699c820a282902d9229c0287c86deedfbceedf6c37d390c7fca1c632a0a81fd54d9b048ca27b098148ab0275507ff6b40072f5ccded466fdbce8f053d8d49a891e8bbae428612f13255a6c9e48daac919279256e2a9ce3502ceadc02b6e3f625d2b3c939af0b5d1eb9d5039038fbf0dfeb4e7d6177340096bfac69ee7bb55eb1b643cd32909020000, 1, NULL, '00559339cca2f66d1a89'),
-(926, 27613408, '1', 1573569146, 'Battle report', 0x1f8b080000000000020aed99cb6edb301045f705fa0f0374a14d52ebe1a6b5a008689d16e9a60d9a555701658e2c22322990b40dff7d47b22dbfe4079a3859443b6948ce1dd2bce481156541fc2347b406540a76aa60a0462326396a03199b20a01cb221725013d4603334485d94e642328b26042f0c7addd0733f451dca159982c9f8abb56cf048fd13147218c20d4ebfcb54e901852837704cb19458b6f7338129dc094d29a34e9522e26202839c1973ed683596dc73e2280b962133a62af5cc89ff946de0c122302f626dac65498e0f53cd8a0235a5a8de371be7e91fd8a268277eff0e20b289e2b3eab17cd18ba7f239a305c8cb22af9d6e55543ddfb97ac766cb719d7ae0568af83e1305d859816bdde72d771a2f132a266f6852c6ee6beb3333cead40738a3e8f6f959668a903df08bbc72360ec2cc76b871641e9f0438a412fe839f1e57ac703c2f7051b602a34be86b6653a63d3c71d21cf75dd93824f2ce00e69f223566d95179f7d1fa51d6ba1e42b68ff623663b9302f21dd5959979e4b8b1fb2fdf22cdab17db436995dcbdf2c866d5abe2e636370a3d9f75a7dbfd19b6ddea8d960f032d8f3b7029eb719d8b7d65f56fdf6e835f9ba8c07ee56e0ea3445bf7b5471d7cdd59482ad807f9aa077748a8deedddeb20defc737f01ec126c79e53afc1a5cf2c577bb37666872eeb382aea8b3d53f627b18213ff96f90ce6973241c28a4b084b0c81034a2834d188b420248189305039faa284148d441b4850a00b2d4c391c258e669096a8532148451e6557a03d6b2c288960d542ef63d42996956d73887f8843fc277388df7248cb212d87bc350ef1df16879ceb02db072157ffa777f55c08129c88206e8b202d821c4590e01082044f4690a0459016415a04796b0812b408724e04399b5e33826c13c889fff3f82d80b400b2032075656a6ca90624df27f1b7ca93b00885b0fa8c94283a25181f09cdf2c55724aa622226c8296b1257990ba0551ed22932a0f2cb33e7af1a6bd038659a9b9030c6eb7a40d70ef4357261cd057cfaec56815b3a3db4e01471817e2d311e9932e33fd443e211cb1a0000, 1, NULL, '50852bf78a053ee0376d'),
-(927, 27613408, '1', 1573569280, 'Fleet return report', 0x1f8b080000000000020a8d91314fc4300c85ff8a75130c07ad8081d0bb050626843816462b712f517b7164bb82fbf7a48219b25996bff7e4f786026ae799761ba32fdbe29c8ed979ca46f2b0d97ff02230ce44061115846c914c0146e113f4eee6fed6f5dddd705df6c39f3a87988a42603f55382c92f2112c268522ec49d5c1ff1ad0c1335777bbd0cbb6f343414f63126a24faaeab90a144fc9c2ad364f24ad5e48413492bf158e71a01e756e005b7efb1ae159e484df8dce8f546a89c81c7df0a7fea73eb8b39a084357d63cff3d5aaf50d853e4c180a020000, 1, NULL, '8c1b148568a6e652b576'),
-(928, 27613408, '1', 1573569672, 'Battle report', 0x1f8b080000000000020aed99cb6edb301045f705fa0f0374a14d52bd1a231614016dd222ddb441d34d57012d8d2d22322990940dff7d87b2adf8213f903409d068470ec9b933b2ae7800c779987c2b108d063904339590caf198890c95869c4d10508cd808339013546072d4485ba4cab8600675047e74d68f42bf17bb942ad62513c96763587a4fdb07c8c528822b9c7e1543a9520a516ac870885661b97ec315e58addfa709cf109a405d3fac251b21299ef24711e2e43baa2f2d4cc497ed935f0611198cbaf9c356c50e0dd54b1b2444529eaf9fae23cfd1d5b94eb24efdf01c46620b3593db413b518d9714e9d17b6c80be7535d54d3e95cdd35f9f29cdb1cdc4891dce6bc04332b7165fb7ce546e1e9808a295a96a436bbd62e99ae0ac3511fa39f25d7520934b4215b0b7b8723a0cdacc00b871e8254d1872186fdb0ef24a7ab1bf708df962cc52157f81ada86a99c4defb7847ccff38e0a3eb1801ba4e6c7ac7e555ebcfb4b14a6525c8a57d0fec14cce0aae5f42da7db02e8dadc5f7d97ef915dab27dbcd2ccb6e5af16c7d62ddf94b176b8d5ec3badbedbe8ed366fd56c3178fd4af73703ebf35d8fda3f6ff6ed906bb3b58df736e6de7182bd837adb56b6e1f071fd0587e45a8ddbd2cfb1fd798704dbccfa9c7a2d06fdc7728d2d1b53ba744f2771d9dce9b934df09109ce4a7286630bf8f890c1e58845044132da08052118108035c108c700db5994f2c982824c440e201552aaeed7114389ec1d0e24dcd1d356ed8ad40efab36200582910bbd8fb15b2e2bdb4490601f82044f4690a043900e413a04796b0812bc2d0479ae0b6c17803c9b5e3b80048f04ac0e403a00390820e13e00099f0c206107201d807400f2d60024ec00e43f0210ff71721d807400b20d204d65b232540392ef07c997da93b00845f05b1a56c084a7462a5291f5ff43b044094a3748ea9425d0e31dd1e723a5baedc7e68fac14289c3295e988f825f4fb40f70d5c2accb8d12770761ed4816bfa6c289e51c403fa997835d636e35f458ce280b61a0000, 1, NULL, '6989649a929bd6984e07'),
-(929, 27613408, '1', 1573569686, 'Fleet return report', 0x1f8b080000000000020a8d91314fc4300c85ff8a75130c07ad104884de2d303021c4b1305a897b89da8b23db15dcbf2715cc90cdb2fcbd27bf3714503bcfb4db187dd916e774ccce53369287cdfe83178171263288a820648b640a300a9fa077b7f7eea6bf1baecb7ef853e610535108eca7ca8645523e82c5a450843da93af85f033a78e66a6e177ad9767e28e8694c428d44df75153294889f53659a4c5ea99a9c702269251eeb5c23e0dc0abce0f63dd6b5c213a9099f1bbdde089533f0f8dbe04f7b6e7d310794b0a66fec79be5ab5be0156fcfd0109020000, 1, NULL, '9166024488767479be51');
-
--- --------------------------------------------------------
 
 --
 -- Struktura tabulky `userquests`
@@ -1009,22 +810,6 @@ CREATE TABLE `userresearch` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Vypisuji data pro tabulku `userresearch`
---
-
-INSERT INTO `userresearch` (`userID`, `researchDmg`, `researchHp`, `researchShd`, `researchSpeed`, `researchSubspace`, `researchTime`, `currentResearch`) VALUES
-(18056943, 0, 0, 0, 0, 0, 0, 0),
-(27613408, 50, 50, 50, 50, 2, 0, 0),
-(52146370, 0, 0, 0, 0, 0, 0, 0),
-(78145239, 0, 0, 0, 0, 0, 0, 0),
-(79120856, 0, 0, 0, 1, 3, 0, 0),
-(79168025, 0, 0, 0, 0, 0, 0, 0),
-(84216073, 0, 0, 0, 0, 0, 0, 0),
-(95617823, 0, 0, 0, 0, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
 -- Struktura tabulky `users`
 --
 
@@ -1053,20 +838,6 @@ CREATE TABLE `users` (
   `claimed` int(1) NOT NULL,
   `blockedUsers` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Vypisuji data pro tabulku `users`
---
-
-INSERT INTO `users` (`id`, `userID`, `sessionID`, `Username`, `ingameNick`, `Email`, `Password`, `newsletter`, `regDate`, `registerIPreal`, `registerIPproxy`, `playTime`, `lastUpdate`, `credits`, `hyperid`, `natium`, `userclan`, `clanJoinDate`, `nickChangeTime`, `defenseCooldown`, `loginBonusDay`, `claimed`, `blockedUsers`) VALUES
-(1, 27613408, 'ej18h36s0lkn', 'DewEnforcer', 'DewEnforcer', 'pat.madt@seznam.cz', '$2y$10$a2OOxfhITW7Siaw3IM3fwuZ3l.BewNE85G/ZOB4FLg8i4F3XlhjIC', 0, 1562254538, 'noIP', 'noIP', 718741, 1574453862, 1064687887, 364261090, 2163188, 'DEWY', 0, 0, 1572183532, 7, 1, 0x1f8b080000000000020a4bb432b0aaae050020e853a206000000),
-(2, 84216073, '7o5aez4mjk2g', 'Hyper', 'Hyper', 'smuhanad@yahoo.com', '$2y$10$7xPpJYIEnrRl0C0lcVcY5e31kd62VXN6YJGLKeMfnN4NgFHJf8ap.', 0, 1562255091, 'noIP', 'noIP', 0, 0, 500000, 50000, 100, 'none', 0, 0, 0, 1, 0, ''),
-(3, 95617823, '256waty1qe09', 'vendis55', 'vendis55', 'vendis6@centrum.cz', '$2y$10$BzIsk2sdVHanb9DAfP2C5.byONSzWLgWgQQVC2VNFQi5WE6EGYxVi', 0, 1562256319, 'noIP', 'noIP', 0, 0, 5100000, 1009676, 1000100, 'none', 0, 0, 0, 4, 0, ''),
-(4, 79120856, '4ncr3w6vot78', 'Dewtest', 'Admiral_Zap', 'test@test.cz', '$2y$10$C80.SIvrWyhdO/wp758wFuIDy1Dzp7yVEOUSCW0QKO4U.B1qJdIqK', 0, 1562270773, 'noIP', 'noIP', 83361, 1573160209, 685631, 103360691, 109200, 'BRUH', 0, 0, 0, 12, 1, ''),
-(7, 79168025, 'u3p0h2q751e6', 'DewEnforcer1', 'NewDew', 'piranha863@gmail.com', '$2y$10$07erXiGu0iG/93KB/fpIGeQokJsBfVGMVpJvo/j/CGTqOy6nYiW7e', 0, 0, 'noIP', 'noIP', 0, 0, 1000000, 100000, 100, 'none', 0, 1563395877, 0, 2, 0, ''),
-(8, 18056943, 'b9g2a7xd1mfq', 'PlanetTest1', 'PlanetTest1', 'planet@planet.cz', '$2y$10$UfXtX.7Fl2cmnCDMXbAyjuAdHtxm50yJ3KoKJKi0cbRuS1fcxHYGu', 0, 1567783141, 'noIP', 'noIP', 682, 1570187321, 600000, 75000, 100, 'none', 0, 0, 0, 2, 1, ''),
-(9, 78145239, '2019-09-05 21:58:42', 'PlanetTest2', 'PlanetTest2', 'plane1@planet.cz', '$2y$10$0LbTXlMoZo8Qt69Y8QnLxO1xTAjmPPye6oAkHmOyNG49n4uakb7xC', 0, 1567713496, 'noIP', 'noIP', 0, 0, 500000, 50000, 100, 'none', 0, 0, 0, 1, 0, ''),
-(10, 52146370, 'h51tkid6xsfl', 'PlanetTest3', 'PlanetTest3', 'planet3@planet.cz', '$2y$10$XxUzaRuU.sdAYelxn88FterBuWQzJUptsQQoEKA2TzfSb9pRyHFBi', 0, 1567713544, 'noIP', 'noIP', 0, 0, 600000, 75000, 100, 'none', 0, 0, 0, 2, 1, '');
 
 --
 -- Klíče pro exportované tabulky
@@ -1119,21 +890,6 @@ ALTER TABLE `news`
 --
 ALTER TABLE `notactiveusers`
   ADD PRIMARY KEY (`userID`);
-
---
--- Klíče pro tabulku `player_information`
---
-ALTER TABLE `player_information`
-  ADD PRIMARY KEY (`playerID`),
-  ADD KEY `playerID` (`playerID`),
-  ADD KEY `userID` (`userID`),
-  ADD KEY `userID_2` (`userID`),
-  ADD KEY `playerID_2` (`playerID`),
-  ADD KEY `playerID_3` (`playerID`),
-  ADD KEY `userID_3` (`userID`),
-  ADD KEY `playerID_4` (`playerID`,`userID`,`TokenId`),
-  ADD KEY `playerID_5` (`playerID`),
-  ADD KEY `userID_4` (`userID`);
 
 --
 -- Klíče pro tabulku `profileimg`
@@ -1253,14 +1009,6 @@ ALTER TABLE `dailybonus`
 --
 ALTER TABLE `gamelogs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pro tabulku `player_information`
---
-ALTER TABLE `player_information`
-  MODIFY `playerID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT pro tabulku `profileimg`
 --
 ALTER TABLE `profileimg`
